@@ -1,0 +1,265 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../src/generated/prisma"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  username  String   @unique
+  email     String   @unique
+  password  String
+  role      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  id        String   @id @default(uuid()) @db.Char(36)
+  createdBy String?
+  updatedBy String?
+
+  QcHistories QcHistories[]
+
+  @@map("Users")
+}
+
+model Suppliers {
+  id        Int      @id @default(autoincrement())
+  name      String
+  address   String?
+  phone     String?
+  email     String?
+  createdAt DateTime @default(now())
+  createdBy String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  Arrivals Arrivals[]
+
+  @@map("Suppliers")
+}
+
+model Materials {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  createdBy   String?
+  updatedAt   DateTime @updatedAt
+  updatedBy   String?
+
+  ArrivalItems ArrivalItems[]
+
+  @@map("Materials")
+}
+
+model Conditions {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  createdBy   String?
+  updatedAt   DateTime @updatedAt
+  updatedBy   String?
+
+  ArrivalItems ArrivalItems[]
+
+  @@map("Conditions")
+}
+
+model Parameters {
+  id        Int      @id @default(autoincrement())
+  name      String
+  unit      String?
+  type      String?
+  createdAt DateTime @default(now())
+  createdBy String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  ArrivalItems ArrivalItems[]
+
+  QcResults QcResults[]
+
+  @@map("Parameters")
+}
+
+model Arrivals {
+  id             Int              @id @default(autoincrement())
+  idKedatangan   String
+  supplierId     Int
+  arrivalDate    DateTime         @default(now())
+  arrivalTime    String?
+  nopol          String?
+  suratJalan     String?
+  city           String?
+  createdAt      DateTime         @default(now())
+  createdBy      String?
+  updatedAt      DateTime         @updatedAt
+  updatedBy      String?
+  supplier       Suppliers        @relation(fields: [supplierId], references: [id])
+  status         String           @default("Menunggu QC/Timbang")
+  statusQc       String?
+  ArrivalItems   ArrivalItems[]
+  QcHistories    QcHistories[]
+  SecurityPhotos SecurityPhotos[]
+
+  @@map("Arrivals")
+}
+
+model ArrivalItems {
+  id                Int      @id @default(autoincrement())
+  arrivalId         Int
+  materialId        Int
+  conditionId       Int
+  parameterId       Int?
+  conditionCategory String?
+  quantity          Float
+  note              String?
+  itemName          String?
+  qcNote            String?
+  qcStatusId        Int?
+  qcAnalysis        String?
+  qcSample          Float?
+  qcKotoran         Float?
+  totalBerat        Float?
+  pengeringan       Float?
+  createdAt         DateTime @default(now())
+  createdBy         String?
+  updatedAt         DateTime @updatedAt
+  updatedBy         String?
+  statusQc          Boolean  @default(false)
+
+  arrival   Arrivals    @relation(fields: [arrivalId], references: [id])
+  material  Materials   @relation(fields: [materialId], references: [id])
+  condition Conditions  @relation(fields: [conditionId], references: [id])
+  parameter Parameters? @relation(fields: [parameterId], references: [id])
+  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id])
+
+  QcResults       QcResults[]
+  QcPhotos        QcPhotos[]
+  Weighings       Weighings[]
+  WeighingsPhotos WeighingsPhotos[]
+  QcHistories     QcHistories[]
+
+  @@map("ArrivalItems")
+}
+
+model Weighings {
+  id            Int          @id @default(autoincrement())
+  arrivalItemId Int
+  weight        Float
+  note          String?
+  weighingDate  DateTime     @default(now())
+  createdAt     DateTime     @default(now())
+  createdBy     String?
+  updatedAt     DateTime     @updatedAt
+  updatedBy     String?
+  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])
+
+  @@map("Weighings")
+}
+
+model Notifications {
+  id          Int      @id @default(autoincrement())
+  table       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("Notifications")
+}
+
+model QcResults {
+  id            Int      @id @default(autoincrement())
+  arrivalItemId Int
+  parameterId   Int
+  historyId     Int?
+  value         String
+  createdAt     DateTime @default(now())
+  createdBy     String?
+  updatedAt     DateTime @updatedAt
+  updatedBy     String?
+
+  arrivalItem ArrivalItems @relation(fields: [arrivalItemId], references: [id])
+  parameter   Parameters?  @relation(fields: [parameterId], references: [id])
+  history     QcHistories? @relation(fields: [historyId], references: [id])
+
+  @@map("QcResults")
+}
+
+model QcStatus {
+  id           Int            @id @default(autoincrement())
+  name         String
+  description  String?
+  ArrivalItems ArrivalItems[]
+  QcHistories  QcHistories[]
+
+  @@map("QcStatus")
+}
+
+model QcPhotos {
+  id            Int          @id @default(autoincrement())
+  arrivalItemId Int
+  photo         String
+  createdAt     DateTime     @default(now())
+  createdBy     String?
+  updatedAt     DateTime     @updatedAt
+  updatedBy     String?
+  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])
+
+  @@map("QcPhotos")
+}
+
+model SecurityPhotos {
+  id        Int      @id @default(autoincrement())
+  arrivalId Int
+  photo     String
+  createdAt DateTime @default(now())
+  createdBy String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  arrival Arrivals @relation(fields: [arrivalId], references: [id])
+
+  @@map("SecurityPhotos")
+}
+
+model WeighingsPhotos {
+  id            Int          @id @default(autoincrement())
+  arrivalItemId Int
+  photo         String
+  createdAt     DateTime     @default(now())
+  createdBy     String?
+  updatedAt     DateTime     @updatedAt
+  updatedBy     String?
+  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])
+
+  @@map("WeighingsPhotos")
+}
+
+model QcHistories {
+  id            Int      @id @default(autoincrement())
+  userId        String
+  statusId      Int
+  arrivalId     Int?
+  arrivalItemId Int?
+  qcSample      Float?
+  qcKotoran     Float?
+  totalBerat    Float?
+  pengeringan   Float?
+  note          String?
+  qcNote        String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user        Users         @relation(fields: [userId], references: [id])
+  status      QcStatus      @relation(fields: [statusId], references: [id])
+  arrival     Arrivals?     @relation(fields: [arrivalId], references: [id])
+  arrivalItem ArrivalItems? @relation(fields: [arrivalItemId], references: [id])
+  QcResults   QcResults[]
+
+  @@map("QcHistories")
+}
