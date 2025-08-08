@@ -4,7 +4,11 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/*": ["./registry/**/*"],
   },
-  allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["localhost:3000", "*.vercel.app"]
+    }
+  },
   eslint: {
     ignoreDuringBuilds: true, // skips all ESLint errors at build time
   },
@@ -14,7 +18,6 @@ const nextConfig: NextConfig = {
     // Ini akan membuat Next.js berhasil mem-build proyek Anda bahkan jika ada error tipe.
     ignoreBuildErrors: true,
   },
-  output: 'standalone',
 };
 
 export default nextConfig;

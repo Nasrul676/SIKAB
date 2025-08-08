@@ -1,11 +1,10 @@
 // app/[[...sign-in]]/page.tsx
 "use client";
 
-import React, { useActionState, useEffect } from 'react';
+import React, { useActionState, useEffect, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { loginAction, type LoginFormState } from '@/lib/actions/authActions';
-import { getCurrentUser } from '@/lib/session';
 
 const initialState: LoginFormState = {
   success: false,
@@ -27,64 +26,56 @@ function SubmitButton() {
   );
 }
 
-// Component to handle root path redirects
-function RootRedirectHandler() {
-  const router = useRouter();
-  
-  useEffect(() => {
-    async function checkUserAndRedirect() {
-      try {
-        const response = await fetch('/api/auth/session');
-        if (response.ok) {
-          const { user } = await response.json();
-          if (user) {
-            // User is authenticated, redirect based on role
-            switch (user.role) {
-              case 'superadmin':
-                router.push('/superadmin');
-                break;
-              case 'qc':
-                router.push('/qc');
-                break;
-              case 'security':
-                router.push('/security');
-                break;
-              case 'weighing':
-                router.push('/weighing');
-                break;
-              default:
-                router.push('/qc');
-            }
-          } else {
-            // No user session, stay on login page
-            return;
-          }
-        }
-      } catch (error) {
-        console.error('Error checking session:', error);
-        // Stay on login page if error
-      }
-    }
-    
-    checkUserAndRedirect();
-  }, [router]);
-
-  return null; // Don't render anything while checking
-}
-
 export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  const callbackUrl = searchParams.get('callbackUrl') || '/qc';
+  const [isLoading, setIsLoading] = useState(true);
 
   // Use useActionState hook for form handling
   const [state, formAction] = useActionState(loginAction, initialState);
 
-  // Handle root path redirect
-  if (pathname === '/') {
-    return <RootRedirectHandler />;
-  }
+  // Check session on mount for root path
+  useEffect(() => {
+    if (pathname === '/') {
+      const checkSession = async () => {
+        try {
+          const response = await fetch('/api/auth/session');
+          if (response.ok) {
+            const { user } = await response.json();
+            if (user) {
+              // User is authenticated, redirect based on role
+              switch (user.role) {
+                case 'superadmin':
+                  router.push('/superadmin');
+                  return;
+                case 'qc':
+                  router.push('/qc');
+                  return;
+                case 'security':
+                  router.push('/security');
+                  return;
+                case 'weighing':
+                  router.push('/weighing');
+                  return;
+                default:
+                  router.push('/qc');
+                  return;
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Error checking session:', error);
+        }
+        setIsLoading(false);
+      };
+
+      checkSession();
+    } else {
+      setIsLoading(false);
+    }
+  }, [pathname, router]);
 
   // Effect to handle redirection after successful login
   useEffect(() => {
@@ -93,6 +84,18 @@ export default function LoginPage() {
       router.push(state.message || callbackUrl);
     }
   }, [state.success, router, callbackUrl]);
+
+  // Show loading for root path while checking session
+  if (pathname === '/' && isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-2">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950">
