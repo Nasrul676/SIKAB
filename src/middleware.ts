@@ -5,8 +5,8 @@ import { getIronSession, IronSessionData } from 'iron-session';
 import { sessionOptions, SessionUser } from '@/lib/session'; // Adjust path if needed
 
 // Define which paths should be protected
-const protectedPaths = ['/dashboard', '/profile', '/settings','/superadmin','/list/*']; // Add your protected routes
-const publicPaths = ['/', '/register', '/api/auth/login']; // Paths accessible without login
+const protectedPaths = ['/dashboard', '/profile', '/settings','/superadmin','/list','/qc','/security','/weighing']; // Add your protected routes
+const publicPaths = ['/login', '/register', '/api/auth/login', '/[[...sign-in]]']; // Paths accessible without login
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
     if (!user) {
       console.log(`No session found, redirecting to login from ${pathname}`);
       // Redirect to login page if no user session exists
-      const loginUrl = new URL('/', request.url);
+      const loginUrl = new URL('/login', request.url);
       // Optionally add a callback URL
       loginUrl.searchParams.set('callbackUrl', pathname);
       return NextResponse.redirect(loginUrl);
