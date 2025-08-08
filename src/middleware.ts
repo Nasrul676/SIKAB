@@ -6,7 +6,7 @@ import { sessionOptions, SessionUser } from '@/lib/session'; // Adjust path if n
 
 // Define which paths should be protected
 const protectedPaths = ['/dashboard', '/profile', '/settings','/superadmin','/list','/qc','/security','/weighing']; // Add your protected routes
-const publicPaths = ['/login', '/register', '/api/auth/login', '/[[...sign-in]]']; // Paths accessible without login
+const publicPaths = ['/login', '/register', '/api', '/[[...sign-in]]', '/']; // Paths accessible without login
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
