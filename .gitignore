@@ -3,7 +3,16 @@
 # dependencies
 /node_modules
 /.pnp
+<<<<<<< HEAD
 .pnp.js
+=======
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+>>>>>>> 441aa78e697e4f91d062cba40a1101d5d50e4f84
 
 # testing
 /coverage
@@ -23,10 +32,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
 # local env files
 .env*.local
 .env
+=======
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+>>>>>>> 441aa78e697e4f91d062cba40a1101d5d50e4f84
 
 # vercel
 .vercel
@@ -34,3 +50,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
+=======
+
+# clerk configuration (can include secrets)
+/.clerk/
+>>>>>>> 441aa78e697e4f91d062cba40a1101d5d50e4f84
