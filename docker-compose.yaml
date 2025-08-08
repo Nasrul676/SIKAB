@@ -1,0 +1,45 @@
+# Definisi layanan (kontainer) yang akan dijalankan
+services:
+  # Layanan untuk aplikasi Next.js Anda
+  next-app:
+    # Membangun image dari Dockerfile di direktori saat ini (.)
+    build: .
+    # Memberi nama pada kontainer agar mudah diidentifikasi
+    container_name: sikab_app
+    # Memetakan port 3000 di kontainer ke port 3000 di mesin Anda
+    ports:
+      - "3001:3001"
+    # Memulai ulang kontainer secara otomatis jika terjadi kegagalan
+    restart: always
+    # Menghubungkan layanan ini ke layanan 'db'
+    # Aplikasi Next.js Anda akan bisa mengakses MySQL menggunakan hostname 'db'
+    depends_on:
+      - db
+    # Mengatur variabel lingkungan untuk aplikasi Next.js
+    environment:
+      # [PENTING] URL database sekarang menunjuk ke nama layanan 'db'
+      DATABASE_URL: "mysql://sikab:pkppastibisa@db:3306/sikab"
+      NEXT_PUBLIC_APP_URL: "http://localhost:3001"
+
+  # Layanan untuk database MySQL
+  db:
+    # Menggunakan image resmi MySQL versi 8.0 dari Docker Hub
+    image: mysql:9.3.0
+    container_name: mysql_db
+    # Memetakan port 3306 di kontainer ke port 3306 di mesin Anda (opsional, untuk akses dari luar)
+    ports:
+      - "3307:3306"
+    restart: always
+    # Mengatur variabel lingkungan yang dibutuhkan oleh image MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: pkppastibisa # Ganti dengan password yang aman
+      MYSQL_DATABASE: sikab        # Nama database yang akan dibuat
+      MYSQL_USER: sikab                  # Nama pengguna baru yang akan dibuat
+      MYSQL_PASSWORD: pkppastibisa          # Password untuk pengguna baru
+    # Menyimpan data MySQL di volume agar tidak hilang saat kontainer di-restart
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+# Definisi volume untuk persistensi data
+volumes:
+  mysql-data:

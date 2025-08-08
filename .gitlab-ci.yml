@@ -1,0 +1,78 @@
+# .gitlab-ci.yml
+
+image: node:24
+
+stages:
+  - build
+  - deploy
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+  policy: pull-push
+
+build_app:
+  stage: build
+  script:
+    - echo "Memulai instalasi dependensi..."
+    - npm install
+    - echo "Memulai proses build aplikasi..."
+    # Variabel environment dari GitLab CI/CD akan tersedia di sini
+    - npm run build
+    - echo "Proses build selesai."
+  artifacts:
+    paths:
+      - .next/standalone/
+      - .next/static/
+      - public/
+      - ecosystem.config.js
+      - prisma/
+      - package.json
+      - package-lock.json
+    expire_in: 1 hour
+
+# Job untuk Deploy ke server Anda menggunakan SSH/SCP
+# (Ini hanya contoh, sesuaikan dengan metode deployment Anda)
+deploy_to_production:
+  stage: deploy
+  image: alpine:latest 
+  needs:
+    - build_app
+  before_script:
+    - 'which ssh-agent || (apk add --update openssh-client)'
+    - 'which rsync || (apk add --update rsync)'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Memulai proses deployment ke server 153.92.4.23..."
+    # Menyalin file aplikasi ke /var/www/node/sikab/sikab/ menggunakan rsync.
+    - rsync -ra --delete . root@153.92.4.23:/var/www/node/sikab/sikab/
+    - |
+      export NODE_BIN_PATH="/root/.nvm/versions/node/v24.2.0/bin"
+      ssh root@153.92.4.23 "
+      export DATABASE_URL='$DATABASE_URL'
+      export SECRET_COOKIE_PASSWORD='$SECRET_COOKIE_PASSWORD'
+      export GOOGLE_SERVICE_ACCOUNT_JSON='$GOOGLE_SERVICE_ACCOUNT_JSON'
+      export GOOGLE_DRIVE_FOLDER_ID='$GOOGLE_DRIVE_FOLDER_ID'
+      export NEXT_PUBLIC_GEMINI_API_KEY='$NEXT_PUBLIC_GEMINI_API_KEY'
+      export NEXT_PUBLIC_DOMAIN_URL='$NEXT_PUBLIC_DOMAIN_URL'
+      export PORT=3000
+      export NODE_ENV='production'
+      export PATH=$NODE_BIN_PATH:\$PATH &&
+      cd /var/www/node/sikab/sikab &&
+      npm install &&
+      npx prisma migrate deploy &&
+      pm2 startOrRestart ecosystem.config.js
+      "
+    # Merestart aplikasi di server menggunakan PM2.    
+    - echo "Deployment selesai."
+  rules:
+    # Hanya jalankan job ini jika ada push ke branch 'main'
+    - if: '$CI_COMMIT_BRANCH == "main"'
