@@ -52,11 +52,6 @@ export type MaterialSchema = z.infer<typeof materialSchema>;
 
 export const conditionSchema = z.object({
   id: z.string().optional(),
-  category: z.string().refine(
-    (value) => ["Basah", "Kering"].includes(value)
-    , {
-      message: "Invalid category. Must be either 'Basah' or 'Kering'."
-    }),
   name: z
     .string(),
   description: z
@@ -71,8 +66,6 @@ export const parameterSchema = z.object({
   id: z.string().optional(),
   name: z
     .string(),
-  category: z
-    .enum(['Basah', 'Kering']),
   unit: z
     .string(),
   type: z
