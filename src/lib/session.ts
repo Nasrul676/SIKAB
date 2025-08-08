@@ -40,6 +40,12 @@ export async function getSession(): Promise<IronSession<IronSessionData>> {
   return session;
 }
 
+// Helper function to get the current user
+export async function getCurrentUser(): Promise<SessionUser | null> {
+  const session = await getSession();
+  return session.user || null;
+}
+
 // Define the user data you want to store in the session (exclude password!)
 
 
