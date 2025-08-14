@@ -19,7 +19,7 @@ export const createParameter = async (prevState: FormState, formData: FormData):
       name: formData.get("name"),
       unit: formData.get("unit"),
       type: formData.get("type"),
-      parameterSettings: formData.get("parameterSettings") ? JSON.parse(formData.get("parameterSettings") as string) : [],
+      settings: formData.get("settings") ? JSON.parse(formData.get("settings") as string) : [],
     });
 
     if (!validatedFields.success) {
@@ -31,7 +31,7 @@ export const createParameter = async (prevState: FormState, formData: FormData):
       };
     }
     const { userId } = await getAuthenticatedUserInfo();
-
+    console.log("validasi berhasil ", validatedFields.data);
     await prisma.$transaction(async (tx) => {
       const parameter = await tx.parameters.create({
         data: {
@@ -42,7 +42,7 @@ export const createParameter = async (prevState: FormState, formData: FormData):
         },
       });
 
-      if (validatedFields.data.settings && validatedFields.data.settings.length > 0) {
+      if (validatedFields.data.settings) {
         const settings = validatedFields.data.settings.map((setting) => ({
           parameterId: parameter.id,
           key: setting.key,
