@@ -7,6 +7,7 @@ import { getAuthenticatedUserInfo } from '../actions';
 import prisma from '../prisma';
 import { weighingSchema } from '../formValidationSchemas';
 import flatToObject from '../flatToObjext';
+import { ArrivalStatus } from '@/app/utils/enum';
 
 // Define the state returned by the action
 export type UploadFormState = {
@@ -26,19 +27,20 @@ export async function createWeighing(
 ): Promise<UploadFormState> {
   const result: any = flatToObject(formData);
 
-console.log("Received form data:", result);
+  console.log("Received form data:", result);
   const validationResult = weighingSchema.safeParse({
+    arrivalId: result.arrivalId,
     arrivalItemId: result.arrivalItemId,
-    weight: result.weight,    
+    weight: result.weight,
     note: result.note,
   });
 
   if (!validationResult.success) {
-      console.error("Validation failed:", validationResult.error);
-     return { success: false, message: `Invalid file: ${validationResult.error.errors.map(e => e.message).join(', ')}`};
+    console.error("Validasi gagal:", validationResult.error);
+    return { success: false, message: `File tidak valid: ${validationResult.error.errors.map(e => e.message).join(', ')}` };
   }
-   const { userId } = await getAuthenticatedUserInfo();
-  const {arrivalItemId, weight, note} = validationResult.data;
+  const { userId } = await getAuthenticatedUserInfo();
+  const { arrivalItemId, weight, note } = validationResult.data;
 
   const serviceAccountJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
   const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
@@ -54,10 +56,10 @@ console.log("Received form data:", result);
 
   let credentials;
   try {
-      credentials = JSON.parse(serviceAccountJson);
+    credentials = JSON.parse(serviceAccountJson);
   } catch (error) {
-      console.error("Failed to parse Google Service Account JSON:", error);
-      return { success: false, message: "Server configuration error (JSON parse)." };
+    console.error("Failed to parse Google Service Account JSON:", error);
+    return { success: false, message: "Server configuration error (JSON parse)." };
   }
 
 
@@ -79,47 +81,69 @@ console.log("Received form data:", result);
         arrivalItemId: Number(arrivalItemId),
         weight,
         note,
-         createdBy: userId,
-          updatedBy: userId,
+        createdBy: userId,
+        updatedBy: userId,
       },
     })
 
-    const photos=result.weighingProof;
-    photos.forEach(async (photo: any) => {
-          const fileMetadata = {
-            name: photo.name, // Use original filename, // Use original filename
-            parents: [folderId], // Specify the target folder
-          };
-
-          const media = {
-            mimeType: photo.type,
-            body: Readable.fromWeb(photo.stream() as any),
-          };
-
-          const response = await drive.files.create({
-            requestBody: fileMetadata,
-            media: media,
-            fields: "id, name", // Fields to return in the response
-          });
-          console.log(
-            `File uploaded successfully: ID: ${response.data.id}, Name: ${response.data.name}`
-          );
-
-          await prisma.weighingsPhotos.create({
-            data: {
-              arrivalItemId: Number(arrivalItemId),
-              photo: response.data.id ?? "",
-            },
-          });
-
+    const photos = result.weighingProof;
+    if (photos) {
+      console.error("No photos provided for upload.");
+      photos.forEach(async (photo: any) => {
+        const fileMetadata = {
+          name: photo.name, // Use original filename, // Use original filename
+          parents: [folderId], // Specify the target folder
+        };
+  
+        const media = {
+          mimeType: photo.type,
+          body: Readable.fromWeb(photo.stream() as any),
+        };
+  
+        const response = await drive.files.create({
+          requestBody: fileMetadata,
+          media: media,
+          fields: "id, name", // Fields to return in the response
         });
+        console.log(
+          `File uploaded successfully: ID: ${response.data.id}, Name: ${response.data.name}`
+        );
+  
+        await prisma.weighingsPhotos.create({
+          data: {
+            arrivalItemId: Number(arrivalItemId),
+            photo: response.data.id ?? "",
+          },
+        });
+      });
+    }
+    await prisma.notifications.create({
+      data: {
+        table: "arrivals",
+        description: "Hasil Timbang berhasil disimpan",
+      },
+    });
+    const arrivalStatus = await prisma.arrivalStatuses.findFirst({
+      where: {
+        arrivalId: Number(result.arrivalId),
+      },
+      select: {
+        id: true,
+      }
+    });
 
-        await prisma.notifications.create({
+    console.log("Arrival Status ID:", arrivalStatus);
+
+    if (arrivalStatus) {
+      await prisma.arrivalStatuses.update({
+        where: { id: arrivalStatus.id },
         data: {
-          table: "arrivals",
-          description:"Hasil Timbang berhasil disimpan",
+          statusWeighing: ArrivalStatus.WEIGHING_COMPLETED,
+          updatedBy: userId,
         },
       });
+    }
+
     return {
       success: true,
       message: `Hasil Timbang berhasil disimpan!`,
@@ -128,9 +152,9 @@ console.log("Received form data:", result);
   } catch (error: any) {
     console.error("Google Drive API Error:", error);
     return {
-        success: false,
-        message: `Failed to upload file: ${error.message || 'Unknown error'}`,
-        error: error.message // Include error details if helpful
+      success: false,
+      message: `Gagal melakukan upload file karena kesalahan di server`,
+      error: error.message // Include error details if helpful
     };
   }
 }

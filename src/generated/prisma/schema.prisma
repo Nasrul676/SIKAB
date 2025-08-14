@@ -5,7 +5,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -80,31 +80,31 @@ model Parameters {
   updatedBy String?
 
   ArrivalItems ArrivalItems[]
-
-  QcResults QcResults[]
+  QcResults    QcResults[]
+  settings     ParameterSettings[]
 
   @@map("Parameters")
 }
 
 model Arrivals {
-  id             Int              @id @default(autoincrement())
-  idKedatangan   String
-  supplierId     Int
-  arrivalDate    DateTime         @default(now())
-  arrivalTime    String?
-  nopol          String?
-  suratJalan     String?
-  city           String?
-  createdAt      DateTime         @default(now())
-  createdBy      String?
-  updatedAt      DateTime         @updatedAt
-  updatedBy      String?
-  supplier       Suppliers        @relation(fields: [supplierId], references: [id])
-  status         String           @default("Menunggu QC/Timbang")
-  statusQc       String?
-  ArrivalItems   ArrivalItems[]
-  QcHistories    QcHistories[]
-  SecurityPhotos SecurityPhotos[]
+  id              Int              @id @default(autoincrement())
+  idKedatangan    String
+  supplierId      Int
+  arrivalDate     DateTime         @default(now())
+  arrivalTime     String?
+  nopol           String?
+  suratJalan      String?
+  city            String?
+  note            String?
+  createdAt       DateTime         @default(now())
+  createdBy       String?
+  updatedAt       DateTime         @updatedAt
+  updatedBy       String?
+  supplier        Suppliers        @relation(fields: [supplierId], references: [id])
+  ArrivalItems    ArrivalItems[]
+  QcHistories     QcHistories[]
+  SecurityPhotos  SecurityPhotos[]
+  ArrivalStatuses ArrivalStatuses?
 
   @@map("Arrivals")
 }
@@ -132,11 +132,11 @@ model ArrivalItems {
   updatedBy         String?
   statusQc          Boolean  @default(false)
 
-  arrival   Arrivals    @relation(fields: [arrivalId], references: [id])
-  material  Materials   @relation(fields: [materialId], references: [id])
-  condition Conditions  @relation(fields: [conditionId], references: [id])
-  parameter Parameters? @relation(fields: [parameterId], references: [id])
-  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id])
+  arrival   Arrivals    @relation(fields: [arrivalId], references: [id], onDelete: Cascade)
+  material  Materials   @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  condition Conditions  @relation(fields: [conditionId], references: [id], onDelete: Cascade)
+  parameter Parameters? @relation(fields: [parameterId], references: [id], onDelete: Cascade)
+  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id], onDelete: NoAction)
 
   QcResults       QcResults[]
   QcPhotos        QcPhotos[]
@@ -177,6 +177,7 @@ model QcResults {
   arrivalItemId Int
   parameterId   Int
   historyId     Int?
+  resultKey     String
   value         String
   createdAt     DateTime @default(now())
   createdBy     String?
@@ -262,4 +263,37 @@ model QcHistories {
   QcResults   QcResults[]
 
   @@map("QcHistories")
+}
+
+model ArrivalStatuses {
+  id             Int      @id @default(autoincrement())
+  arrivalId      Int      @unique
+  status         String   @default("MENUNGGUQC/TIMBANG")
+  statusQc       String?  @default("MENUNGGUQC")
+  statusWeighing String?  @default("MENUNGGUTIMBANG")
+  statusApproval String?  @default("MENUNGGUPERSETUJUAN")
+  createdAt      DateTime @default(now())
+  createdBy      String?
+  updatedAt      DateTime @updatedAt
+  updatedBy      String?
+
+  arrival Arrivals @relation(fields: [arrivalId], references: [id])
+
+  @@map("ArrivalStatuses")
+}
+
+model ParameterSettings {
+  id          Int      @id @default(autoincrement())
+  parameterId Int
+  key         String // Misal: "description", "isRequired", "maxValue"
+  value       String // Nilai dari setting, disimpan sebagai String agar fleksibel
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   String?
+  updatedBy   String?
+
+  parameter Parameters @relation(fields: [parameterId], references: [id], onDelete: Cascade)
+
+  @@unique([parameterId, key])
+  @@map("ParameterSettings")
 }

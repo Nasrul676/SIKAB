@@ -51,6 +51,7 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
     resolver: zodResolver(weighingSchema),
     mode: "onChange",
     defaultValues: {
+      arrivalId: relatedData.arrival.id,
       arrivalItemId: relatedData.arrivalItems[0]?.id,
       weight: 0,
       note: "",
@@ -66,6 +67,7 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
     formData.append("arrivalItemId", data.arrivalItemId);
     formData.append("note", data.note || "");
     formData.append("weight", data.weight.toString());
+    formData.append("arrivalId", data.arrivalId.toString());
     if (data.weighingProof) {
       data.weighingProof.forEach((photo, photoIndex) => {
         formData.append(

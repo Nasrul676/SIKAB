@@ -16,6 +16,7 @@ type InputFieldProps = {
   className?: string;
   register?: UseFormRegister<any>;
   control?: Control<any>;
+  placeholder?: string;
 };
 
 const InputField = ({
@@ -29,6 +30,7 @@ const InputField = ({
   inputProps,
   required = false,
   className = "",
+  placeholder,
   register,
   control,
 }: InputFieldProps) => {
@@ -52,6 +54,7 @@ const InputField = ({
               type={type}
               {...field}
               {...inputProps}
+              placeholder={placeholder}
               // defaultValue tidak diperlukan di sini karena 'field.value' mengaturnya
             />
           )}
@@ -63,6 +66,7 @@ const InputField = ({
           {...inputProps}
           className={className}
           defaultValue={defaultValue}
+          placeholder={placeholder}
           style={style}
         />
       )}

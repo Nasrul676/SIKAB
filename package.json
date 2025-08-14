@@ -39,6 +39,7 @@
     "framer-motion": "^12.10.2",
     "googleapis": "^148.0.0",
     "html-react-parser": "^5.2.5",
+    "html5-qrcode": "^2.2.7",
     "iron-session": "^8.0.4",
     "lucide-react": "^0.501.0",
     "moment": "^2.30.1",

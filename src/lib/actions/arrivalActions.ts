@@ -17,6 +17,7 @@ type FormState = {
   message: string | null;
   errors?: any;
 };
+import { ArrivalStatus } from "@/app/utils/enum";
 
 export const createArrival = async (
   prevState: FormState,
@@ -49,7 +50,7 @@ export const createArrival = async (
     if (submittedItem.length === 0) {
       return {
         success: false,
-        message: "Please define at least one material.",
+        message: "Harap mengisi setidaknya satu bahan baku!",
       };
     }
     const validationErrors: string[] = [];
@@ -71,12 +72,10 @@ export const createArrival = async (
       console.log("Server Validation Failed:", validationErrors);
       return {
         success: false,
-        message: "Validation failed. Please check the schedule details.",
+        message: "Validation failed.",
         errors: { schedules: validationErrors }, // Assign errors
       };
     }
-    console.log("securityProof is an instance of File:", formData.getAll("securityProof") instanceof File);
-    console.log('validatedFields', formData)
     const validatedFields = arivalSchema.safeParse({
       id: formData.get("arrivalId"),
       supplierId: formData.get("supplierId"),
@@ -188,6 +187,7 @@ export const createArrival = async (
           arrivalId: arrival.id,
         },
       });
+
       await tx.arrivalItems.createMany({
         data: validatedBreaks.map((item) => ({
           arrivalId: arrival.id,
@@ -200,6 +200,16 @@ export const createArrival = async (
           updatedBy: userId,
         })),
       });
+
+      await tx.arrivalStatuses.create({
+        data: {
+          arrivalId: arrival.id,
+          status: ArrivalStatus.WAITING_ARRIVAL,
+          statusQc: ArrivalStatus.QC_PENDING,
+          statusWeighing: ArrivalStatus.WEIGHING_PENDING,
+          createdBy: userId,
+        },
+      });
           // notifyClients(arrival.idKedatangan);
       await tx.notifications.create({
         data: {
@@ -210,13 +220,13 @@ export const createArrival = async (
     }); // <-- Add this closing parenthesis for $transaction
       return {
         success: true,
-        message: `Material submitted successfully!`,
+        message: `Kedatangan barang berhasil disimpan!`,
       };
   } catch (error: any) {
     console.error("Error processing Material:", error);
     return {
       success: false,
-      message: "Failed to process Material due to a server error.",
+      message: "Gagal memproses Material karena kesalahan server.",
     };
   }
 };
@@ -226,8 +236,6 @@ export const createOrUpdateArrivalItem = async (
     formData: FormData
 ): Promise<FormState> => {
     try {
-        console.log('Received form dataaaaaaaa:', formData);
-
         const validatedFields = arrivalItemSchema.safeParse({
           id: formData.get("id"),
           arrivalId: formData.get("arrivalId"),
@@ -282,7 +290,7 @@ export const createOrUpdateArrivalItem = async (
         console.log("data berhasil di simpan");
         return {
           success: true,
-          message: `Arrival Item ${formData.get("id") ? 'updated' : 'created'} successfully!`,
+          message: `Data kedatangan berhasil ${formData.get("id") ? 'disimpan' : 'disimpan'}`,
         };
     } catch (error: any) {
           console.error("Error processing Arrival Item:", error);
@@ -292,3 +300,69 @@ export const createOrUpdateArrivalItem = async (
         };
     }
 }
+
+export const getArrivalByArrivalId = async (arrivalId: string) => {
+  try {
+    const arrival = await prisma.arrivals.findFirst({
+      where: { idKedatangan: arrivalId },
+      include: {
+        supplier: true,
+        ArrivalStatuses: true,
+        ArrivalItems: {
+          include: {
+            material: true,
+            condition: true,
+            parameter: true,
+          },
+        },
+      },
+    });
+    if (!arrival) {
+      return { success: false, message: "Data kedatangan barang tidak ditemukan." };
+    }
+    return { success: true, data: arrival };
+  } catch (error) {
+    console.error("Error fetching Arrival by ID:", error);
+    return { success: false, message: "Gagal mengambil data kedatangan barang." };
+  }
+}
+
+export const approve = async (id: number, status: string, note?: string | null) => {
+  try {
+    const { userId } = await getAuthenticatedUserInfo();
+    const updatedArrival = await prisma.arrivals.update({
+      where: { id: id },
+      data: {
+        updatedBy: userId,
+        note: note || null,
+      },
+    });
+    const arrivalStatus = await prisma.arrivalStatuses.findFirst({
+      where: { arrivalId: id },
+      select: {
+        id: true,
+      },
+    });
+    if (arrivalStatus) {
+      await prisma.arrivalStatuses.update({
+        where: { id: arrivalStatus.id },
+        data: {
+          status: status,
+          statusApproval: ArrivalStatus.APPROVAL_COMPLETED,
+          updatedBy: userId,
+        },
+      });
+    }
+    await prisma.notifications.create({
+      data: {
+        table: "arrivals",
+        description: updatedArrival.idKedatangan,
+      },
+    });
+    console.log("Updated Arrival:", updatedArrival);
+    return { success: true, message: `Antrian berhasil dikonfirmasi` };
+  } catch (error) {
+    console.error("Error updating Arrival status:", error);
+    return { success: false, message: "Gagal memperbarui status kedatangan." };
+  }
+};

@@ -11,6 +11,8 @@ import TableSearch from "@/components/TableSearch";
 import Link from "next/link";
 import NotifWeighing from "./notif";
 import {Button} from "@/registry/new-york-v4/ui/button";
+import { ArrivalStatus } from "@/app/utils/enum";
+
 const WeighingPage = async ({
   searchParams,
 }: {
@@ -23,8 +25,8 @@ const WeighingPage = async ({
   //   gte: startOfToday, // Greater than or equal to (lebih besar atau sama dengan awal hari ini)
   //   lt: startOfTomorrow, // Less than (lebih kecil dari awal hari esok)
   // };
-  query.status = {
-    in: ["Menunggu QC/Timbang", "QC Selesai"],
+  query.ArrivalStatuses = {
+    statusWeighing: ArrivalStatus.WEIGHING_PENDING,
   };
   if (queryParams) {
     for (const [key, value] of Object.entries(queryParams)) {

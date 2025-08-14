@@ -3,7 +3,6 @@ import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
 import {
-  
   Parameters,
   Prisma,
   Suppliers,
@@ -30,7 +29,7 @@ const ParameterListPage = async ({
       accessor: "name",
     },
     {
-       header: "Unit",
+      header: "Unit",
       accessor: "unit",
     },
     {
@@ -89,6 +88,9 @@ const ParameterListPage = async ({
       where: query,
       take: ITEM_PER_PAGE,
       skip: (p - 1) * ITEM_PER_PAGE,
+      include: {
+        settings: true,
+      }
     }),
 
     prisma.parameters.count({ where: query }),

@@ -184,12 +184,11 @@ exports.Prisma.ArrivalsScalarFieldEnum = {
   nopol: 'nopol',
   suratJalan: 'suratJalan',
   city: 'city',
+  note: 'note',
   createdAt: 'createdAt',
   createdBy: 'createdBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy',
-  status: 'status',
-  statusQc: 'statusQc'
+  updatedBy: 'updatedBy'
 };
 
 exports.Prisma.ArrivalItemsScalarFieldEnum = {
@@ -241,6 +240,7 @@ exports.Prisma.QcResultsScalarFieldEnum = {
   arrivalItemId: 'arrivalItemId',
   parameterId: 'parameterId',
   historyId: 'historyId',
+  resultKey: 'resultKey',
   value: 'value',
   createdAt: 'createdAt',
   createdBy: 'createdBy',
@@ -300,123 +300,43 @@ exports.Prisma.QcHistoriesScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ArrivalStatusesScalarFieldEnum = {
+  id: 'id',
+  arrivalId: 'arrivalId',
+  status: 'status',
+  statusQc: 'statusQc',
+  statusWeighing: 'statusWeighing',
+  statusApproval: 'statusApproval',
+  createdAt: 'createdAt',
+  createdBy: 'createdBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ParameterSettingsScalarFieldEnum = {
+  id: 'id',
+  parameterId: 'parameterId',
+  key: 'key',
+  value: 'value',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.UsersOrderByRelevanceFieldEnum = {
-  username: 'username',
-  email: 'email',
-  password: 'password',
-  role: 'role',
-  id: 'id',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.SuppliersOrderByRelevanceFieldEnum = {
-  name: 'name',
-  address: 'address',
-  phone: 'phone',
-  email: 'email',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.MaterialsOrderByRelevanceFieldEnum = {
-  name: 'name',
-  description: 'description',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.ConditionsOrderByRelevanceFieldEnum = {
-  name: 'name',
-  description: 'description',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.ParametersOrderByRelevanceFieldEnum = {
-  name: 'name',
-  unit: 'unit',
-  type: 'type',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.ArrivalsOrderByRelevanceFieldEnum = {
-  idKedatangan: 'idKedatangan',
-  arrivalTime: 'arrivalTime',
-  nopol: 'nopol',
-  suratJalan: 'suratJalan',
-  city: 'city',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy',
-  status: 'status',
-  statusQc: 'statusQc'
-};
-
-exports.Prisma.ArrivalItemsOrderByRelevanceFieldEnum = {
-  conditionCategory: 'conditionCategory',
-  note: 'note',
-  itemName: 'itemName',
-  qcNote: 'qcNote',
-  qcAnalysis: 'qcAnalysis',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.WeighingsOrderByRelevanceFieldEnum = {
-  note: 'note',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.NotificationsOrderByRelevanceFieldEnum = {
-  table: 'table',
-  description: 'description'
-};
-
-exports.Prisma.QcResultsOrderByRelevanceFieldEnum = {
-  value: 'value',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.QcStatusOrderByRelevanceFieldEnum = {
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.QcPhotosOrderByRelevanceFieldEnum = {
-  photo: 'photo',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.SecurityPhotosOrderByRelevanceFieldEnum = {
-  photo: 'photo',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.WeighingsPhotosOrderByRelevanceFieldEnum = {
-  photo: 'photo',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy'
-};
-
-exports.Prisma.QcHistoriesOrderByRelevanceFieldEnum = {
-  userId: 'userId',
-  note: 'note',
-  qcNote: 'qcNote'
 };
 
 
@@ -435,7 +355,9 @@ exports.Prisma.ModelName = {
   QcPhotos: 'QcPhotos',
   SecurityPhotos: 'SecurityPhotos',
   WeighingsPhotos: 'WeighingsPhotos',
-  QcHistories: 'QcHistories'
+  QcHistories: 'QcHistories',
+  ArrivalStatuses: 'ArrivalStatuses',
+  ParameterSettings: 'ParameterSettings'
 };
 
 /**

@@ -12,6 +12,7 @@ import Link from "next/link";
 import NotifQC from "./notif";
 import ListQcDialog from "@/components/ListQcDialog";
 import { Button } from "@/registry/new-york-v4/ui/button";
+import { ArrivalStatus } from "@/app/utils/enum";
 const QcPage = async ({
   searchParams,
 }: {
@@ -191,6 +192,7 @@ const QcPage = async ({
   
 
   const renderRow = (item: any) => (
+    console.log(item),
     <TableRow key={item.id}>
       <TableCell>
         {/* <Link

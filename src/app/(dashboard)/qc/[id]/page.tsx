@@ -32,7 +32,9 @@ async function page({ params }: { params: { id: string } }) {
       supplier: true,
     },
   });
-  const qcParameters = await prisma.parameters.findMany();
+  const qcParameters = await prisma.parameters.findMany({
+    include: { settings: true },
+  });
   const qcStatuses = await prisma.qcStatus.findMany(
     {select: { id: true, name: true },}
   );

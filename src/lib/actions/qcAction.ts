@@ -1,3 +1,4 @@
+import { QcResults } from './../../generated/prisma/index.d';
 // src/lib/actions.ts
 "use server";
 
@@ -10,6 +11,7 @@ import flatToObject from "../flatToObjext";
 import { google } from "googleapis";
 import { Readable } from "stream";
 import prisma from "../prisma";
+import { ArrivalStatus } from "@/app/utils/enum";
 // Define the state returned by the action
 export type UploadFormState = {
   message: string | null;
@@ -37,10 +39,12 @@ export async function createQc(
       return rest;
     }),
   };
+  console.log("Processed data for validation:", newData);
   const validationResult = qcSubmissionSchema.safeParse({
     arrivalId: formData.get("arrivalId"),
     materials: newData.materials,
   });
+  console.log("Validation result:", validationResult);
   if (!validationResult.success) {
     console.log(
       "Server-side validation failed:",
@@ -125,13 +129,33 @@ export async function createQc(
         await prisma.qcResults.createMany({
           data: material.qcResults.map((result: any) => ({
             arrivalItemId: Number(material.arrivalItemId),
+            resultKey: result.key,
             parameterId: Number(result.parameterId),
             historyId: Number(createdHistory.id),
             value: result.value.toString(),
-            createdBy: userId,
-            updatedBy: userId,
+            createdBy: userId
           })),
         });
+
+        material.qcResults.map((result: any) =>{
+          if(result.additional){
+            const parsedAdditional = JSON.parse(result.additional);
+            parsedAdditional.forEach(async (additional: any) => {
+              console.log("Saving additional info:", additional);
+              await prisma.qcResults.create({
+                data: {
+                  arrivalItemId: Number(material.arrivalItemId),
+                  resultKey: additional.key,
+                  parameterId: Number(result.parameterId),
+                  historyId: Number(createdHistory.id),
+                  value: additional.value,
+                  createdBy: userId,
+                },
+              });
+            });
+          }
+        })
+
         if (result.materials[idx].qcPhotos !== undefined) {
           const photos = result.materials[idx].qcPhotos.file;
           photos.forEach(async (photo: any) => {
@@ -183,10 +207,27 @@ export async function createQc(
         where: { id: Number(arrivalId) },
         data: {
           city: materials[0].city, // Assuming city is the same for all materials
-          statusQc: "QC Selesai", // Update status to completed
           updatedBy: userId, // Set the user who updated the arrival
         },
       });
+
+      const arrivalStatus = await prisma.arrivalStatuses.findFirst({
+        where: { arrivalId: parseInt(arrivalId) },
+        select: {
+          id: true,
+        }
+      });
+
+      if (arrivalStatus){
+        await prisma.arrivalStatuses.update({
+          where: { id: arrivalStatus.id },
+          data: {
+            status: ArrivalStatus.WAITING_ARRIVAL,
+            statusQc: ArrivalStatus.QC_COMPLETED,
+            updatedBy: userId,
+          },
+        });
+      }
 
       await prisma.notifications.create({
         data: {

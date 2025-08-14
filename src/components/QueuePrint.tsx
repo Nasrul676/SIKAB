@@ -72,7 +72,7 @@ const QueuePrint = React.forwardRef<HTMLDivElement, { arrivalData: any }>(({ arr
       </main>
       <div className="flex flex-row justify-between my-4">
         <section className="flex flex-col items-center justify-between h-full">
-          <QRCode logoImage={logo.src} logoPadding={4} size={100} value={`https://app.pradha.co.id/guest-accept/${arrivalData.idKedatangan}`} />
+          <QRCode logoPadding={1} logoImage={logo.src} size={110} value={arrivalData.idKedatangan} />
           <p className="text-xs text-center">Scan oleh security</p>
         </section>
         <footer className="mt-4 text-xs flex flex-col">

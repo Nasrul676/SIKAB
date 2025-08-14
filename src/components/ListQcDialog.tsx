@@ -32,15 +32,6 @@ export default function ListQcDialog({items}: any) {
           <DialogHeader>
             <DialogTitle>List Bahan Baku</DialogTitle>
             <DialogDescription className="flex flex-col gap-3">
-              Pilih Bahan Baku Yang Akan Di QC
-              <div className="flex flex-row gap-4">
-                <CheckCircle className="text-green-500" />
-                <span>Sudah Di QC</span>
-              </div>
-              <div className="flex flex-row gap-4">
-                <Clock className="text-yellow-500" />
-                <span>Belum Di QC</span>
-              </div>
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col  w-full">
