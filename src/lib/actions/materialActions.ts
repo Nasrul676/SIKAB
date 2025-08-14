@@ -24,7 +24,7 @@ export const createMaterial = async (
       description: formData.get("description"),
       
     });
-
+    console.log("validation result ", validatedFields)
     if (!validatedFields.success) {
       console.log(validatedFields.error);
       return {
@@ -50,13 +50,13 @@ export const createMaterial = async (
 
     return {
       success: true,
-      message: `Material submitted successfully!`,
+      message: `Bahan baku berhasil disimpan!`,
     };
   } catch (error: any) {
     console.error("Error processing Material:", error);
     return {
       success: false,
-      message: "Failed to process Material due to a server error.",
+      message: "Gagal memproses Bahan Baku karena kesalahan server.",
     };
   }
 };
@@ -66,7 +66,7 @@ export const updateMaterial = async (
   formData: FormData
 ): Promise<FormState> => {
   if (!formData.get("id")) {
-    return { success: false, message: "Updated failed" };
+    return { success: false, message: "Update gagal" };
   }
   try {
     const validatedFields = materialSchema.safeParse({
@@ -92,21 +92,21 @@ export const updateMaterial = async (
         id:parseInt(validatedFields.data.id||""), // Use parsed ID validatedFields.data.id, // Use parsed ID
       },
       data: {
-         name: validatedFields.data.name,
-            description: validatedFields.data.description,                    
+        name: validatedFields.data.name,
+        description: validatedFields.data.description,                    
         updatedBy: userId, // Use authenticated user's pin
       },
     });
     
     return {
       success: true,
-      message: `Material updated successfully!`,
+      message: `Bahan baku berhasil diperbarui!`,
     };
   } catch (error: any) {
     console.error("Error processing users:", error);
     return {
       success: false,
-      message: "Failed to process employees due to a server error.",
+      message: "Gagal memproses Bahan Baku karena kesalahan server.",
     };
   }
 };

@@ -80,8 +80,8 @@ model Parameters {
   updatedBy String?
 
   ArrivalItems ArrivalItems[]
-
-  QcResults QcResults[]
+  QcResults    QcResults[]
+  settings     ParameterSettings[]
 
   @@map("Parameters")
 }
@@ -132,11 +132,11 @@ model ArrivalItems {
   updatedBy         String?
   statusQc          Boolean  @default(false)
 
-  arrival   Arrivals    @relation(fields: [arrivalId], references: [id])
-  material  Materials   @relation(fields: [materialId], references: [id])
-  condition Conditions  @relation(fields: [conditionId], references: [id])
-  parameter Parameters? @relation(fields: [parameterId], references: [id])
-  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id])
+  arrival   Arrivals    @relation(fields: [arrivalId], references: [id], onDelete: Cascade)
+  material  Materials   @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  condition Conditions  @relation(fields: [conditionId], references: [id], onDelete: Cascade)
+  parameter Parameters? @relation(fields: [parameterId], references: [id], onDelete: Cascade)
+  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id], onDelete: NoAction)
 
   QcResults       QcResults[]
   QcPhotos        QcPhotos[]
@@ -177,6 +177,7 @@ model QcResults {
   arrivalItemId Int
   parameterId   Int
   historyId     Int?
+  resultKey     String
   value         String
   createdAt     DateTime @default(now())
   createdBy     String?
@@ -279,4 +280,20 @@ model ArrivalStatuses {
   arrival Arrivals @relation(fields: [arrivalId], references: [id])
 
   @@map("ArrivalStatuses")
+}
+
+model ParameterSettings {
+  id          Int      @id @default(autoincrement())
+  parameterId Int
+  key         String // Misal: "description", "isRequired", "maxValue"
+  value       String // Nilai dari setting, disimpan sebagai String agar fleksibel
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   String?
+  updatedBy   String?
+
+  parameter Parameters @relation(fields: [parameterId], references: [id], onDelete: Cascade)
+
+  @@unique([parameterId, key])
+  @@map("ParameterSettings")
 }

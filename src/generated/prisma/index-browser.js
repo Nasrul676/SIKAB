@@ -240,6 +240,7 @@ exports.Prisma.QcResultsScalarFieldEnum = {
   arrivalItemId: 'arrivalItemId',
   parameterId: 'parameterId',
   historyId: 'historyId',
+  resultKey: 'resultKey',
   value: 'value',
   createdAt: 'createdAt',
   createdBy: 'createdBy',
@@ -309,6 +310,17 @@ exports.Prisma.ArrivalStatusesScalarFieldEnum = {
   createdAt: 'createdAt',
   createdBy: 'createdBy',
   updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ParameterSettingsScalarFieldEnum = {
+  id: 'id',
+  parameterId: 'parameterId',
+  key: 'key',
+  value: 'value',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  createdBy: 'createdBy',
   updatedBy: 'updatedBy'
 };
 
@@ -396,6 +408,7 @@ exports.Prisma.NotificationsOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.QcResultsOrderByRelevanceFieldEnum = {
+  resultKey: 'resultKey',
   value: 'value',
   createdBy: 'createdBy',
   updatedBy: 'updatedBy'
@@ -439,6 +452,13 @@ exports.Prisma.ArrivalStatusesOrderByRelevanceFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.ParameterSettingsOrderByRelevanceFieldEnum = {
+  key: 'key',
+  value: 'value',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
 
 exports.Prisma.ModelName = {
   Users: 'Users',
@@ -456,7 +476,8 @@ exports.Prisma.ModelName = {
   SecurityPhotos: 'SecurityPhotos',
   WeighingsPhotos: 'WeighingsPhotos',
   QcHistories: 'QcHistories',
-  ArrivalStatuses: 'ArrivalStatuses'
+  ArrivalStatuses: 'ArrivalStatuses',
+  ParameterSettings: 'ParameterSettings'
 };
 
 /**

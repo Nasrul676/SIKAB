@@ -38,6 +38,7 @@ const initialState = {
   isSuccess: false,
   success: false,
 };
+import flatToObject from "@/lib/flatToObjext";
 
 function QcForm({ relatedData }: { relatedData: any }) {
   const router = useRouter();
@@ -92,8 +93,9 @@ function QcForm({ relatedData }: { relatedData: any }) {
         arrivalItemId: item.id.toString(),
         qcResults: listParamsData.map((param: any) => ({
           parameterId: param.id,
-          value: param.value,
+          value: param.value || "",
           persentase: param.persentase,
+          settings: param.settings || [],
         })),
         qcSample: item.qcSample || 0,
         qcKotoran: item.qcKotoran || 0,
@@ -204,7 +206,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
         `materials.${materialIndex}.pengeringan`,
         material.pengeringan?.toString() || ""
       );
-      console.log("Material:", formData);
       if (material.qcNotes) {
         formData.append(`materials.${materialIndex}.qcNotes`, material.qcNotes);
       }
@@ -227,9 +228,27 @@ function QcForm({ relatedData }: { relatedData: any }) {
           result.parameterId
         );
         formData.append(
+          `materials.${materialIndex}.qcResults.${resultIndex}.key`,
+          "main_value"
+        );
+        formData.append(
           `materials.${materialIndex}.qcResults.${resultIndex}.value`,
           result.value
         );
+        console.log("Result additional:", result.additional);
+
+        if(result.additional){
+          const additional = result.additional.map((item: any) => ({
+            key: item.key,
+            value: item.value
+          }));
+  
+          formData.append(
+            `materials.${materialIndex}.qcResults.${resultIndex}.additional`,
+            JSON.stringify(additional)
+          );
+        }
+
       });
 
       if (material.qcPhotos) {
@@ -241,10 +260,26 @@ function QcForm({ relatedData }: { relatedData: any }) {
         });
       }
     });
-
-    // 5. Jalankan Server Action dengan FormData yang sudah lengkap
+    console.log("Submitting form data:", flatToObject(formData));
     startTransition(() => {
       formAction(formData);
+    });
+  };
+
+  const [errorsState, setErrorsState] = useState<any>(null);
+
+  const onInvalid = (errors: any) => {
+    // Tampilkan pesan error untuk setiap field yang tidak valid
+    Object.keys(errors).forEach((field) => {
+      const fieldErrors = errors[field];
+      if (fieldErrors) {
+        fieldErrors.forEach((error: any) => {
+          console.log("errors:", error);
+          setErrorsState(() => ({
+            error
+          }));
+        });
+      }
     });
   };
 
@@ -254,8 +289,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
       router.push("/qc");
     });
   }
-  
-  console.log("relatedData:", relatedData);
 
   useEffect(() => {
     if (state.success) {
@@ -277,7 +310,7 @@ function QcForm({ relatedData }: { relatedData: any }) {
     <>
       <form
         className="flex flex-col gap-2 w-full"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onInvalid)}
         ref={formRef}
         // action={formAction}
       >
@@ -320,7 +353,7 @@ function QcForm({ relatedData }: { relatedData: any }) {
 
                 <div className="mb-4">
                   <div className="overflow-x-auto">
-                    <ParametersTable materialIndex={materialIndex} register={register} errors={errors} parameters={relatedData.qcParameters} onChange={() => handleMaterialChange(materialIndex)} />
+                    <ParametersTable materialIndex={materialIndex} register={register} errors={errorsState?.error} parameters={relatedData.qcParameters} onChange={() => handleMaterialChange(materialIndex)} />
                   </div>
                   {/* <button
                     onClick={() => handleAnalyzeQc(materialIndex)}
@@ -343,12 +376,12 @@ function QcForm({ relatedData }: { relatedData: any }) {
                     </div>
                   )} */}
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Kota Asal</label>
                     <Input className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500" {...register(`materials.${materialIndex}.city`)} />
                   </div>
-                </div>
+                </div> */}
                 <div className="mb-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Status QC</label>
@@ -390,16 +423,15 @@ function QcForm({ relatedData }: { relatedData: any }) {
                     id={`materials.${materialIndex}.qcNotes`}
                     className="p-3 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                     {...register(`materials.${materialIndex}.qcNotes`)}
-                    value={materialQc.notes}
                   ></textarea>
                 </div>
                 <div className="w-full flex flex-row justify-between gap-4">
-                  <Button type="submit" disabled={isPending} className="bg-blue-400 text-white p-2 rounded-md">
+                  <Button type="submit" disabled={isPending} className="bg-blue-600 text-white p-2 rounded-md">
                     {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
                     {isPending ? "Menyimpan..." : "Simpan Hasil QC"}
                   </Button>
-                  <Button type="button" className="bg-gray-400 text-white p-2 rounded-md" onClick={handleCancelQc}>
-                    <span className="text-md">Batal</span>
+                  <Button type="button" className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
+                    <X size={16} /> Kembali
                   </Button>
                 </div>
               </div>

@@ -48,13 +48,13 @@ export const createCondition = async (
     });
     return {
       success: true,
-      message: `Condition submitted successfully!`,
+      message: `Kondisi berhasil disimpan!`,
     };
   } catch (error: any) {
     console.error("Error processing Condition:", error);
     return {
       success: false,
-      message: "Failed to process Condition due to a server error.",
+      message: "Gagal memproses Kondisi karena kesalahan server.",
     };
   }
 };
@@ -96,13 +96,13 @@ export const updateCondition = async (
     
     return {
       success: true,
-      message: `Condition updated successfully!`,
+      message: `Kondisi berhasil disimpan!`,
     };
   } catch (error: any) {
     console.error("Error processing users:", error);
     return {
       success: false,
-      message: "Failed to process employees due to a server error.",
+      message: "Gagal memproses Kondisi karena kesalahan server.",
     };
   }
 };

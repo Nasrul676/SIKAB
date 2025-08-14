@@ -138,10 +138,11 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
                 </span>
                 <InputField
                   label="ID Kedatangan"
-                  type="text"
+                  type="hidden"
                   name="arrivalId"
                   register={register}
                   defaultValue={relatedData.arrival.id}
+                  hidden
                 />
                 <InputField
                   label="ID Kedatangan"

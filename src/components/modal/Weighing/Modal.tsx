@@ -78,7 +78,6 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
   };
 
   useEffect(() => {
-    // Kita hanya peduli pada 'state' saat tidak dalam proses 'pending'.
     if (isPending) {
       return;
     }

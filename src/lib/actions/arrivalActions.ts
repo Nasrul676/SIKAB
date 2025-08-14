@@ -50,7 +50,7 @@ export const createArrival = async (
     if (submittedItem.length === 0) {
       return {
         success: false,
-        message: "Please define at least one material.",
+        message: "Harap mengisi setidaknya satu bahan baku!",
       };
     }
     const validationErrors: string[] = [];
@@ -72,12 +72,10 @@ export const createArrival = async (
       console.log("Server Validation Failed:", validationErrors);
       return {
         success: false,
-        message: "Validation failed. Please check the schedule details.",
+        message: "Validation failed.",
         errors: { schedules: validationErrors }, // Assign errors
       };
     }
-    console.log("securityProof is an instance of File:", formData.getAll("securityProof") instanceof File);
-    console.log('validatedFields', formData)
     const validatedFields = arivalSchema.safeParse({
       id: formData.get("arrivalId"),
       supplierId: formData.get("supplierId"),
@@ -222,13 +220,13 @@ export const createArrival = async (
     }); // <-- Add this closing parenthesis for $transaction
       return {
         success: true,
-        message: `Material submitted successfully!`,
+        message: `Kedatangan barang berhasil disimpan!`,
       };
   } catch (error: any) {
     console.error("Error processing Material:", error);
     return {
       success: false,
-      message: "Failed to process Material due to a server error.",
+      message: "Gagal memproses Material karena kesalahan server.",
     };
   }
 };
@@ -238,8 +236,6 @@ export const createOrUpdateArrivalItem = async (
     formData: FormData
 ): Promise<FormState> => {
     try {
-        console.log('Received form dataaaaaaaa:', formData);
-
         const validatedFields = arrivalItemSchema.safeParse({
           id: formData.get("id"),
           arrivalId: formData.get("arrivalId"),
@@ -294,7 +290,7 @@ export const createOrUpdateArrivalItem = async (
         console.log("data berhasil di simpan");
         return {
           success: true,
-          message: `Arrival Item ${formData.get("id") ? 'updated' : 'created'} successfully!`,
+          message: `Data kedatangan berhasil ${formData.get("id") ? 'disimpan' : 'disimpan'}`,
         };
     } catch (error: any) {
           console.error("Error processing Arrival Item:", error);
@@ -322,12 +318,12 @@ export const getArrivalByArrivalId = async (arrivalId: string) => {
       },
     });
     if (!arrival) {
-      return { success: false, message: "Arrival not found." };
+      return { success: false, message: "Data kedatangan barang tidak ditemukan." };
     }
     return { success: true, data: arrival };
   } catch (error) {
     console.error("Error fetching Arrival by ID:", error);
-    return { success: false, message: "Failed to fetch Arrival." };
+    return { success: false, message: "Gagal mengambil data kedatangan barang." };
   }
 }
 
@@ -364,9 +360,9 @@ export const approve = async (id: number, status: string, note?: string | null) 
       },
     });
     console.log("Updated Arrival:", updatedArrival);
-    return { success: true, message: `Antrian berhasil di konfirmasi` };
+    return { success: true, message: `Antrian berhasil dikonfirmasi` };
   } catch (error) {
     console.error("Error updating Arrival status:", error);
-    return { success: false, message: "Failed to update Arrival status." };
+    return { success: false, message: "Gagal memperbarui status kedatangan." };
   }
 };

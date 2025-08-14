@@ -7,14 +7,14 @@ export const userSchema = z.object({
   id: z.string().optional(),
   username: z
     .string()
-    .min(3, { message: "Username must be at least 3 characters long!" })
-    .max(20, { message: "Username must be at most 20 characters long!" }),
+    .min(3, { message: "Username harus terdiri dari minimal 3 karakter!" })
+    .max(20, { message: "Username harus terdiri dari maksimal 20 karakter!" }),
   password: z
     .string()
-    .min(6, { message: "Password must be at least 6 characters long!" }),
+    .min(6, { message: "Password harus terdiri dari minimal 6 karakter!" }),
   email: z
     .string()
-    .email({ message: "Invalid email address!" })
+    .email({ message: "Email tidak valid!" })
     .or(z.literal("")),
   role: z.string(),
 });
@@ -24,12 +24,14 @@ export type UserSchema = z.infer<typeof userSchema>;
 export const supplierSchema = z.object({
   id: z.string().optional(),
   name: z
-    .string(),
+    .string()
+    .min(3, { message: "Nama supplier harus terdiri dari minimal 3 karakter" }),
   address: z
     .string()
     .optional(),
   phone: z
     .string()
+    .min(10, { message: "Nomor telepon harus terdiri dari minimal 10 karakter" })
     .optional(),
   email: z
     .string()
@@ -41,11 +43,11 @@ export type SupplierSchema = z.infer<typeof supplierSchema>;
 export const materialSchema = z.object({
   id: z.string().optional(),
   name: z
-    .string(),
+    .string()
+    .min(3, {message: "Nama material harus terdiri dari minimal 3 karakter"}),
   description: z
     .string()
     .optional(),
- 
 });
 
 export type MaterialSchema = z.infer<typeof materialSchema>;
@@ -53,24 +55,32 @@ export type MaterialSchema = z.infer<typeof materialSchema>;
 export const conditionSchema = z.object({
   id: z.string().optional(),
   name: z
-    .string(),
+    .string()
+    .min(3, { message: "Nama kondisi harus terdiri dari minimal 3 karakter" }),
   description: z
     .string()
     .optional(),
- 
 });
 
 export type ConditionSchema = z.infer<typeof conditionSchema>;
 
+export const ParameterSettingsSchema = z.object({
+  key: z.string().min(3, { message: "Key harus terdiri dari minimal 3 karakter" }),
+  value: z.string().min(1, { message: "Value harus diisi" }),
+});
+
 export const parameterSchema = z.object({
   id: z.string().optional(),
   name: z
-    .string(),
+    .string()
+    .min(3, { message: "Nama parameter harus terdiri dari minimal 3 karakter" }),
   unit: z
-    .string(),
+    .string()
+    .min(1, { message: "Unit harus diisi" }),
   type: z
-    .string(),
- 
+    .string()
+    .min(1, { message: "Tipe harus diisi" }),
+  settings: z.array(ParameterSettingsSchema).optional()
 });
 
 export type ParameterSchema = z.infer<typeof parameterSchema>;
@@ -78,9 +88,9 @@ export type ParameterSchema = z.infer<typeof parameterSchema>;
 export const arivalSchema = z.object({
   id: z.string().optional(),
   arrivalId: z.string().optional(),
-  supplierId: z.coerce.number(),
-  arrivalTime: z.string(),
-  nopol: z.string().optional(),
+  supplierId: z.coerce.number().min(1, { message: "Supplier tidak boleh kosong" }),
+  arrivalTime: z.string().min(1, { message: "Waktu kedatangan tidak boleh kosong" }),
+  nopol: z.string().min(1, { message: "Nomor polisi tidak boleh kosong" }),
   suratJalan: z.string().optional(),
   securityProof: z.array(
       z.object({
@@ -92,12 +102,12 @@ export const arivalSchema = z.object({
   ),
   materials: z.array(
     z.object({
-      materialId: z.string().min(1, { message: "Material is required" }),
-      quantity: z.string().min(1, { message: "Quantity is required" }),
+      materialId: z.string().min(1, { message: "Jenis bahan tidak boleh kosong" }),
+      quantity: z.string().min(1, { message: "Jumlah Qty tidak boleh kosong" }),
       conditionCategory: z.enum(['Basah', 'Kering'], {
-        message: "Condition Category must be either 'Basah' or 'Kering'."
+        message: "Kondisi bahan harus terdiri dari 'Basah' atau 'Kering'."
       }),
-      conditionId: z.string().min(1, { message: "Condition is required" }),
+      conditionId: z.string().min(1, { message: "Tingkat kebersihan bahan tidak boleh kosong" }),
       itemName: z.string().optional(),
       description: z.string().optional(),
     })
@@ -109,16 +119,17 @@ export type ArivalSchema = z.infer<typeof arivalSchema>;
 export const arrivalItemSchema = z.object({
   materialId: z.coerce
     .number()
-    .min(1, { message: "Material is required" }),
+    .min(1, { message: "Jenis bahan tidak boleh kosong" }),
   conditionId: z.coerce
     .number()
-    .min(1, { message: "Condition is required" }),
+    .min(1, { message: "Tingkat kebersihan bahan tidak boleh kosong" }),
   conditionCategory: z
     .enum(['Basah', 'Kering'], {
-      message: "Condition Category must be either 'Basah' or 'Kering'."}),
+      message: "Kondisi bahan harus terdiri dari 'Basah' atau 'Kering'."
+    }),
   quantity: z.coerce
     .number()
-    .min(1, { message: "Quantity is required" }),
+    .min(1, { message: "Jumlah Qty tidak boleh kosong" }),
   itemName: z.string().optional(),
   description: z.string().optional(),
   arrivalId: z.string().optional(),

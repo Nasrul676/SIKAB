@@ -15,7 +15,7 @@ export default function LogoutButton() {
     return (
         <button onClick={handleLogout} className="pl-4 gap-2 flex items-center text-black-600 hover">
             <LogOut size={15} />
-            <span className="text-sm">Logout</span>
+            <span className="text-sm">Keluar</span>
         </button>
     );
 }

@@ -93,6 +93,11 @@ export type QcHistories = $Result.DefaultSelection<Prisma.$QcHistoriesPayload>
  * 
  */
 export type ArrivalStatuses = $Result.DefaultSelection<Prisma.$ArrivalStatusesPayload>
+/**
+ * Model ParameterSettings
+ * 
+ */
+export type ParameterSettings = $Result.DefaultSelection<Prisma.$ParameterSettingsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -378,6 +383,16 @@ export class PrismaClient<
     * ```
     */
   get arrivalStatuses(): Prisma.ArrivalStatusesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.parameterSettings`: Exposes CRUD operations for the **ParameterSettings** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ParameterSettings
+    * const parameterSettings = await prisma.parameterSettings.findMany()
+    * ```
+    */
+  get parameterSettings(): Prisma.ParameterSettingsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -833,7 +848,8 @@ export namespace Prisma {
     SecurityPhotos: 'SecurityPhotos',
     WeighingsPhotos: 'WeighingsPhotos',
     QcHistories: 'QcHistories',
-    ArrivalStatuses: 'ArrivalStatuses'
+    ArrivalStatuses: 'ArrivalStatuses',
+    ParameterSettings: 'ParameterSettings'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -852,7 +868,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "suppliers" | "materials" | "conditions" | "parameters" | "arrivals" | "arrivalItems" | "weighings" | "notifications" | "qcResults" | "qcStatus" | "qcPhotos" | "securityPhotos" | "weighingsPhotos" | "qcHistories" | "arrivalStatuses"
+      modelProps: "users" | "suppliers" | "materials" | "conditions" | "parameters" | "arrivals" | "arrivalItems" | "weighings" | "notifications" | "qcResults" | "qcStatus" | "qcPhotos" | "securityPhotos" | "weighingsPhotos" | "qcHistories" | "arrivalStatuses" | "parameterSettings"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1912,6 +1928,72 @@ export namespace Prisma {
           }
         }
       }
+      ParameterSettings: {
+        payload: Prisma.$ParameterSettingsPayload<ExtArgs>
+        fields: Prisma.ParameterSettingsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ParameterSettingsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ParameterSettingsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          findFirst: {
+            args: Prisma.ParameterSettingsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ParameterSettingsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          findMany: {
+            args: Prisma.ParameterSettingsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>[]
+          }
+          create: {
+            args: Prisma.ParameterSettingsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          createMany: {
+            args: Prisma.ParameterSettingsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ParameterSettingsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          update: {
+            args: Prisma.ParameterSettingsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ParameterSettingsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ParameterSettingsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ParameterSettingsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
+          }
+          aggregate: {
+            args: Prisma.ParameterSettingsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateParameterSettings>
+          }
+          groupBy: {
+            args: Prisma.ParameterSettingsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ParameterSettingsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ParameterSettingsCountArgs<ExtArgs>
+            result: $Utils.Optional<ParameterSettingsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2012,6 +2094,7 @@ export namespace Prisma {
     weighingsPhotos?: WeighingsPhotosOmit
     qcHistories?: QcHistoriesOmit
     arrivalStatuses?: ArrivalStatusesOmit
+    parameterSettings?: ParameterSettingsOmit
   }
 
   /* Types for Logging */
@@ -2232,11 +2315,13 @@ export namespace Prisma {
   export type ParametersCountOutputType = {
     ArrivalItems: number
     QcResults: number
+    settings: number
   }
 
   export type ParametersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ArrivalItems?: boolean | ParametersCountOutputTypeCountArrivalItemsArgs
     QcResults?: boolean | ParametersCountOutputTypeCountQcResultsArgs
+    settings?: boolean | ParametersCountOutputTypeCountSettingsArgs
   }
 
   // Custom InputTypes
@@ -2262,6 +2347,13 @@ export namespace Prisma {
    */
   export type ParametersCountOutputTypeCountQcResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: QcResultsWhereInput
+  }
+
+  /**
+   * ParametersCountOutputType without action
+   */
+  export type ParametersCountOutputTypeCountSettingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ParameterSettingsWhereInput
   }
 
 
@@ -6734,6 +6826,7 @@ export namespace Prisma {
     updatedBy?: boolean
     ArrivalItems?: boolean | Parameters$ArrivalItemsArgs<ExtArgs>
     QcResults?: boolean | Parameters$QcResultsArgs<ExtArgs>
+    settings?: boolean | Parameters$settingsArgs<ExtArgs>
     _count?: boolean | ParametersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["parameters"]>
 
@@ -6754,6 +6847,7 @@ export namespace Prisma {
   export type ParametersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ArrivalItems?: boolean | Parameters$ArrivalItemsArgs<ExtArgs>
     QcResults?: boolean | Parameters$QcResultsArgs<ExtArgs>
+    settings?: boolean | Parameters$settingsArgs<ExtArgs>
     _count?: boolean | ParametersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -6762,6 +6856,7 @@ export namespace Prisma {
     objects: {
       ArrivalItems: Prisma.$ArrivalItemsPayload<ExtArgs>[]
       QcResults: Prisma.$QcResultsPayload<ExtArgs>[]
+      settings: Prisma.$ParameterSettingsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7114,6 +7209,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     ArrivalItems<T extends Parameters$ArrivalItemsArgs<ExtArgs> = {}>(args?: Subset<T, Parameters$ArrivalItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     QcResults<T extends Parameters$QcResultsArgs<ExtArgs> = {}>(args?: Subset<T, Parameters$QcResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcResultsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    settings<T extends Parameters$settingsArgs<ExtArgs> = {}>(args?: Subset<T, Parameters$settingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7539,6 +7635,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: QcResultsScalarFieldEnum | QcResultsScalarFieldEnum[]
+  }
+
+  /**
+   * Parameters.settings
+   */
+  export type Parameters$settingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    where?: ParameterSettingsWhereInput
+    orderBy?: ParameterSettingsOrderByWithRelationInput | ParameterSettingsOrderByWithRelationInput[]
+    cursor?: ParameterSettingsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ParameterSettingsScalarFieldEnum | ParameterSettingsScalarFieldEnum[]
   }
 
   /**
@@ -12061,6 +12181,7 @@ export namespace Prisma {
     arrivalItemId: number | null
     parameterId: number | null
     historyId: number | null
+    resultKey: string | null
     value: string | null
     createdAt: Date | null
     createdBy: string | null
@@ -12073,6 +12194,7 @@ export namespace Prisma {
     arrivalItemId: number | null
     parameterId: number | null
     historyId: number | null
+    resultKey: string | null
     value: string | null
     createdAt: Date | null
     createdBy: string | null
@@ -12085,6 +12207,7 @@ export namespace Prisma {
     arrivalItemId: number
     parameterId: number
     historyId: number
+    resultKey: number
     value: number
     createdAt: number
     createdBy: number
@@ -12113,6 +12236,7 @@ export namespace Prisma {
     arrivalItemId?: true
     parameterId?: true
     historyId?: true
+    resultKey?: true
     value?: true
     createdAt?: true
     createdBy?: true
@@ -12125,6 +12249,7 @@ export namespace Prisma {
     arrivalItemId?: true
     parameterId?: true
     historyId?: true
+    resultKey?: true
     value?: true
     createdAt?: true
     createdBy?: true
@@ -12137,6 +12262,7 @@ export namespace Prisma {
     arrivalItemId?: true
     parameterId?: true
     historyId?: true
+    resultKey?: true
     value?: true
     createdAt?: true
     createdBy?: true
@@ -12236,6 +12362,7 @@ export namespace Prisma {
     arrivalItemId: number
     parameterId: number
     historyId: number | null
+    resultKey: string
     value: string
     createdAt: Date
     createdBy: string | null
@@ -12267,6 +12394,7 @@ export namespace Prisma {
     arrivalItemId?: boolean
     parameterId?: boolean
     historyId?: boolean
+    resultKey?: boolean
     value?: boolean
     createdAt?: boolean
     createdBy?: boolean
@@ -12284,6 +12412,7 @@ export namespace Prisma {
     arrivalItemId?: boolean
     parameterId?: boolean
     historyId?: boolean
+    resultKey?: boolean
     value?: boolean
     createdAt?: boolean
     createdBy?: boolean
@@ -12291,7 +12420,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type QcResultsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "arrivalItemId" | "parameterId" | "historyId" | "value" | "createdAt" | "createdBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["qcResults"]>
+  export type QcResultsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "arrivalItemId" | "parameterId" | "historyId" | "resultKey" | "value" | "createdAt" | "createdBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["qcResults"]>
   export type QcResultsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
     parameter?: boolean | QcResults$parameterArgs<ExtArgs>
@@ -12310,6 +12439,7 @@ export namespace Prisma {
       arrivalItemId: number
       parameterId: number
       historyId: number | null
+      resultKey: string
       value: string
       createdAt: Date
       createdBy: string | null
@@ -12691,6 +12821,7 @@ export namespace Prisma {
     readonly arrivalItemId: FieldRef<"QcResults", 'Int'>
     readonly parameterId: FieldRef<"QcResults", 'Int'>
     readonly historyId: FieldRef<"QcResults", 'Int'>
+    readonly resultKey: FieldRef<"QcResults", 'String'>
     readonly value: FieldRef<"QcResults", 'String'>
     readonly createdAt: FieldRef<"QcResults", 'DateTime'>
     readonly createdBy: FieldRef<"QcResults", 'String'>
@@ -19239,6 +19370,1006 @@ export namespace Prisma {
 
 
   /**
+   * Model ParameterSettings
+   */
+
+  export type AggregateParameterSettings = {
+    _count: ParameterSettingsCountAggregateOutputType | null
+    _avg: ParameterSettingsAvgAggregateOutputType | null
+    _sum: ParameterSettingsSumAggregateOutputType | null
+    _min: ParameterSettingsMinAggregateOutputType | null
+    _max: ParameterSettingsMaxAggregateOutputType | null
+  }
+
+  export type ParameterSettingsAvgAggregateOutputType = {
+    id: number | null
+    parameterId: number | null
+  }
+
+  export type ParameterSettingsSumAggregateOutputType = {
+    id: number | null
+    parameterId: number | null
+  }
+
+  export type ParameterSettingsMinAggregateOutputType = {
+    id: number | null
+    parameterId: number | null
+    key: string | null
+    value: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    createdBy: string | null
+    updatedBy: string | null
+  }
+
+  export type ParameterSettingsMaxAggregateOutputType = {
+    id: number | null
+    parameterId: number | null
+    key: string | null
+    value: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    createdBy: string | null
+    updatedBy: string | null
+  }
+
+  export type ParameterSettingsCountAggregateOutputType = {
+    id: number
+    parameterId: number
+    key: number
+    value: number
+    createdAt: number
+    updatedAt: number
+    createdBy: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type ParameterSettingsAvgAggregateInputType = {
+    id?: true
+    parameterId?: true
+  }
+
+  export type ParameterSettingsSumAggregateInputType = {
+    id?: true
+    parameterId?: true
+  }
+
+  export type ParameterSettingsMinAggregateInputType = {
+    id?: true
+    parameterId?: true
+    key?: true
+    value?: true
+    createdAt?: true
+    updatedAt?: true
+    createdBy?: true
+    updatedBy?: true
+  }
+
+  export type ParameterSettingsMaxAggregateInputType = {
+    id?: true
+    parameterId?: true
+    key?: true
+    value?: true
+    createdAt?: true
+    updatedAt?: true
+    createdBy?: true
+    updatedBy?: true
+  }
+
+  export type ParameterSettingsCountAggregateInputType = {
+    id?: true
+    parameterId?: true
+    key?: true
+    value?: true
+    createdAt?: true
+    updatedAt?: true
+    createdBy?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type ParameterSettingsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ParameterSettings to aggregate.
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ParameterSettings to fetch.
+     */
+    orderBy?: ParameterSettingsOrderByWithRelationInput | ParameterSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ParameterSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ParameterSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ParameterSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ParameterSettings
+    **/
+    _count?: true | ParameterSettingsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ParameterSettingsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ParameterSettingsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ParameterSettingsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ParameterSettingsMaxAggregateInputType
+  }
+
+  export type GetParameterSettingsAggregateType<T extends ParameterSettingsAggregateArgs> = {
+        [P in keyof T & keyof AggregateParameterSettings]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateParameterSettings[P]>
+      : GetScalarType<T[P], AggregateParameterSettings[P]>
+  }
+
+
+
+
+  export type ParameterSettingsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ParameterSettingsWhereInput
+    orderBy?: ParameterSettingsOrderByWithAggregationInput | ParameterSettingsOrderByWithAggregationInput[]
+    by: ParameterSettingsScalarFieldEnum[] | ParameterSettingsScalarFieldEnum
+    having?: ParameterSettingsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ParameterSettingsCountAggregateInputType | true
+    _avg?: ParameterSettingsAvgAggregateInputType
+    _sum?: ParameterSettingsSumAggregateInputType
+    _min?: ParameterSettingsMinAggregateInputType
+    _max?: ParameterSettingsMaxAggregateInputType
+  }
+
+  export type ParameterSettingsGroupByOutputType = {
+    id: number
+    parameterId: number
+    key: string
+    value: string
+    createdAt: Date
+    updatedAt: Date
+    createdBy: string | null
+    updatedBy: string | null
+    _count: ParameterSettingsCountAggregateOutputType | null
+    _avg: ParameterSettingsAvgAggregateOutputType | null
+    _sum: ParameterSettingsSumAggregateOutputType | null
+    _min: ParameterSettingsMinAggregateOutputType | null
+    _max: ParameterSettingsMaxAggregateOutputType | null
+  }
+
+  type GetParameterSettingsGroupByPayload<T extends ParameterSettingsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ParameterSettingsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ParameterSettingsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ParameterSettingsGroupByOutputType[P]>
+            : GetScalarType<T[P], ParameterSettingsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ParameterSettingsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    parameterId?: boolean
+    key?: boolean
+    value?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    createdBy?: boolean
+    updatedBy?: boolean
+    parameter?: boolean | ParametersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["parameterSettings"]>
+
+
+
+  export type ParameterSettingsSelectScalar = {
+    id?: boolean
+    parameterId?: boolean
+    key?: boolean
+    value?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    createdBy?: boolean
+    updatedBy?: boolean
+  }
+
+  export type ParameterSettingsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "parameterId" | "key" | "value" | "createdAt" | "updatedAt" | "createdBy" | "updatedBy", ExtArgs["result"]["parameterSettings"]>
+  export type ParameterSettingsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    parameter?: boolean | ParametersDefaultArgs<ExtArgs>
+  }
+
+  export type $ParameterSettingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ParameterSettings"
+    objects: {
+      parameter: Prisma.$ParametersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      parameterId: number
+      key: string
+      value: string
+      createdAt: Date
+      updatedAt: Date
+      createdBy: string | null
+      updatedBy: string | null
+    }, ExtArgs["result"]["parameterSettings"]>
+    composites: {}
+  }
+
+  type ParameterSettingsGetPayload<S extends boolean | null | undefined | ParameterSettingsDefaultArgs> = $Result.GetResult<Prisma.$ParameterSettingsPayload, S>
+
+  type ParameterSettingsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ParameterSettingsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ParameterSettingsCountAggregateInputType | true
+    }
+
+  export interface ParameterSettingsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ParameterSettings'], meta: { name: 'ParameterSettings' } }
+    /**
+     * Find zero or one ParameterSettings that matches the filter.
+     * @param {ParameterSettingsFindUniqueArgs} args - Arguments to find a ParameterSettings
+     * @example
+     * // Get one ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ParameterSettingsFindUniqueArgs>(args: SelectSubset<T, ParameterSettingsFindUniqueArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ParameterSettings that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ParameterSettingsFindUniqueOrThrowArgs} args - Arguments to find a ParameterSettings
+     * @example
+     * // Get one ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ParameterSettingsFindUniqueOrThrowArgs>(args: SelectSubset<T, ParameterSettingsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ParameterSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsFindFirstArgs} args - Arguments to find a ParameterSettings
+     * @example
+     * // Get one ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ParameterSettingsFindFirstArgs>(args?: SelectSubset<T, ParameterSettingsFindFirstArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ParameterSettings that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsFindFirstOrThrowArgs} args - Arguments to find a ParameterSettings
+     * @example
+     * // Get one ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ParameterSettingsFindFirstOrThrowArgs>(args?: SelectSubset<T, ParameterSettingsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ParameterSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findMany()
+     * 
+     * // Get first 10 ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const parameterSettingsWithIdOnly = await prisma.parameterSettings.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ParameterSettingsFindManyArgs>(args?: SelectSubset<T, ParameterSettingsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ParameterSettings.
+     * @param {ParameterSettingsCreateArgs} args - Arguments to create a ParameterSettings.
+     * @example
+     * // Create one ParameterSettings
+     * const ParameterSettings = await prisma.parameterSettings.create({
+     *   data: {
+     *     // ... data to create a ParameterSettings
+     *   }
+     * })
+     * 
+     */
+    create<T extends ParameterSettingsCreateArgs>(args: SelectSubset<T, ParameterSettingsCreateArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ParameterSettings.
+     * @param {ParameterSettingsCreateManyArgs} args - Arguments to create many ParameterSettings.
+     * @example
+     * // Create many ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ParameterSettingsCreateManyArgs>(args?: SelectSubset<T, ParameterSettingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a ParameterSettings.
+     * @param {ParameterSettingsDeleteArgs} args - Arguments to delete one ParameterSettings.
+     * @example
+     * // Delete one ParameterSettings
+     * const ParameterSettings = await prisma.parameterSettings.delete({
+     *   where: {
+     *     // ... filter to delete one ParameterSettings
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ParameterSettingsDeleteArgs>(args: SelectSubset<T, ParameterSettingsDeleteArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ParameterSettings.
+     * @param {ParameterSettingsUpdateArgs} args - Arguments to update one ParameterSettings.
+     * @example
+     * // Update one ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ParameterSettingsUpdateArgs>(args: SelectSubset<T, ParameterSettingsUpdateArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ParameterSettings.
+     * @param {ParameterSettingsDeleteManyArgs} args - Arguments to filter ParameterSettings to delete.
+     * @example
+     * // Delete a few ParameterSettings
+     * const { count } = await prisma.parameterSettings.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ParameterSettingsDeleteManyArgs>(args?: SelectSubset<T, ParameterSettingsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ParameterSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ParameterSettingsUpdateManyArgs>(args: SelectSubset<T, ParameterSettingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ParameterSettings.
+     * @param {ParameterSettingsUpsertArgs} args - Arguments to update or create a ParameterSettings.
+     * @example
+     * // Update or create a ParameterSettings
+     * const parameterSettings = await prisma.parameterSettings.upsert({
+     *   create: {
+     *     // ... data to create a ParameterSettings
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ParameterSettings we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ParameterSettingsUpsertArgs>(args: SelectSubset<T, ParameterSettingsUpsertArgs<ExtArgs>>): Prisma__ParameterSettingsClient<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ParameterSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsCountArgs} args - Arguments to filter ParameterSettings to count.
+     * @example
+     * // Count the number of ParameterSettings
+     * const count = await prisma.parameterSettings.count({
+     *   where: {
+     *     // ... the filter for the ParameterSettings we want to count
+     *   }
+     * })
+    **/
+    count<T extends ParameterSettingsCountArgs>(
+      args?: Subset<T, ParameterSettingsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ParameterSettingsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ParameterSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ParameterSettingsAggregateArgs>(args: Subset<T, ParameterSettingsAggregateArgs>): Prisma.PrismaPromise<GetParameterSettingsAggregateType<T>>
+
+    /**
+     * Group by ParameterSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParameterSettingsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ParameterSettingsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ParameterSettingsGroupByArgs['orderBy'] }
+        : { orderBy?: ParameterSettingsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ParameterSettingsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetParameterSettingsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ParameterSettings model
+   */
+  readonly fields: ParameterSettingsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ParameterSettings.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ParameterSettingsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    parameter<T extends ParametersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ParametersDefaultArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ParameterSettings model
+   */
+  interface ParameterSettingsFieldRefs {
+    readonly id: FieldRef<"ParameterSettings", 'Int'>
+    readonly parameterId: FieldRef<"ParameterSettings", 'Int'>
+    readonly key: FieldRef<"ParameterSettings", 'String'>
+    readonly value: FieldRef<"ParameterSettings", 'String'>
+    readonly createdAt: FieldRef<"ParameterSettings", 'DateTime'>
+    readonly updatedAt: FieldRef<"ParameterSettings", 'DateTime'>
+    readonly createdBy: FieldRef<"ParameterSettings", 'String'>
+    readonly updatedBy: FieldRef<"ParameterSettings", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ParameterSettings findUnique
+   */
+  export type ParameterSettingsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter, which ParameterSettings to fetch.
+     */
+    where: ParameterSettingsWhereUniqueInput
+  }
+
+  /**
+   * ParameterSettings findUniqueOrThrow
+   */
+  export type ParameterSettingsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter, which ParameterSettings to fetch.
+     */
+    where: ParameterSettingsWhereUniqueInput
+  }
+
+  /**
+   * ParameterSettings findFirst
+   */
+  export type ParameterSettingsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter, which ParameterSettings to fetch.
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ParameterSettings to fetch.
+     */
+    orderBy?: ParameterSettingsOrderByWithRelationInput | ParameterSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ParameterSettings.
+     */
+    cursor?: ParameterSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ParameterSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ParameterSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ParameterSettings.
+     */
+    distinct?: ParameterSettingsScalarFieldEnum | ParameterSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * ParameterSettings findFirstOrThrow
+   */
+  export type ParameterSettingsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter, which ParameterSettings to fetch.
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ParameterSettings to fetch.
+     */
+    orderBy?: ParameterSettingsOrderByWithRelationInput | ParameterSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ParameterSettings.
+     */
+    cursor?: ParameterSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ParameterSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ParameterSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ParameterSettings.
+     */
+    distinct?: ParameterSettingsScalarFieldEnum | ParameterSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * ParameterSettings findMany
+   */
+  export type ParameterSettingsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter, which ParameterSettings to fetch.
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ParameterSettings to fetch.
+     */
+    orderBy?: ParameterSettingsOrderByWithRelationInput | ParameterSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ParameterSettings.
+     */
+    cursor?: ParameterSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ParameterSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ParameterSettings.
+     */
+    skip?: number
+    distinct?: ParameterSettingsScalarFieldEnum | ParameterSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * ParameterSettings create
+   */
+  export type ParameterSettingsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ParameterSettings.
+     */
+    data: XOR<ParameterSettingsCreateInput, ParameterSettingsUncheckedCreateInput>
+  }
+
+  /**
+   * ParameterSettings createMany
+   */
+  export type ParameterSettingsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ParameterSettings.
+     */
+    data: ParameterSettingsCreateManyInput | ParameterSettingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ParameterSettings update
+   */
+  export type ParameterSettingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ParameterSettings.
+     */
+    data: XOR<ParameterSettingsUpdateInput, ParameterSettingsUncheckedUpdateInput>
+    /**
+     * Choose, which ParameterSettings to update.
+     */
+    where: ParameterSettingsWhereUniqueInput
+  }
+
+  /**
+   * ParameterSettings updateMany
+   */
+  export type ParameterSettingsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ParameterSettings.
+     */
+    data: XOR<ParameterSettingsUpdateManyMutationInput, ParameterSettingsUncheckedUpdateManyInput>
+    /**
+     * Filter which ParameterSettings to update
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * Limit how many ParameterSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ParameterSettings upsert
+   */
+  export type ParameterSettingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ParameterSettings to update in case it exists.
+     */
+    where: ParameterSettingsWhereUniqueInput
+    /**
+     * In case the ParameterSettings found by the `where` argument doesn't exist, create a new ParameterSettings with this data.
+     */
+    create: XOR<ParameterSettingsCreateInput, ParameterSettingsUncheckedCreateInput>
+    /**
+     * In case the ParameterSettings was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ParameterSettingsUpdateInput, ParameterSettingsUncheckedUpdateInput>
+  }
+
+  /**
+   * ParameterSettings delete
+   */
+  export type ParameterSettingsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+    /**
+     * Filter which ParameterSettings to delete.
+     */
+    where: ParameterSettingsWhereUniqueInput
+  }
+
+  /**
+   * ParameterSettings deleteMany
+   */
+  export type ParameterSettingsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ParameterSettings to delete
+     */
+    where?: ParameterSettingsWhereInput
+    /**
+     * Limit how many ParameterSettings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ParameterSettings without action
+   */
+  export type ParameterSettingsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ParameterSettings
+     */
+    select?: ParameterSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ParameterSettings
+     */
+    omit?: ParameterSettingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParameterSettingsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -19399,6 +20530,7 @@ export namespace Prisma {
     arrivalItemId: 'arrivalItemId',
     parameterId: 'parameterId',
     historyId: 'historyId',
+    resultKey: 'resultKey',
     value: 'value',
     createdAt: 'createdAt',
     createdBy: 'createdBy',
@@ -19490,6 +20622,20 @@ export namespace Prisma {
   };
 
   export type ArrivalStatusesScalarFieldEnum = (typeof ArrivalStatusesScalarFieldEnum)[keyof typeof ArrivalStatusesScalarFieldEnum]
+
+
+  export const ParameterSettingsScalarFieldEnum: {
+    id: 'id',
+    parameterId: 'parameterId',
+    key: 'key',
+    value: 'value',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ParameterSettingsScalarFieldEnum = (typeof ParameterSettingsScalarFieldEnum)[keyof typeof ParameterSettingsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -19609,6 +20755,7 @@ export namespace Prisma {
 
 
   export const QcResultsOrderByRelevanceFieldEnum: {
+    resultKey: 'resultKey',
     value: 'value',
     createdBy: 'createdBy',
     updatedBy: 'updatedBy'
@@ -19671,6 +20818,16 @@ export namespace Prisma {
   };
 
   export type ArrivalStatusesOrderByRelevanceFieldEnum = (typeof ArrivalStatusesOrderByRelevanceFieldEnum)[keyof typeof ArrivalStatusesOrderByRelevanceFieldEnum]
+
+
+  export const ParameterSettingsOrderByRelevanceFieldEnum: {
+    key: 'key',
+    value: 'value',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ParameterSettingsOrderByRelevanceFieldEnum = (typeof ParameterSettingsOrderByRelevanceFieldEnum)[keyof typeof ParameterSettingsOrderByRelevanceFieldEnum]
 
 
   /**
@@ -20020,6 +21177,7 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"Parameters"> | string | null
     ArrivalItems?: ArrivalItemsListRelationFilter
     QcResults?: QcResultsListRelationFilter
+    settings?: ParameterSettingsListRelationFilter
   }
 
   export type ParametersOrderByWithRelationInput = {
@@ -20033,6 +21191,7 @@ export namespace Prisma {
     updatedBy?: SortOrderInput | SortOrder
     ArrivalItems?: ArrivalItemsOrderByRelationAggregateInput
     QcResults?: QcResultsOrderByRelationAggregateInput
+    settings?: ParameterSettingsOrderByRelationAggregateInput
     _relevance?: ParametersOrderByRelevanceInput
   }
 
@@ -20050,6 +21209,7 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"Parameters"> | string | null
     ArrivalItems?: ArrivalItemsListRelationFilter
     QcResults?: QcResultsListRelationFilter
+    settings?: ParameterSettingsListRelationFilter
   }, "id">
 
   export type ParametersOrderByWithAggregationInput = {
@@ -20498,6 +21658,7 @@ export namespace Prisma {
     arrivalItemId?: IntFilter<"QcResults"> | number
     parameterId?: IntFilter<"QcResults"> | number
     historyId?: IntNullableFilter<"QcResults"> | number | null
+    resultKey?: StringFilter<"QcResults"> | string
     value?: StringFilter<"QcResults"> | string
     createdAt?: DateTimeFilter<"QcResults"> | Date | string
     createdBy?: StringNullableFilter<"QcResults"> | string | null
@@ -20513,6 +21674,7 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
     parameterId?: SortOrder
     historyId?: SortOrderInput | SortOrder
+    resultKey?: SortOrder
     value?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrderInput | SortOrder
@@ -20532,6 +21694,7 @@ export namespace Prisma {
     arrivalItemId?: IntFilter<"QcResults"> | number
     parameterId?: IntFilter<"QcResults"> | number
     historyId?: IntNullableFilter<"QcResults"> | number | null
+    resultKey?: StringFilter<"QcResults"> | string
     value?: StringFilter<"QcResults"> | string
     createdAt?: DateTimeFilter<"QcResults"> | Date | string
     createdBy?: StringNullableFilter<"QcResults"> | string | null
@@ -20547,6 +21710,7 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
     parameterId?: SortOrder
     historyId?: SortOrderInput | SortOrder
+    resultKey?: SortOrder
     value?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrderInput | SortOrder
@@ -20567,6 +21731,7 @@ export namespace Prisma {
     arrivalItemId?: IntWithAggregatesFilter<"QcResults"> | number
     parameterId?: IntWithAggregatesFilter<"QcResults"> | number
     historyId?: IntNullableWithAggregatesFilter<"QcResults"> | number | null
+    resultKey?: StringWithAggregatesFilter<"QcResults"> | string
     value?: StringWithAggregatesFilter<"QcResults"> | string
     createdAt?: DateTimeWithAggregatesFilter<"QcResults"> | Date | string
     createdBy?: StringNullableWithAggregatesFilter<"QcResults"> | string | null
@@ -21022,6 +22187,80 @@ export namespace Prisma {
     updatedBy?: StringNullableWithAggregatesFilter<"ArrivalStatuses"> | string | null
   }
 
+  export type ParameterSettingsWhereInput = {
+    AND?: ParameterSettingsWhereInput | ParameterSettingsWhereInput[]
+    OR?: ParameterSettingsWhereInput[]
+    NOT?: ParameterSettingsWhereInput | ParameterSettingsWhereInput[]
+    id?: IntFilter<"ParameterSettings"> | number
+    parameterId?: IntFilter<"ParameterSettings"> | number
+    key?: StringFilter<"ParameterSettings"> | string
+    value?: StringFilter<"ParameterSettings"> | string
+    createdAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    updatedAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    createdBy?: StringNullableFilter<"ParameterSettings"> | string | null
+    updatedBy?: StringNullableFilter<"ParameterSettings"> | string | null
+    parameter?: XOR<ParametersScalarRelationFilter, ParametersWhereInput>
+  }
+
+  export type ParameterSettingsOrderByWithRelationInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    createdBy?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    parameter?: ParametersOrderByWithRelationInput
+    _relevance?: ParameterSettingsOrderByRelevanceInput
+  }
+
+  export type ParameterSettingsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    parameterId_key?: ParameterSettingsParameterIdKeyCompoundUniqueInput
+    AND?: ParameterSettingsWhereInput | ParameterSettingsWhereInput[]
+    OR?: ParameterSettingsWhereInput[]
+    NOT?: ParameterSettingsWhereInput | ParameterSettingsWhereInput[]
+    parameterId?: IntFilter<"ParameterSettings"> | number
+    key?: StringFilter<"ParameterSettings"> | string
+    value?: StringFilter<"ParameterSettings"> | string
+    createdAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    updatedAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    createdBy?: StringNullableFilter<"ParameterSettings"> | string | null
+    updatedBy?: StringNullableFilter<"ParameterSettings"> | string | null
+    parameter?: XOR<ParametersScalarRelationFilter, ParametersWhereInput>
+  }, "id" | "parameterId_key">
+
+  export type ParameterSettingsOrderByWithAggregationInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    createdBy?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    _count?: ParameterSettingsCountOrderByAggregateInput
+    _avg?: ParameterSettingsAvgOrderByAggregateInput
+    _max?: ParameterSettingsMaxOrderByAggregateInput
+    _min?: ParameterSettingsMinOrderByAggregateInput
+    _sum?: ParameterSettingsSumOrderByAggregateInput
+  }
+
+  export type ParameterSettingsScalarWhereWithAggregatesInput = {
+    AND?: ParameterSettingsScalarWhereWithAggregatesInput | ParameterSettingsScalarWhereWithAggregatesInput[]
+    OR?: ParameterSettingsScalarWhereWithAggregatesInput[]
+    NOT?: ParameterSettingsScalarWhereWithAggregatesInput | ParameterSettingsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ParameterSettings"> | number
+    parameterId?: IntWithAggregatesFilter<"ParameterSettings"> | number
+    key?: StringWithAggregatesFilter<"ParameterSettings"> | string
+    value?: StringWithAggregatesFilter<"ParameterSettings"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ParameterSettings"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ParameterSettings"> | Date | string
+    createdBy?: StringNullableWithAggregatesFilter<"ParameterSettings"> | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"ParameterSettings"> | string | null
+  }
+
   export type UsersCreateInput = {
     username: string
     email: string
@@ -21347,6 +22586,7 @@ export namespace Prisma {
     updatedBy?: string | null
     ArrivalItems?: ArrivalItemsCreateNestedManyWithoutParameterInput
     QcResults?: QcResultsCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersUncheckedCreateInput = {
@@ -21360,6 +22600,7 @@ export namespace Prisma {
     updatedBy?: string | null
     ArrivalItems?: ArrivalItemsUncheckedCreateNestedManyWithoutParameterInput
     QcResults?: QcResultsUncheckedCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsUncheckedCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersUpdateInput = {
@@ -21372,6 +22613,7 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     ArrivalItems?: ArrivalItemsUpdateManyWithoutParameterNestedInput
     QcResults?: QcResultsUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUpdateManyWithoutParameterNestedInput
   }
 
   export type ParametersUncheckedUpdateInput = {
@@ -21385,6 +22627,7 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     ArrivalItems?: ArrivalItemsUncheckedUpdateManyWithoutParameterNestedInput
     QcResults?: QcResultsUncheckedUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUncheckedUpdateManyWithoutParameterNestedInput
   }
 
   export type ParametersCreateManyInput = {
@@ -21857,6 +23100,7 @@ export namespace Prisma {
   }
 
   export type QcResultsCreateInput = {
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -21872,6 +23116,7 @@ export namespace Prisma {
     arrivalItemId: number
     parameterId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -21880,6 +23125,7 @@ export namespace Prisma {
   }
 
   export type QcResultsUpdateInput = {
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21895,6 +23141,7 @@ export namespace Prisma {
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21907,6 +23154,7 @@ export namespace Prisma {
     arrivalItemId: number
     parameterId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -21915,6 +23163,7 @@ export namespace Prisma {
   }
 
   export type QcResultsUpdateManyMutationInput = {
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21927,6 +23176,7 @@ export namespace Prisma {
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -22375,6 +23625,79 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type ParameterSettingsCreateInput = {
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
+    updatedBy?: string | null
+    parameter: ParametersCreateNestedOneWithoutSettingsInput
+  }
+
+  export type ParameterSettingsUncheckedCreateInput = {
+    id?: number
+    parameterId: number
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
+    updatedBy?: string | null
+  }
+
+  export type ParameterSettingsUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    parameter?: ParametersUpdateOneRequiredWithoutSettingsNestedInput
+  }
+
+  export type ParameterSettingsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    parameterId?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ParameterSettingsCreateManyInput = {
+    id?: number
+    parameterId: number
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
+    updatedBy?: string | null
+  }
+
+  export type ParameterSettingsUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ParameterSettingsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    parameterId?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -22714,7 +24037,17 @@ export namespace Prisma {
     none?: QcResultsWhereInput
   }
 
+  export type ParameterSettingsListRelationFilter = {
+    every?: ParameterSettingsWhereInput
+    some?: ParameterSettingsWhereInput
+    none?: ParameterSettingsWhereInput
+  }
+
   export type QcResultsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ParameterSettingsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -23217,6 +24550,7 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
     parameterId?: SortOrder
     historyId?: SortOrder
+    resultKey?: SortOrder
     value?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
@@ -23236,6 +24570,7 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
     parameterId?: SortOrder
     historyId?: SortOrder
+    resultKey?: SortOrder
     value?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
@@ -23248,6 +24583,7 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
     parameterId?: SortOrder
     historyId?: SortOrder
+    resultKey?: SortOrder
     value?: SortOrder
     createdAt?: SortOrder
     createdBy?: SortOrder
@@ -23583,6 +24919,65 @@ export namespace Prisma {
     arrivalId?: SortOrder
   }
 
+  export type ParametersScalarRelationFilter = {
+    is?: ParametersWhereInput
+    isNot?: ParametersWhereInput
+  }
+
+  export type ParameterSettingsOrderByRelevanceInput = {
+    fields: ParameterSettingsOrderByRelevanceFieldEnum | ParameterSettingsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type ParameterSettingsParameterIdKeyCompoundUniqueInput = {
+    parameterId: number
+    key: string
+  }
+
+  export type ParameterSettingsCountOrderByAggregateInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ParameterSettingsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+  }
+
+  export type ParameterSettingsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ParameterSettingsMinOrderByAggregateInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ParameterSettingsSumOrderByAggregateInput = {
+    id?: SortOrder
+    parameterId?: SortOrder
+  }
+
   export type QcHistoriesCreateNestedManyWithoutUserInput = {
     create?: XOR<QcHistoriesCreateWithoutUserInput, QcHistoriesUncheckedCreateWithoutUserInput> | QcHistoriesCreateWithoutUserInput[] | QcHistoriesUncheckedCreateWithoutUserInput[]
     connectOrCreate?: QcHistoriesCreateOrConnectWithoutUserInput | QcHistoriesCreateOrConnectWithoutUserInput[]
@@ -23785,6 +25180,13 @@ export namespace Prisma {
     connect?: QcResultsWhereUniqueInput | QcResultsWhereUniqueInput[]
   }
 
+  export type ParameterSettingsCreateNestedManyWithoutParameterInput = {
+    create?: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput> | ParameterSettingsCreateWithoutParameterInput[] | ParameterSettingsUncheckedCreateWithoutParameterInput[]
+    connectOrCreate?: ParameterSettingsCreateOrConnectWithoutParameterInput | ParameterSettingsCreateOrConnectWithoutParameterInput[]
+    createMany?: ParameterSettingsCreateManyParameterInputEnvelope
+    connect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+  }
+
   export type ArrivalItemsUncheckedCreateNestedManyWithoutParameterInput = {
     create?: XOR<ArrivalItemsCreateWithoutParameterInput, ArrivalItemsUncheckedCreateWithoutParameterInput> | ArrivalItemsCreateWithoutParameterInput[] | ArrivalItemsUncheckedCreateWithoutParameterInput[]
     connectOrCreate?: ArrivalItemsCreateOrConnectWithoutParameterInput | ArrivalItemsCreateOrConnectWithoutParameterInput[]
@@ -23797,6 +25199,13 @@ export namespace Prisma {
     connectOrCreate?: QcResultsCreateOrConnectWithoutParameterInput | QcResultsCreateOrConnectWithoutParameterInput[]
     createMany?: QcResultsCreateManyParameterInputEnvelope
     connect?: QcResultsWhereUniqueInput | QcResultsWhereUniqueInput[]
+  }
+
+  export type ParameterSettingsUncheckedCreateNestedManyWithoutParameterInput = {
+    create?: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput> | ParameterSettingsCreateWithoutParameterInput[] | ParameterSettingsUncheckedCreateWithoutParameterInput[]
+    connectOrCreate?: ParameterSettingsCreateOrConnectWithoutParameterInput | ParameterSettingsCreateOrConnectWithoutParameterInput[]
+    createMany?: ParameterSettingsCreateManyParameterInputEnvelope
+    connect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
   }
 
   export type ArrivalItemsUpdateManyWithoutParameterNestedInput = {
@@ -23827,6 +25236,20 @@ export namespace Prisma {
     deleteMany?: QcResultsScalarWhereInput | QcResultsScalarWhereInput[]
   }
 
+  export type ParameterSettingsUpdateManyWithoutParameterNestedInput = {
+    create?: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput> | ParameterSettingsCreateWithoutParameterInput[] | ParameterSettingsUncheckedCreateWithoutParameterInput[]
+    connectOrCreate?: ParameterSettingsCreateOrConnectWithoutParameterInput | ParameterSettingsCreateOrConnectWithoutParameterInput[]
+    upsert?: ParameterSettingsUpsertWithWhereUniqueWithoutParameterInput | ParameterSettingsUpsertWithWhereUniqueWithoutParameterInput[]
+    createMany?: ParameterSettingsCreateManyParameterInputEnvelope
+    set?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    disconnect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    delete?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    connect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    update?: ParameterSettingsUpdateWithWhereUniqueWithoutParameterInput | ParameterSettingsUpdateWithWhereUniqueWithoutParameterInput[]
+    updateMany?: ParameterSettingsUpdateManyWithWhereWithoutParameterInput | ParameterSettingsUpdateManyWithWhereWithoutParameterInput[]
+    deleteMany?: ParameterSettingsScalarWhereInput | ParameterSettingsScalarWhereInput[]
+  }
+
   export type ArrivalItemsUncheckedUpdateManyWithoutParameterNestedInput = {
     create?: XOR<ArrivalItemsCreateWithoutParameterInput, ArrivalItemsUncheckedCreateWithoutParameterInput> | ArrivalItemsCreateWithoutParameterInput[] | ArrivalItemsUncheckedCreateWithoutParameterInput[]
     connectOrCreate?: ArrivalItemsCreateOrConnectWithoutParameterInput | ArrivalItemsCreateOrConnectWithoutParameterInput[]
@@ -23853,6 +25276,20 @@ export namespace Prisma {
     update?: QcResultsUpdateWithWhereUniqueWithoutParameterInput | QcResultsUpdateWithWhereUniqueWithoutParameterInput[]
     updateMany?: QcResultsUpdateManyWithWhereWithoutParameterInput | QcResultsUpdateManyWithWhereWithoutParameterInput[]
     deleteMany?: QcResultsScalarWhereInput | QcResultsScalarWhereInput[]
+  }
+
+  export type ParameterSettingsUncheckedUpdateManyWithoutParameterNestedInput = {
+    create?: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput> | ParameterSettingsCreateWithoutParameterInput[] | ParameterSettingsUncheckedCreateWithoutParameterInput[]
+    connectOrCreate?: ParameterSettingsCreateOrConnectWithoutParameterInput | ParameterSettingsCreateOrConnectWithoutParameterInput[]
+    upsert?: ParameterSettingsUpsertWithWhereUniqueWithoutParameterInput | ParameterSettingsUpsertWithWhereUniqueWithoutParameterInput[]
+    createMany?: ParameterSettingsCreateManyParameterInputEnvelope
+    set?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    disconnect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    delete?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    connect?: ParameterSettingsWhereUniqueInput | ParameterSettingsWhereUniqueInput[]
+    update?: ParameterSettingsUpdateWithWhereUniqueWithoutParameterInput | ParameterSettingsUpdateWithWhereUniqueWithoutParameterInput[]
+    updateMany?: ParameterSettingsUpdateManyWithWhereWithoutParameterInput | ParameterSettingsUpdateManyWithWhereWithoutParameterInput[]
+    deleteMany?: ParameterSettingsScalarWhereInput | ParameterSettingsScalarWhereInput[]
   }
 
   export type SuppliersCreateNestedOneWithoutArrivalsInput = {
@@ -24641,6 +26078,20 @@ export namespace Prisma {
     update?: XOR<XOR<ArrivalsUpdateToOneWithWhereWithoutArrivalStatusesInput, ArrivalsUpdateWithoutArrivalStatusesInput>, ArrivalsUncheckedUpdateWithoutArrivalStatusesInput>
   }
 
+  export type ParametersCreateNestedOneWithoutSettingsInput = {
+    create?: XOR<ParametersCreateWithoutSettingsInput, ParametersUncheckedCreateWithoutSettingsInput>
+    connectOrCreate?: ParametersCreateOrConnectWithoutSettingsInput
+    connect?: ParametersWhereUniqueInput
+  }
+
+  export type ParametersUpdateOneRequiredWithoutSettingsNestedInput = {
+    create?: XOR<ParametersCreateWithoutSettingsInput, ParametersUncheckedCreateWithoutSettingsInput>
+    connectOrCreate?: ParametersCreateOrConnectWithoutSettingsInput
+    upsert?: ParametersUpsertWithoutSettingsInput
+    connect?: ParametersWhereUniqueInput
+    update?: XOR<XOR<ParametersUpdateToOneWithWhereWithoutSettingsInput, ParametersUpdateWithoutSettingsInput>, ParametersUncheckedUpdateWithoutSettingsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -25266,6 +26717,7 @@ export namespace Prisma {
   }
 
   export type QcResultsCreateWithoutParameterInput = {
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -25279,6 +26731,7 @@ export namespace Prisma {
     id?: number
     arrivalItemId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -25293,6 +26746,35 @@ export namespace Prisma {
 
   export type QcResultsCreateManyParameterInputEnvelope = {
     data: QcResultsCreateManyParameterInput | QcResultsCreateManyParameterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ParameterSettingsCreateWithoutParameterInput = {
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
+    updatedBy?: string | null
+  }
+
+  export type ParameterSettingsUncheckedCreateWithoutParameterInput = {
+    id?: number
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
+    updatedBy?: string | null
+  }
+
+  export type ParameterSettingsCreateOrConnectWithoutParameterInput = {
+    where: ParameterSettingsWhereUniqueInput
+    create: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput>
+  }
+
+  export type ParameterSettingsCreateManyParameterInputEnvelope = {
+    data: ParameterSettingsCreateManyParameterInput | ParameterSettingsCreateManyParameterInput[]
     skipDuplicates?: boolean
   }
 
@@ -25336,11 +26818,42 @@ export namespace Prisma {
     arrivalItemId?: IntFilter<"QcResults"> | number
     parameterId?: IntFilter<"QcResults"> | number
     historyId?: IntNullableFilter<"QcResults"> | number | null
+    resultKey?: StringFilter<"QcResults"> | string
     value?: StringFilter<"QcResults"> | string
     createdAt?: DateTimeFilter<"QcResults"> | Date | string
     createdBy?: StringNullableFilter<"QcResults"> | string | null
     updatedAt?: DateTimeFilter<"QcResults"> | Date | string
     updatedBy?: StringNullableFilter<"QcResults"> | string | null
+  }
+
+  export type ParameterSettingsUpsertWithWhereUniqueWithoutParameterInput = {
+    where: ParameterSettingsWhereUniqueInput
+    update: XOR<ParameterSettingsUpdateWithoutParameterInput, ParameterSettingsUncheckedUpdateWithoutParameterInput>
+    create: XOR<ParameterSettingsCreateWithoutParameterInput, ParameterSettingsUncheckedCreateWithoutParameterInput>
+  }
+
+  export type ParameterSettingsUpdateWithWhereUniqueWithoutParameterInput = {
+    where: ParameterSettingsWhereUniqueInput
+    data: XOR<ParameterSettingsUpdateWithoutParameterInput, ParameterSettingsUncheckedUpdateWithoutParameterInput>
+  }
+
+  export type ParameterSettingsUpdateManyWithWhereWithoutParameterInput = {
+    where: ParameterSettingsScalarWhereInput
+    data: XOR<ParameterSettingsUpdateManyMutationInput, ParameterSettingsUncheckedUpdateManyWithoutParameterInput>
+  }
+
+  export type ParameterSettingsScalarWhereInput = {
+    AND?: ParameterSettingsScalarWhereInput | ParameterSettingsScalarWhereInput[]
+    OR?: ParameterSettingsScalarWhereInput[]
+    NOT?: ParameterSettingsScalarWhereInput | ParameterSettingsScalarWhereInput[]
+    id?: IntFilter<"ParameterSettings"> | number
+    parameterId?: IntFilter<"ParameterSettings"> | number
+    key?: StringFilter<"ParameterSettings"> | string
+    value?: StringFilter<"ParameterSettings"> | string
+    createdAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    updatedAt?: DateTimeFilter<"ParameterSettings"> | Date | string
+    createdBy?: StringNullableFilter<"ParameterSettings"> | string | null
+    updatedBy?: StringNullableFilter<"ParameterSettings"> | string | null
   }
 
   export type SuppliersCreateWithoutArrivalsInput = {
@@ -25760,6 +27273,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedBy?: string | null
     QcResults?: QcResultsCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersUncheckedCreateWithoutArrivalItemsInput = {
@@ -25772,6 +27286,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedBy?: string | null
     QcResults?: QcResultsUncheckedCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsUncheckedCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersCreateOrConnectWithoutArrivalItemsInput = {
@@ -25798,6 +27313,7 @@ export namespace Prisma {
   }
 
   export type QcResultsCreateWithoutArrivalItemInput = {
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -25811,6 +27327,7 @@ export namespace Prisma {
     id?: number
     parameterId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -26082,6 +27599,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     QcResults?: QcResultsUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUpdateManyWithoutParameterNestedInput
   }
 
   export type ParametersUncheckedUpdateWithoutArrivalItemsInput = {
@@ -26094,6 +27612,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     QcResults?: QcResultsUncheckedUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUncheckedUpdateManyWithoutParameterNestedInput
   }
 
   export type QcStatusUpsertWithoutArrivalItemsInput = {
@@ -26436,6 +27955,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedBy?: string | null
     ArrivalItems?: ArrivalItemsCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersUncheckedCreateWithoutQcResultsInput = {
@@ -26448,6 +27968,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedBy?: string | null
     ArrivalItems?: ArrivalItemsUncheckedCreateNestedManyWithoutParameterInput
+    settings?: ParameterSettingsUncheckedCreateNestedManyWithoutParameterInput
   }
 
   export type ParametersCreateOrConnectWithoutQcResultsInput = {
@@ -26577,6 +28098,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     ArrivalItems?: ArrivalItemsUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUpdateManyWithoutParameterNestedInput
   }
 
   export type ParametersUncheckedUpdateWithoutQcResultsInput = {
@@ -26589,6 +28111,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     ArrivalItems?: ArrivalItemsUncheckedUpdateManyWithoutParameterNestedInput
+    settings?: ParameterSettingsUncheckedUpdateManyWithoutParameterNestedInput
   }
 
   export type QcHistoriesUpsertWithoutQcResultsInput = {
@@ -27263,6 +28786,7 @@ export namespace Prisma {
   }
 
   export type QcResultsCreateWithoutHistoryInput = {
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -27276,6 +28800,7 @@ export namespace Prisma {
     id?: number
     arrivalItemId: number
     parameterId: number
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -27570,6 +29095,72 @@ export namespace Prisma {
     ArrivalItems?: ArrivalItemsUncheckedUpdateManyWithoutArrivalNestedInput
     QcHistories?: QcHistoriesUncheckedUpdateManyWithoutArrivalNestedInput
     SecurityPhotos?: SecurityPhotosUncheckedUpdateManyWithoutArrivalNestedInput
+  }
+
+  export type ParametersCreateWithoutSettingsInput = {
+    name: string
+    unit?: string | null
+    type?: string | null
+    createdAt?: Date | string
+    createdBy?: string | null
+    updatedAt?: Date | string
+    updatedBy?: string | null
+    ArrivalItems?: ArrivalItemsCreateNestedManyWithoutParameterInput
+    QcResults?: QcResultsCreateNestedManyWithoutParameterInput
+  }
+
+  export type ParametersUncheckedCreateWithoutSettingsInput = {
+    id?: number
+    name: string
+    unit?: string | null
+    type?: string | null
+    createdAt?: Date | string
+    createdBy?: string | null
+    updatedAt?: Date | string
+    updatedBy?: string | null
+    ArrivalItems?: ArrivalItemsUncheckedCreateNestedManyWithoutParameterInput
+    QcResults?: QcResultsUncheckedCreateNestedManyWithoutParameterInput
+  }
+
+  export type ParametersCreateOrConnectWithoutSettingsInput = {
+    where: ParametersWhereUniqueInput
+    create: XOR<ParametersCreateWithoutSettingsInput, ParametersUncheckedCreateWithoutSettingsInput>
+  }
+
+  export type ParametersUpsertWithoutSettingsInput = {
+    update: XOR<ParametersUpdateWithoutSettingsInput, ParametersUncheckedUpdateWithoutSettingsInput>
+    create: XOR<ParametersCreateWithoutSettingsInput, ParametersUncheckedCreateWithoutSettingsInput>
+    where?: ParametersWhereInput
+  }
+
+  export type ParametersUpdateToOneWithWhereWithoutSettingsInput = {
+    where?: ParametersWhereInput
+    data: XOR<ParametersUpdateWithoutSettingsInput, ParametersUncheckedUpdateWithoutSettingsInput>
+  }
+
+  export type ParametersUpdateWithoutSettingsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ArrivalItems?: ArrivalItemsUpdateManyWithoutParameterNestedInput
+    QcResults?: QcResultsUpdateManyWithoutParameterNestedInput
+  }
+
+  export type ParametersUncheckedUpdateWithoutSettingsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    unit?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ArrivalItems?: ArrivalItemsUncheckedUpdateManyWithoutParameterNestedInput
+    QcResults?: QcResultsUncheckedUpdateManyWithoutParameterNestedInput
   }
 
   export type QcHistoriesCreateManyUserInput = {
@@ -27929,10 +29520,21 @@ export namespace Prisma {
     id?: number
     arrivalItemId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
     updatedAt?: Date | string
+    updatedBy?: string | null
+  }
+
+  export type ParameterSettingsCreateManyParameterInput = {
+    id?: number
+    key: string
+    value: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    createdBy?: string | null
     updatedBy?: string | null
   }
 
@@ -28015,6 +29617,7 @@ export namespace Prisma {
   }
 
   export type QcResultsUpdateWithoutParameterInput = {
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28028,6 +29631,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28039,10 +29643,40 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ParameterSettingsUpdateWithoutParameterInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ParameterSettingsUncheckedUpdateWithoutParameterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ParameterSettingsUncheckedUpdateManyWithoutParameterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -28247,6 +29881,7 @@ export namespace Prisma {
     id?: number
     parameterId: number
     historyId?: number | null
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -28299,6 +29934,7 @@ export namespace Prisma {
   }
 
   export type QcResultsUpdateWithoutArrivalItemInput = {
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28312,6 +29948,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28323,6 +29960,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
     historyId?: NullableIntFieldUpdateOperationsInput | number | null
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28626,6 +30264,7 @@ export namespace Prisma {
     id?: number
     arrivalItemId: number
     parameterId: number
+    resultKey: string
     value: string
     createdAt?: Date | string
     createdBy?: string | null
@@ -28634,6 +30273,7 @@ export namespace Prisma {
   }
 
   export type QcResultsUpdateWithoutHistoryInput = {
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28647,6 +30287,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28658,6 +30299,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     arrivalItemId?: IntFieldUpdateOperationsInput | number
     parameterId?: IntFieldUpdateOperationsInput | number
+    resultKey?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null

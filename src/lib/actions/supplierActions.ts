@@ -31,7 +31,7 @@ export const createSupplier = async (
       console.log(validatedFields.error);
       return {
         success: false,
-        message: "Validation failed.",
+        message: "Validasi gagal!.",
         errors: validatedFields.error.flatten().fieldErrors,
       };
     }
@@ -54,13 +54,13 @@ export const createSupplier = async (
 
     return {
       success: true,
-      message: `Supplier submitted successfully!`,
+      message: `Pemasok berhasil disimpan!`,
     };
   } catch (error: any) {
     console.error("Error processing Supplier:", error);
     return {
       success: false,
-      message: "Failed to process Supplier due to a server error.",
+      message: "Gagal memproses Pemasok karena kesalahan server.",
     };
   }
 };
@@ -107,13 +107,13 @@ export const updateSupplier = async (
     
     return {
       success: true,
-      message: `Supplier updated successfully!`,
+      message: `Pemasok berhasil diperbarui!`,
     };
   } catch (error: any) {
     console.error("Error processing users:", error);
     return {
       success: false,
-      message: "Failed to process employees due to a server error.",
+      message: "Gagal memproses Pemasok karena kesalahan server.",
     };
   }
 };

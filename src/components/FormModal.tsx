@@ -156,7 +156,7 @@ const FormModal = ({
     }, [state, router]);
     return type === "delete" && id ? (
       <form action={formAction} className="p-4 flex flex-col gap-4 bg-gree">
-        <input type="text | number" name="id" value={id} hidden />
+        <input type="text | number" name="id" value={id || ""} hidden readOnly/>
         <span className="text-center font-medium">
           All data will be lost. Are you sure you want to delete this {table}?
         </span>
@@ -172,17 +172,17 @@ const FormModal = ({
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <span
-          className={`${size} flex items-center justify-center rounded-full ${bgColor} hover:${bgColorHover}`}
+          className={table !== "parameter" ? `${size} flex items-center justify-center rounded-full ${bgColor} hover:${bgColorHover}` : ""}
         >
           {type == "create" ? (
             <Plus size={16} />
           ) : type == "update" ? (
-            <Pencil size={16} />
+            <Pencil className={`${size} flex items-center justify-center rounded-full ${bgColor} p-[0.4rem] hover:${bgColorHover}`} size={16} />
           ) : (
-            <Trash size={16} />
+            table !== "parameter" && <Trash size={16} />
           )}
         </span>
       </DialogTrigger>
@@ -196,7 +196,6 @@ const FormModal = ({
         <Form />
         </div>
       </DialogContent>
-     
     </Dialog>
   );
 };

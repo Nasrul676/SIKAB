@@ -16,6 +16,7 @@ import moment from "moment";
 import { createArrival } from "@/lib/actions/arrivalActions";
 import prisma from "@/lib/prisma";
 import FileUpload from "./SecurityForm/FileUpload";
+import { showConfirmationAlert } from "@/app/utils/alert";
 
 type FormState = {
   success: boolean;
@@ -80,9 +81,47 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
     localStorage.setItem("arrivalData", JSON.stringify(data));
   };
 
+  const handleCancel = () => {
+    showConfirmationAlert("Apakah Anda yakin ingin membatalkan penginputan kedatangan ini? Perubahan yang belum disimpan akan hilang.", () => {
+      localStorage.removeItem("arrivalData");
+      router.push("/security");
+    });
+  }
+
   useEffect(() => {
     if (Object.keys(errors).length > 0) {
-      console.log("VALIDATION ERRORS:", errors);
+      if(errors.supplierId) {
+        toast.error(errors.supplierId.message);
+      }
+      if(errors.arrivalTime) {
+        toast.error(errors.arrivalTime.message);
+      }
+      if(errors.nopol) {
+        toast.error(errors.nopol.message);
+      }
+      if(errors.suratJalan) {
+        toast.error(errors.suratJalan.message);
+      }
+      if(errors.securityProof) {
+        toast.error(errors.securityProof.message);
+      }
+      console.log(Array.isArray(errors.materials));
+      if (Array.isArray(errors.materials)) {
+        errors.materials.forEach((error: any) => {
+          if (error.conditionId) {
+            toast.error(error.conditionId.message);
+          }
+          if (error.conditionCategory) {
+            toast.error(error.conditionCategory.message);
+          }
+          if(error.materialId) {
+            toast.error(error.materialId.message);
+          }
+          if(error.quantity) {
+            toast.error(error.quantity.message);
+          }
+        });
+      }
     }
   }, [errors]);
 
@@ -163,37 +202,39 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
         <h3 className="text-xl font-semibold mb-4 border-b pb-2">Detail Bahan Baku</h3>
         {fields.map((field, index) => (
           <div key={field.id} className="flex flex-col md:flex-row gap-4 mb-6 p-4 border border-gray-200 rounded-lg">
-            <div className="md:basis-64">
-              <SelectField label="Jenis Bahan" name={`materials[${index}].materialId`} data={relatedData?.materials || []} control={control} required={true} />
+            <div className="flex flex-col lg:flex-row gap-3 w-full">
+              <div className="w-full flex flex-row gap-2">
+                <SelectField label="Jenis Bahan" name={`materials[${index}].materialId`} data={relatedData?.materials || []} control={control} required={true} />
+                <div className="flex justify-center items-end">
+                  <FormModal table="material" type="create" />
+                </div>
+              </div>
+              <div className="w-full">
+                <InputField label="Nama Bahan Baku" name={`materials[${index}].itemName`} type="text" control={control} />
+              </div>
             </div>
-            <div className="md:basis-64">
-              <InputField label="Jumlah Qty (kg)" name={`materials[${index}].quantity`} type="number" control={control} required={true} />
-            </div>
-            <div className="md:basis-64">
-              <SelectField
-                label="Kondisi Bahan"
-                name={`materials[${index}].conditionCategory`}
-                data={[
-                  { id: "Basah", name: "Basah" },
-                  { id: "Kering", name: "Kering" },
-                ]}
-                control={control}
-                required={true}
-              />
-            </div>
-            <div className="md:basis-64">
-              <SelectField label="Tingkat Kebersihan Bahan" name={`materials[${index}].conditionId`} data={relatedData?.conditions || []} control={control} required={true} />
-            </div>
-            <div className="w-full">
-              <InputField label="Nama Bahan Baku" name={`materials[${index}].itemName`} type="text" control={control} />
+            <div className="flex flex-col lg:flex-row gap-3 w-full">
+              <div className="w-full">
+                <InputField label="Jumlah Qty (kg)" name={`materials[${index}].quantity`} type="number" control={control} required={true} />
+              </div>
+              <div className="w-full">
+                <SelectField
+                  label="Kondisi Bahan"
+                  name={`materials[${index}].conditionCategory`}
+                  data={[
+                    { id: "Basah", name: "Basah" },
+                    { id: "Kering", name: "Kering" },
+                  ]}
+                  control={control}
+                  required={true}
+                />
+              </div>
+              <div className="w-full">
+                <SelectField label="Tingkat Kebersihan Bahan" name={`materials[${index}].conditionId`} data={relatedData?.conditions || []} control={control} required={true} />
+              </div>
             </div>
             <div className="flex items-start justify-end">
-              <button
-                type="button"
-                onClick={() => remove(index)}
-                disabled={fields.length <= 1}
-                aria-label={`Remove Item ${index + 1}`}
-              >
+              <button type="button" onClick={() => remove(index)} disabled={fields.length <= 1} aria-label={`Remove Item ${index + 1}`}>
                 <X size={16} />
               </button>
             </div>
@@ -201,14 +242,26 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
         ))}
 
         {state.message && !state.success && !state.errors && <span className="text-red-500 text-sm">{state.message}</span>}
-        <div className="flex gap-4">
-          <Button disabled={isPending} type="button" onClick={() => append({ materialId: "", quantity: "", conditionCategory: "Basah", conditionId: "", itemName: "" })} className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700">
-            <Plus size={16} /> Tambah Bahan Baku
-          </Button>
-          <Button type="submit" disabled={isPending} className="bg-blue-700 text-white p-2 rounded-md">
-            {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
-            {isPending ? "Menyimpan..." : "Simpan"}
-          </Button>
+        <div className="flex justify-between">
+          <div className="flex gap-4">
+            <Button
+              disabled={isPending}
+              type="button"
+              onClick={() => append({ materialId: "", quantity: "", conditionCategory: "Basah", conditionId: "", itemName: "" })}
+              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 cursor-pointer"
+            >
+              <Plus size={16} /> Tambah Bahan Baku
+            </Button>
+            <Button type="submit" disabled={isPending} className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md cursor-pointer">
+              {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
+              {isPending ? "Menyimpan..." : "Simpan"}
+            </Button>
+          </div>
+          <div>
+            <Button type="button" onClick={handleCancel} className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
+              <X size={16} /> Kembali
+            </Button>
+          </div>
         </div>
       </div>
     </form>

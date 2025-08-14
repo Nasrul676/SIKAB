@@ -54,11 +54,11 @@ export const createUser = async (
 
     if (existingUser) {
       console.log(
-        `Registration failed: Email ${validatedFields.data.email} already exists.`
+        `Registrasi: Email ${validatedFields.data.email} sudah terdaftar.`
       );
       return {
         success: false,
-        message: "Email address is already in use.",
+        message: "Email sudah terdaftar.",
       };
     }
 
@@ -79,13 +79,13 @@ export const createUser = async (
 
     return {
       success: true,
-      message: `Employees submitted successfully!`,
+      message: `Karyawan berhasil disimpan!`,
     };
   } catch (error: any) {
     console.error("Error processing schedules:", error);
     return {
       success: false,
-      message: "Failed to process schedules due to a server error.",
+      message: "Gagal memproses jadwal karena kesalahan server.",
     };
   }
 };
@@ -110,7 +110,7 @@ export const updateUser = async (
     if (!validatedFields.success) {
       return {
         success: false,
-        message: "Validation failed.",
+        message: "Validasi gagal.",
         errors: validatedFields.error.flatten().fieldErrors,
       };
     }
@@ -120,13 +120,13 @@ export const updateUser = async (
     
     return {
       success: true,
-      message: `User updated successfully!`,
+      message: `User berhasil diperbarui!`,
     };
   } catch (error: any) {
     console.error("Error processing users:", error);
     return {
       success: false,
-      message: "Failed to process employees due to a server error.",
+      message: "Gagal memproses pengguna karena kesalahan server.",
     };
   }
 };

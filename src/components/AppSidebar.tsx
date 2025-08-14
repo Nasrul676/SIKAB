@@ -16,6 +16,14 @@ import {
   ChevronDown,
   WalletCards,
   LogOut,
+  ShieldBan,
+  Weight,
+  ScanLine,
+  Users,
+  Truck,
+  Blocks,
+  Gauge,
+  Sliders,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,108 +45,105 @@ export async function AppSidebar({
   // const user = await currentUser();
   // const role = user?.publicMetadata.role as string;
   const menuItems = [
-  {
-    title: "DASHBOARD",
-    items: [
-      {
-        icon: Home,
-        label: "Admin",
-        href: `/${user?.role}`,
-        visible: ["superadmin", "admin"],
-      },
-      {
-        icon: Home,
-        label: "Security",
-        href: `/security`,
-        visible: ["superadmin","security"],
-      },
-      {
-        icon: Home,
-        label: "Weighing",
-        href: `/weighing`,
-        visible: ["superadmin","weighing"],
-      },
-      {
-        icon: Home,
-        label: "QC",
-        href: `/qc`,
-        visible: ["superadmin","qc"],
-      },
-    ],
-  },
-  {
-    title: "MASTER",
-    items: [
-      {
-        icon: WalletCards,
-        label: "Users",
-        href: "/list/user",
-        visible: ["superadmin", "admin"],
-      },
-      {
-        icon: WalletCards,
-        label: "Suppliers",
-        href: "/list/suppliers",
-        visible: ["superadmin", "admin"],
-      },
-      {
-        icon: WalletCards,
-        label: "Materials",
-        href: "/list/materials",
-        visible: ["superadmin", "admin"],
-      },
-      {
-        icon: WalletCards,
-        label: "Conditions",
-        href: "/list/conditions",
-        visible: ["superadmin", "admin"],
-      },
-      {
-        icon: WalletCards,
-        label: "Parameters",
-        href: "/list/parameters",
-        visible: ["superadmin", "admin"],
-      },
-    ],
-  },
-  {
-    title: "Reports",
-    items: [
-      {
-        icon: IdCard,
-        label: "Arrival",
-        href: "/list/arrivals",
-        visible: ["superadmin", "admin", "manager"],
-      },
-    ],
-  },
-  
-  // {
-  //   title: "OTHER",
-  //   items: [
-  //     {
-  //       icon: FileStack,
-  //       label: "Document",
-  //       href: "/list/document",
-  //       visible: ["superadmin", "admin", "manager"],
-  //     },
+    {
+      title: "DASHBOARD",
+      items: [
+        {
+          icon: Home,
+          label: "Admin",
+          href: `/${user?.role}`,
+          visible: ["superadmin", "admin"],
+        },
+        {
+          icon: ShieldBan,
+          label: "Security",
+          href: `/security`,
+          visible: ["superadmin", "security"],
+        },
+        {
+          icon: Weight,
+          label: "Weighing",
+          href: `/weighing`,
+          visible: ["superadmin", "weighing"],
+        },
+        {
+          icon: ScanLine,
+          label: "QC",
+          href: `/qc`,
+          visible: ["superadmin", "qc"],
+        },
+      ],
+    },
+    {
+      title: "MASTER",
+      items: [
+        {
+          icon: Users,
+          label: "Users",
+          href: "/list/user",
+          visible: ["superadmin", "admin"],
+        },
+        {
+          icon: Truck,
+          label: "Suppliers",
+          href: "/list/suppliers",
+          visible: ["superadmin", "admin"],
+        },
+        {
+          icon: Blocks,
+          label: "Materials",
+          href: "/list/materials",
+          visible: ["superadmin", "admin"],
+        },
+        {
+          icon: Gauge,
+          label: "Conditions",
+          href: "/list/conditions",
+          visible: ["superadmin", "admin"],
+        },
+        {
+          icon: Sliders,
+          label: "Parameters",
+          href: "/list/parameters",
+          visible: ["superadmin", "admin"],
+        },
+      ],
+    },
+    {
+      title: "Reports",
+      items: [
+        {
+          icon: IdCard,
+          label: "Arrival",
+          href: "/list/arrivals",
+          visible: ["superadmin", "admin", "manager"],
+        },
+      ],
+    },
 
-  //   ],
-  // },
-];
+    // {
+    //   title: "OTHER",
+    //   items: [
+    //     {
+    //       icon: FileStack,
+    //       label: "Document",
+    //       href: "/list/document",
+    //       visible: ["superadmin", "admin", "manager"],
+    //     },
+
+    //   ],
+    // },
+  ];
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
-            >
-              <a href="#">
+            <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
+              <Link href="/">
                 <IconInnerShadowTop className="!size-5" />
                 <span className="text-base font-semibold">PKP</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -167,7 +172,9 @@ export async function AppSidebar({
                               </Link>
                             </SidebarMenuButton>
                           </SidebarMenuItem>
-                        )}
+                        );
+                      }
+                      return null;
                     })}
                   </SidebarMenu>
                 </SidebarGroupContent>

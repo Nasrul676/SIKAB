@@ -10,8 +10,8 @@ import { role } from "../data";
 
 // --- Login Schema and State (Keep existing) ---
 const loginSchema = z.object({
-  email: z.string().email("Invalid email address."),
-  password: z.string().min(1, "Password cannot be empty."),
+  email: z.string().email("Email tidak valid."),
+  password: z.string().min(1, "Password tidak boleh kosong."),
 });
 export type LoginFormState = {
   message: string | null;
@@ -26,14 +26,14 @@ const initialLoginState: LoginFormState = { success: false, message: null };
 
 // --- Registration Schema and State ---
 const registerSchema = z.object({
-    username: z.string().min(1, "Username cannot be empty."), // Optional name field
-    email: z.string().email("Invalid email address."),
+    username: z.string().min(1, "Username tidak boleh kosong."), // Optional name field
+    email: z.string().email("Email tidak valid."),
     // Add password complexity rules if desired
-    password: z.string().min(8, "Password must be at least 8 characters long."),
-    role: z.string().min(1, "Role cannot be empty."),
+    password: z.string().min(8, "Password harus memiliki setidaknya 8 karakter."),
+    role: z.string().min(1, "Role tidak boleh kosong."),
     confirmPassword: z.string()
 }).refine(data => data.password === data.confirmPassword, {
-    message: "Passwords do not match.",
+    message: "Password tidak cocok.",
     path: ["confirmPassword"], // Assign error to confirmPassword field
 });
 
@@ -69,7 +69,7 @@ export async function loginAction(
     console.log("Login validation failed:", validatedFields.error.flatten().fieldErrors);
     return {
       success: false,
-      message: "Invalid login details.",
+      message: "Detail login tidak valid.",
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
@@ -84,7 +84,7 @@ export async function loginAction(
 
     if (!user) {
       console.log(`Login attempt failed: User not found for email ${email}`);
-      return { success: false, message: "Invalid email or password.", errors: { general: "Invalid email or password."} };
+      return { success: false, message: "Email atau password tidak valid.", errors: { general: "Email atau password tidak valid."} };
     }
 
     // 3. Verify password
@@ -92,7 +92,7 @@ export async function loginAction(
 
     if (!isPasswordValid) {
       console.log(`Login attempt failed: Invalid password for email ${email}`);
-      return { success: false, message: "Invalid email or password.", errors: { general: "Invalid email or password."} };
+      return { success: false, message: "Email atau password tidak valid.", errors: { general: "Email atau password tidak valid."} };
     }
 
     // 4. Password is valid - Create session
@@ -126,11 +126,11 @@ export async function logoutAction() {
     try {
         const session = await getSession();
         await session.destroy();
-        console.log("User logged out.");
+        console.log("Keluar berhasil.");
+        redirect('/login');
     } catch (error) {
-        console.error("Logout error:", error);
+        console.error("Gagal keluar:", error);
     }
-    redirect('/login');
 }
 
 
@@ -154,7 +154,7 @@ export async function registerAction(
         console.log("Registration validation failed:", validatedFields.error.flatten().fieldErrors);
         return {
             success: false,
-            message: "Please correct the errors below.",
+            message: "Mohon lengkapi data berikut!.",
             errors: validatedFields.error.flatten().fieldErrors,
         };
     }
@@ -168,11 +168,11 @@ export async function registerAction(
         });
 
         if (existingUser) {
-            console.log(`Registration failed: Email ${email} already exists.`);
+            console.log(`Registrasi gagal: Email ${email} sudah terdaftar.`);
             return {
                 success: false,
-                message: "Registration failed.",
-                errors: { email: ["Email address is already in use."] }
+                message: "Registrasi gagal.",
+                errors: { email: ["Email sudah terdaftar."] }
             };
         }
 
@@ -198,11 +198,11 @@ export async function registerAction(
         // console.log(`User ${newUser.id} automatically logged in after registration.`);
 
         // 6. Return success state (redirect will be handled by the component)
-        return { success: true, message: "Registration successful! You can now log in." };
+        return { success: true, message: "Registrasi berhasil! Anda sekarang dapat masuk." };
 
     } catch (error) {
         console.error("Registration action error:", error);
-        return { success: false, message: "An unexpected error occurred during registration.", errors: { general: "Server error."} };
+        return { success: false, message: "Terjadi kesalahan yang tidak terduga selama registrasi.", errors: { general: "Server error."} };
     }
 }
 

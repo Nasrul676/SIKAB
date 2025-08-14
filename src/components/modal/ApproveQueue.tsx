@@ -87,7 +87,7 @@ export default function ApproveQueue({data}: { data: any }) {
             <div>
               <input
                 type="text"
-                value={note}
+                value={note || ""}
                 className="mt-4 w-full p-2 ring-gray-400 ring-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
                 placeholder="Catatan (jika ada)"
                 onChange={(e) => setNote(e.target.value)}

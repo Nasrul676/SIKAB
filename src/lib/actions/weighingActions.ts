@@ -36,8 +36,8 @@ export async function createWeighing(
   });
 
   if (!validationResult.success) {
-    console.error("Validation failed:", validationResult.error);
-    return { success: false, message: `Invalid file: ${validationResult.error.errors.map(e => e.message).join(', ')}` };
+    console.error("Validasi gagal:", validationResult.error);
+    return { success: false, message: `File tidak valid: ${validationResult.error.errors.map(e => e.message).join(', ')}` };
   }
   const { userId } = await getAuthenticatedUserInfo();
   const { arrivalItemId, weight, note } = validationResult.data;
@@ -153,7 +153,7 @@ export async function createWeighing(
     console.error("Google Drive API Error:", error);
     return {
       success: false,
-      message: `Failed to upload file: ${error.message || 'Unknown error'}`,
+      message: `Gagal melakukan upload file karena kesalahan di server`,
       error: error.message // Include error details if helpful
     };
   }
