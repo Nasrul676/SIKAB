@@ -125,9 +125,9 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
 
   return (
     <form className="flex flex-col gap-8 w-full">
-      <h1 className="text-xl font-semibold">{type === "create" ? "Tambah bahan baru" : "Update bahan"}</h1>
+      <h1 className="text-xl font-semibold">{type === "create" ? "Tambah material baru" : "Update material"}</h1>
 
-      <InputField label="Nama Bahan" name="name" register={register} />
+      <InputField label="Nama Material" name="name" register={register} />
 
       <InputField label="Deskripsi" name="description" register={register} />
 

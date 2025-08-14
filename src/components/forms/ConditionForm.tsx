@@ -131,7 +131,7 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
 
   return (
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit(onSubmit)} ref={formRef}>
-      <h1 className="text-xl font-semibold">{type === "create" ? "Create a new condition" : "Update the condition"}</h1>
+      <h1 className="text-xl font-semibold">{type === "create" ? "Tambah kondisi barang baru" : "Update kondisi barang"}</h1>
 
       <InputField label="Name" name="name" register={register}/>
 
