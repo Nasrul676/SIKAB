@@ -904,10 +904,13 @@ export namespace Prisma {
             args: Prisma.UsersCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.UsersCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UsersPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.UsersDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UsersPayload>
@@ -924,10 +927,13 @@ export namespace Prisma {
             args: Prisma.UsersUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.UsersUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UsersPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.UsersUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UsersPayload>
@@ -978,10 +984,13 @@ export namespace Prisma {
             args: Prisma.SuppliersCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.SuppliersCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SuppliersPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.SuppliersDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SuppliersPayload>
@@ -998,10 +1007,13 @@ export namespace Prisma {
             args: Prisma.SuppliersUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.SuppliersUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SuppliersPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.SuppliersUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SuppliersPayload>
@@ -1052,10 +1064,13 @@ export namespace Prisma {
             args: Prisma.MaterialsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.MaterialsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.MaterialsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
@@ -1072,10 +1087,13 @@ export namespace Prisma {
             args: Prisma.MaterialsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.MaterialsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.MaterialsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$MaterialsPayload>
@@ -1126,10 +1144,13 @@ export namespace Prisma {
             args: Prisma.ConditionsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ConditionsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ConditionsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ConditionsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ConditionsPayload>
@@ -1146,10 +1167,13 @@ export namespace Prisma {
             args: Prisma.ConditionsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ConditionsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ConditionsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ConditionsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ConditionsPayload>
@@ -1200,10 +1224,13 @@ export namespace Prisma {
             args: Prisma.ParametersCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ParametersCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ParametersDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
@@ -1220,10 +1247,13 @@ export namespace Prisma {
             args: Prisma.ParametersUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ParametersUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ParametersUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
@@ -1274,10 +1304,13 @@ export namespace Prisma {
             args: Prisma.ArrivalsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ArrivalsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ArrivalsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalsPayload>
@@ -1294,10 +1327,13 @@ export namespace Prisma {
             args: Prisma.ArrivalsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ArrivalsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ArrivalsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalsPayload>
@@ -1348,10 +1384,13 @@ export namespace Prisma {
             args: Prisma.ArrivalItemsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ArrivalItemsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalItemsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ArrivalItemsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalItemsPayload>
@@ -1368,10 +1407,13 @@ export namespace Prisma {
             args: Prisma.ArrivalItemsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ArrivalItemsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalItemsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ArrivalItemsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalItemsPayload>
@@ -1422,10 +1464,13 @@ export namespace Prisma {
             args: Prisma.WeighingsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.WeighingsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.WeighingsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPayload>
@@ -1442,10 +1487,13 @@ export namespace Prisma {
             args: Prisma.WeighingsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.WeighingsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.WeighingsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPayload>
@@ -1496,10 +1544,13 @@ export namespace Prisma {
             args: Prisma.NotificationsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.NotificationsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$NotificationsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.NotificationsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$NotificationsPayload>
@@ -1516,10 +1567,13 @@ export namespace Prisma {
             args: Prisma.NotificationsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.NotificationsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$NotificationsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.NotificationsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$NotificationsPayload>
@@ -1570,10 +1624,13 @@ export namespace Prisma {
             args: Prisma.QcResultsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.QcResultsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcResultsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.QcResultsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcResultsPayload>
@@ -1590,10 +1647,13 @@ export namespace Prisma {
             args: Prisma.QcResultsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.QcResultsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcResultsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.QcResultsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcResultsPayload>
@@ -1644,10 +1704,13 @@ export namespace Prisma {
             args: Prisma.QcStatusCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.QcStatusCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcStatusPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.QcStatusDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcStatusPayload>
@@ -1664,10 +1727,13 @@ export namespace Prisma {
             args: Prisma.QcStatusUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.QcStatusUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcStatusPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.QcStatusUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcStatusPayload>
@@ -1718,10 +1784,13 @@ export namespace Prisma {
             args: Prisma.QcPhotosCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.QcPhotosCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcPhotosPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.QcPhotosDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcPhotosPayload>
@@ -1738,10 +1807,13 @@ export namespace Prisma {
             args: Prisma.QcPhotosUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.QcPhotosUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcPhotosPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.QcPhotosUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcPhotosPayload>
@@ -1792,10 +1864,13 @@ export namespace Prisma {
             args: Prisma.SecurityPhotosCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.SecurityPhotosCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SecurityPhotosPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.SecurityPhotosDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SecurityPhotosPayload>
@@ -1812,10 +1887,13 @@ export namespace Prisma {
             args: Prisma.SecurityPhotosUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.SecurityPhotosUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SecurityPhotosPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.SecurityPhotosUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SecurityPhotosPayload>
@@ -1866,10 +1944,13 @@ export namespace Prisma {
             args: Prisma.WeighingsPhotosCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.WeighingsPhotosCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPhotosPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.WeighingsPhotosDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPhotosPayload>
@@ -1886,10 +1967,13 @@ export namespace Prisma {
             args: Prisma.WeighingsPhotosUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.WeighingsPhotosUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPhotosPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.WeighingsPhotosUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$WeighingsPhotosPayload>
@@ -1940,10 +2024,13 @@ export namespace Prisma {
             args: Prisma.QcHistoriesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.QcHistoriesCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcHistoriesPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.QcHistoriesDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcHistoriesPayload>
@@ -1960,10 +2047,13 @@ export namespace Prisma {
             args: Prisma.QcHistoriesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.QcHistoriesUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcHistoriesPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.QcHistoriesUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$QcHistoriesPayload>
@@ -2014,10 +2104,13 @@ export namespace Prisma {
             args: Prisma.ArrivalStatusesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ArrivalStatusesCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalStatusesPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ArrivalStatusesDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalStatusesPayload>
@@ -2034,10 +2127,13 @@ export namespace Prisma {
             args: Prisma.ArrivalStatusesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ArrivalStatusesUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalStatusesPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ArrivalStatusesUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ArrivalStatusesPayload>
@@ -2088,10 +2184,13 @@ export namespace Prisma {
             args: Prisma.ParameterSettingsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           createManyAndReturn: {
             args: Prisma.ParameterSettingsCreateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>[]
           }
+=======
+>>>>>>> main
           delete: {
             args: Prisma.ParameterSettingsDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
@@ -2108,10 +2207,13 @@ export namespace Prisma {
             args: Prisma.ParameterSettingsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
+<<<<<<< HEAD
           updateManyAndReturn: {
             args: Prisma.ParameterSettingsUpdateManyAndReturnArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>[]
           }
+=======
+>>>>>>> main
           upsert: {
             args: Prisma.ParameterSettingsUpsertArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ParameterSettingsPayload>
@@ -2884,6 +2986,7 @@ export namespace Prisma {
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
+<<<<<<< HEAD
   export type UsersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     username?: boolean
     email?: boolean
@@ -2907,6 +3010,9 @@ export namespace Prisma {
     createdBy?: boolean
     updatedBy?: boolean
   }, ExtArgs["result"]["users"]>
+=======
+
+>>>>>>> main
 
   export type UsersSelectScalar = {
     username?: boolean
@@ -2925,8 +3031,11 @@ export namespace Prisma {
     QcHistories?: boolean | Users$QcHistoriesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type UsersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type UsersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $UsersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Users"
@@ -3061,6 +3170,7 @@ export namespace Prisma {
     createMany<T extends UsersCreateManyArgs>(args?: SelectSubset<T, UsersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Users and returns the data saved in the database.
      * @param {UsersCreateManyAndReturnArgs} args - Arguments to create many Users.
      * @example
@@ -3085,6 +3195,8 @@ export namespace Prisma {
     createManyAndReturn<T extends UsersCreateManyAndReturnArgs>(args?: SelectSubset<T, UsersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Users.
      * @param {UsersDeleteArgs} args - Arguments to delete one Users.
      * @example
@@ -3149,6 +3261,7 @@ export namespace Prisma {
     updateMany<T extends UsersUpdateManyArgs>(args: SelectSubset<T, UsersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Users and returns the data updated in the database.
      * @param {UsersUpdateManyAndReturnArgs} args - Arguments to update many Users.
      * @example
@@ -3179,6 +3292,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends UsersUpdateManyAndReturnArgs>(args: SelectSubset<T, UsersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Users.
      * @param {UsersUpsertArgs} args - Arguments to update or create a Users.
      * @example
@@ -3609,6 +3724,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Users createManyAndReturn
    */
   export type UsersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3628,6 +3744,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Users update
    */
   export type UsersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3672,6 +3790,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Users updateManyAndReturn
    */
   export type UsersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3698,6 +3817,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Users upsert
    */
   export type UsersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4040,6 +4161,7 @@ export namespace Prisma {
     _count?: boolean | SuppliersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["suppliers"]>
 
+<<<<<<< HEAD
   export type SuppliersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
@@ -4063,6 +4185,9 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedBy?: boolean
   }, ExtArgs["result"]["suppliers"]>
+=======
+
+>>>>>>> main
 
   export type SuppliersSelectScalar = {
     id?: boolean
@@ -4081,8 +4206,11 @@ export namespace Prisma {
     Arrivals?: boolean | Suppliers$ArrivalsArgs<ExtArgs>
     _count?: boolean | SuppliersCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type SuppliersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type SuppliersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $SuppliersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Suppliers"
@@ -4217,6 +4345,7 @@ export namespace Prisma {
     createMany<T extends SuppliersCreateManyArgs>(args?: SelectSubset<T, SuppliersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Suppliers and returns the data saved in the database.
      * @param {SuppliersCreateManyAndReturnArgs} args - Arguments to create many Suppliers.
      * @example
@@ -4241,6 +4370,8 @@ export namespace Prisma {
     createManyAndReturn<T extends SuppliersCreateManyAndReturnArgs>(args?: SelectSubset<T, SuppliersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuppliersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Suppliers.
      * @param {SuppliersDeleteArgs} args - Arguments to delete one Suppliers.
      * @example
@@ -4305,6 +4436,7 @@ export namespace Prisma {
     updateMany<T extends SuppliersUpdateManyArgs>(args: SelectSubset<T, SuppliersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Suppliers and returns the data updated in the database.
      * @param {SuppliersUpdateManyAndReturnArgs} args - Arguments to update many Suppliers.
      * @example
@@ -4335,6 +4467,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends SuppliersUpdateManyAndReturnArgs>(args: SelectSubset<T, SuppliersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuppliersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Suppliers.
      * @param {SuppliersUpsertArgs} args - Arguments to update or create a Suppliers.
      * @example
@@ -4765,6 +4899,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Suppliers createManyAndReturn
    */
   export type SuppliersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4784,6 +4919,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Suppliers update
    */
   export type SuppliersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4828,6 +4965,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Suppliers updateManyAndReturn
    */
   export type SuppliersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4854,6 +4992,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Suppliers upsert
    */
   export type SuppliersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5180,6 +5320,7 @@ export namespace Prisma {
     _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["materials"]>
 
+<<<<<<< HEAD
   export type MaterialsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
@@ -5199,6 +5340,9 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedBy?: boolean
   }, ExtArgs["result"]["materials"]>
+=======
+
+>>>>>>> main
 
   export type MaterialsSelectScalar = {
     id?: boolean
@@ -5215,8 +5359,11 @@ export namespace Prisma {
     ArrivalItems?: boolean | Materials$ArrivalItemsArgs<ExtArgs>
     _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type MaterialsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type MaterialsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $MaterialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Materials"
@@ -5349,6 +5496,7 @@ export namespace Prisma {
     createMany<T extends MaterialsCreateManyArgs>(args?: SelectSubset<T, MaterialsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Materials and returns the data saved in the database.
      * @param {MaterialsCreateManyAndReturnArgs} args - Arguments to create many Materials.
      * @example
@@ -5373,6 +5521,8 @@ export namespace Prisma {
     createManyAndReturn<T extends MaterialsCreateManyAndReturnArgs>(args?: SelectSubset<T, MaterialsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Materials.
      * @param {MaterialsDeleteArgs} args - Arguments to delete one Materials.
      * @example
@@ -5437,6 +5587,7 @@ export namespace Prisma {
     updateMany<T extends MaterialsUpdateManyArgs>(args: SelectSubset<T, MaterialsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Materials and returns the data updated in the database.
      * @param {MaterialsUpdateManyAndReturnArgs} args - Arguments to update many Materials.
      * @example
@@ -5467,6 +5618,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends MaterialsUpdateManyAndReturnArgs>(args: SelectSubset<T, MaterialsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Materials.
      * @param {MaterialsUpsertArgs} args - Arguments to update or create a Materials.
      * @example
@@ -5895,6 +6048,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Materials createManyAndReturn
    */
   export type MaterialsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5914,6 +6068,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Materials update
    */
   export type MaterialsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5958,6 +6114,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Materials updateManyAndReturn
    */
   export type MaterialsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5984,6 +6141,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Materials upsert
    */
   export type MaterialsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6310,6 +6469,7 @@ export namespace Prisma {
     _count?: boolean | ConditionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["conditions"]>
 
+<<<<<<< HEAD
   export type ConditionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
@@ -6329,6 +6489,9 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedBy?: boolean
   }, ExtArgs["result"]["conditions"]>
+=======
+
+>>>>>>> main
 
   export type ConditionsSelectScalar = {
     id?: boolean
@@ -6345,8 +6508,11 @@ export namespace Prisma {
     ArrivalItems?: boolean | Conditions$ArrivalItemsArgs<ExtArgs>
     _count?: boolean | ConditionsCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ConditionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type ConditionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $ConditionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Conditions"
@@ -6479,6 +6645,7 @@ export namespace Prisma {
     createMany<T extends ConditionsCreateManyArgs>(args?: SelectSubset<T, ConditionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Conditions and returns the data saved in the database.
      * @param {ConditionsCreateManyAndReturnArgs} args - Arguments to create many Conditions.
      * @example
@@ -6503,6 +6670,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ConditionsCreateManyAndReturnArgs>(args?: SelectSubset<T, ConditionsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConditionsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Conditions.
      * @param {ConditionsDeleteArgs} args - Arguments to delete one Conditions.
      * @example
@@ -6567,6 +6736,7 @@ export namespace Prisma {
     updateMany<T extends ConditionsUpdateManyArgs>(args: SelectSubset<T, ConditionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Conditions and returns the data updated in the database.
      * @param {ConditionsUpdateManyAndReturnArgs} args - Arguments to update many Conditions.
      * @example
@@ -6597,6 +6767,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ConditionsUpdateManyAndReturnArgs>(args: SelectSubset<T, ConditionsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConditionsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Conditions.
      * @param {ConditionsUpsertArgs} args - Arguments to update or create a Conditions.
      * @example
@@ -7025,6 +7197,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Conditions createManyAndReturn
    */
   export type ConditionsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7044,6 +7217,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Conditions update
    */
   export type ConditionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7088,6 +7263,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Conditions updateManyAndReturn
    */
   export type ConditionsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7114,6 +7290,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Conditions upsert
    */
   export type ConditionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7450,6 +7628,7 @@ export namespace Prisma {
     _count?: boolean | ParametersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["parameters"]>
 
+<<<<<<< HEAD
   export type ParametersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
@@ -7471,6 +7650,9 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedBy?: boolean
   }, ExtArgs["result"]["parameters"]>
+=======
+
+>>>>>>> main
 
   export type ParametersSelectScalar = {
     id?: boolean
@@ -7490,8 +7672,11 @@ export namespace Prisma {
     settings?: boolean | Parameters$settingsArgs<ExtArgs>
     _count?: boolean | ParametersCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ParametersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type ParametersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $ParametersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Parameters"
@@ -7627,6 +7812,7 @@ export namespace Prisma {
     createMany<T extends ParametersCreateManyArgs>(args?: SelectSubset<T, ParametersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Parameters and returns the data saved in the database.
      * @param {ParametersCreateManyAndReturnArgs} args - Arguments to create many Parameters.
      * @example
@@ -7651,6 +7837,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ParametersCreateManyAndReturnArgs>(args?: SelectSubset<T, ParametersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Parameters.
      * @param {ParametersDeleteArgs} args - Arguments to delete one Parameters.
      * @example
@@ -7715,6 +7903,7 @@ export namespace Prisma {
     updateMany<T extends ParametersUpdateManyArgs>(args: SelectSubset<T, ParametersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Parameters and returns the data updated in the database.
      * @param {ParametersUpdateManyAndReturnArgs} args - Arguments to update many Parameters.
      * @example
@@ -7745,6 +7934,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ParametersUpdateManyAndReturnArgs>(args: SelectSubset<T, ParametersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Parameters.
      * @param {ParametersUpsertArgs} args - Arguments to update or create a Parameters.
      * @example
@@ -8176,6 +8367,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Parameters createManyAndReturn
    */
   export type ParametersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8195,6 +8387,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Parameters update
    */
   export type ParametersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8239,6 +8433,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Parameters updateManyAndReturn
    */
   export type ParametersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8265,6 +8460,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Parameters upsert
    */
   export type ParametersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8695,6 +8892,7 @@ export namespace Prisma {
     _count?: boolean | ArrivalsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arrivals"]>
 
+<<<<<<< HEAD
   export type ArrivalsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     idKedatangan?: boolean
@@ -8728,6 +8926,9 @@ export namespace Prisma {
     updatedBy?: boolean
     supplier?: boolean | SuppliersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arrivals"]>
+=======
+
+>>>>>>> main
 
   export type ArrivalsSelectScalar = {
     id?: boolean
@@ -8754,12 +8955,15 @@ export namespace Prisma {
     ArrivalStatuses?: boolean | Arrivals$ArrivalStatusesArgs<ExtArgs>
     _count?: boolean | ArrivalsCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ArrivalsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     supplier?: boolean | SuppliersDefaultArgs<ExtArgs>
   }
   export type ArrivalsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     supplier?: boolean | SuppliersDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $ArrivalsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Arrivals"
@@ -8902,6 +9106,7 @@ export namespace Prisma {
     createMany<T extends ArrivalsCreateManyArgs>(args?: SelectSubset<T, ArrivalsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Arrivals and returns the data saved in the database.
      * @param {ArrivalsCreateManyAndReturnArgs} args - Arguments to create many Arrivals.
      * @example
@@ -8926,6 +9131,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ArrivalsCreateManyAndReturnArgs>(args?: SelectSubset<T, ArrivalsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Arrivals.
      * @param {ArrivalsDeleteArgs} args - Arguments to delete one Arrivals.
      * @example
@@ -8990,6 +9197,7 @@ export namespace Prisma {
     updateMany<T extends ArrivalsUpdateManyArgs>(args: SelectSubset<T, ArrivalsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Arrivals and returns the data updated in the database.
      * @param {ArrivalsUpdateManyAndReturnArgs} args - Arguments to update many Arrivals.
      * @example
@@ -9020,6 +9228,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ArrivalsUpdateManyAndReturnArgs>(args: SelectSubset<T, ArrivalsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Arrivals.
      * @param {ArrivalsUpsertArgs} args - Arguments to update or create a Arrivals.
      * @example
@@ -9458,6 +9668,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Arrivals createManyAndReturn
    */
   export type ArrivalsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9481,6 +9692,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Arrivals update
    */
   export type ArrivalsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9525,6 +9738,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Arrivals updateManyAndReturn
    */
   export type ArrivalsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9555,6 +9769,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Arrivals upsert
    */
   export type ArrivalsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10109,6 +10325,7 @@ export namespace Prisma {
     _count?: boolean | ArrivalItemsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arrivalItems"]>
 
+<<<<<<< HEAD
   export type ArrivalItemsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalId?: boolean
@@ -10166,6 +10383,9 @@ export namespace Prisma {
     parameter?: boolean | ArrivalItems$parameterArgs<ExtArgs>
     qcStatus?: boolean | ArrivalItems$qcStatusArgs<ExtArgs>
   }, ExtArgs["result"]["arrivalItems"]>
+=======
+
+>>>>>>> main
 
   export type ArrivalItemsSelectScalar = {
     id?: boolean
@@ -10205,6 +10425,7 @@ export namespace Prisma {
     QcHistories?: boolean | ArrivalItems$QcHistoriesArgs<ExtArgs>
     _count?: boolean | ArrivalItemsCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ArrivalItemsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
     material?: boolean | MaterialsDefaultArgs<ExtArgs>
@@ -10219,6 +10440,8 @@ export namespace Prisma {
     parameter?: boolean | ArrivalItems$parameterArgs<ExtArgs>
     qcStatus?: boolean | ArrivalItems$qcStatusArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $ArrivalItemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ArrivalItems"
@@ -10374,6 +10597,7 @@ export namespace Prisma {
     createMany<T extends ArrivalItemsCreateManyArgs>(args?: SelectSubset<T, ArrivalItemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many ArrivalItems and returns the data saved in the database.
      * @param {ArrivalItemsCreateManyAndReturnArgs} args - Arguments to create many ArrivalItems.
      * @example
@@ -10398,6 +10622,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ArrivalItemsCreateManyAndReturnArgs>(args?: SelectSubset<T, ArrivalItemsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalItemsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a ArrivalItems.
      * @param {ArrivalItemsDeleteArgs} args - Arguments to delete one ArrivalItems.
      * @example
@@ -10462,6 +10688,7 @@ export namespace Prisma {
     updateMany<T extends ArrivalItemsUpdateManyArgs>(args: SelectSubset<T, ArrivalItemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more ArrivalItems and returns the data updated in the database.
      * @param {ArrivalItemsUpdateManyAndReturnArgs} args - Arguments to update many ArrivalItems.
      * @example
@@ -10492,6 +10719,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ArrivalItemsUpdateManyAndReturnArgs>(args: SelectSubset<T, ArrivalItemsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalItemsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one ArrivalItems.
      * @param {ArrivalItemsUpsertArgs} args - Arguments to update or create a ArrivalItems.
      * @example
@@ -10943,6 +11172,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ArrivalItems createManyAndReturn
    */
   export type ArrivalItemsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10966,6 +11196,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ArrivalItems update
    */
   export type ArrivalItemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11010,6 +11242,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ArrivalItems updateManyAndReturn
    */
   export type ArrivalItemsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11040,6 +11273,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ArrivalItems upsert
    */
   export type ArrivalItemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11523,6 +11758,7 @@ export namespace Prisma {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weighings"]>
 
+<<<<<<< HEAD
   export type WeighingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalItemId?: boolean
@@ -11548,6 +11784,9 @@ export namespace Prisma {
     updatedBy?: boolean
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weighings"]>
+=======
+
+>>>>>>> main
 
   export type WeighingsSelectScalar = {
     id?: boolean
@@ -11565,12 +11804,15 @@ export namespace Prisma {
   export type WeighingsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type WeighingsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
   export type WeighingsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $WeighingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Weighings"
@@ -11705,6 +11947,7 @@ export namespace Prisma {
     createMany<T extends WeighingsCreateManyArgs>(args?: SelectSubset<T, WeighingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Weighings and returns the data saved in the database.
      * @param {WeighingsCreateManyAndReturnArgs} args - Arguments to create many Weighings.
      * @example
@@ -11729,6 +11972,8 @@ export namespace Prisma {
     createManyAndReturn<T extends WeighingsCreateManyAndReturnArgs>(args?: SelectSubset<T, WeighingsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeighingsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Weighings.
      * @param {WeighingsDeleteArgs} args - Arguments to delete one Weighings.
      * @example
@@ -11793,6 +12038,7 @@ export namespace Prisma {
     updateMany<T extends WeighingsUpdateManyArgs>(args: SelectSubset<T, WeighingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Weighings and returns the data updated in the database.
      * @param {WeighingsUpdateManyAndReturnArgs} args - Arguments to update many Weighings.
      * @example
@@ -11823,6 +12069,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends WeighingsUpdateManyAndReturnArgs>(args: SelectSubset<T, WeighingsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeighingsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Weighings.
      * @param {WeighingsUpsertArgs} args - Arguments to update or create a Weighings.
      * @example
@@ -12253,6 +12501,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Weighings createManyAndReturn
    */
   export type WeighingsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12276,6 +12525,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Weighings update
    */
   export type WeighingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12320,6 +12571,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Weighings updateManyAndReturn
    */
   export type WeighingsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12350,6 +12602,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Weighings upsert
    */
   export type WeighingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12634,6 +12888,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }, ExtArgs["result"]["notifications"]>
 
+<<<<<<< HEAD
   export type NotificationsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     table?: boolean
@@ -12649,6 +12904,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["notifications"]>
+=======
+
+>>>>>>> main
 
   export type NotificationsSelectScalar = {
     id?: boolean
@@ -12787,6 +13045,7 @@ export namespace Prisma {
     createMany<T extends NotificationsCreateManyArgs>(args?: SelectSubset<T, NotificationsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many Notifications and returns the data saved in the database.
      * @param {NotificationsCreateManyAndReturnArgs} args - Arguments to create many Notifications.
      * @example
@@ -12811,6 +13070,8 @@ export namespace Prisma {
     createManyAndReturn<T extends NotificationsCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a Notifications.
      * @param {NotificationsDeleteArgs} args - Arguments to delete one Notifications.
      * @example
@@ -12875,6 +13136,7 @@ export namespace Prisma {
     updateMany<T extends NotificationsUpdateManyArgs>(args: SelectSubset<T, NotificationsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more Notifications and returns the data updated in the database.
      * @param {NotificationsUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
      * @example
@@ -12905,6 +13167,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends NotificationsUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one Notifications.
      * @param {NotificationsUpsertArgs} args - Arguments to update or create a Notifications.
      * @example
@@ -13306,6 +13570,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Notifications createManyAndReturn
    */
   export type NotificationsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13325,6 +13590,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Notifications update
    */
   export type NotificationsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13365,6 +13632,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * Notifications updateManyAndReturn
    */
   export type NotificationsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13391,6 +13659,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * Notifications upsert
    */
   export type NotificationsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13718,6 +13988,7 @@ export namespace Prisma {
     history?: boolean | QcResults$historyArgs<ExtArgs>
   }, ExtArgs["result"]["qcResults"]>
 
+<<<<<<< HEAD
   export type QcResultsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalItemId?: boolean
@@ -13749,6 +14020,9 @@ export namespace Prisma {
     parameter?: boolean | QcResults$parameterArgs<ExtArgs>
     history?: boolean | QcResults$historyArgs<ExtArgs>
   }, ExtArgs["result"]["qcResults"]>
+=======
+
+>>>>>>> main
 
   export type QcResultsSelectScalar = {
     id?: boolean
@@ -13769,6 +14043,7 @@ export namespace Prisma {
     parameter?: boolean | QcResults$parameterArgs<ExtArgs>
     history?: boolean | QcResults$historyArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type QcResultsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
     parameter?: boolean | QcResults$parameterArgs<ExtArgs>
@@ -13779,6 +14054,8 @@ export namespace Prisma {
     parameter?: boolean | QcResults$parameterArgs<ExtArgs>
     history?: boolean | QcResults$historyArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $QcResultsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "QcResults"
@@ -13916,6 +14193,7 @@ export namespace Prisma {
     createMany<T extends QcResultsCreateManyArgs>(args?: SelectSubset<T, QcResultsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many QcResults and returns the data saved in the database.
      * @param {QcResultsCreateManyAndReturnArgs} args - Arguments to create many QcResults.
      * @example
@@ -13940,6 +14218,8 @@ export namespace Prisma {
     createManyAndReturn<T extends QcResultsCreateManyAndReturnArgs>(args?: SelectSubset<T, QcResultsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcResultsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a QcResults.
      * @param {QcResultsDeleteArgs} args - Arguments to delete one QcResults.
      * @example
@@ -14004,6 +14284,7 @@ export namespace Prisma {
     updateMany<T extends QcResultsUpdateManyArgs>(args: SelectSubset<T, QcResultsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more QcResults and returns the data updated in the database.
      * @param {QcResultsUpdateManyAndReturnArgs} args - Arguments to update many QcResults.
      * @example
@@ -14034,6 +14315,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends QcResultsUpdateManyAndReturnArgs>(args: SelectSubset<T, QcResultsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcResultsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one QcResults.
      * @param {QcResultsUpsertArgs} args - Arguments to update or create a QcResults.
      * @example
@@ -14467,6 +14750,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcResults createManyAndReturn
    */
   export type QcResultsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14490,6 +14774,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcResults update
    */
   export type QcResultsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14534,6 +14820,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcResults updateManyAndReturn
    */
   export type QcResultsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14564,6 +14851,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcResults upsert
    */
   export type QcResultsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14873,6 +15162,7 @@ export namespace Prisma {
     _count?: boolean | QcStatusCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["qcStatus"]>
 
+<<<<<<< HEAD
   export type QcStatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
@@ -14884,6 +15174,9 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
   }, ExtArgs["result"]["qcStatus"]>
+=======
+
+>>>>>>> main
 
   export type QcStatusSelectScalar = {
     id?: boolean
@@ -14897,8 +15190,11 @@ export namespace Prisma {
     QcHistories?: boolean | QcStatus$QcHistoriesArgs<ExtArgs>
     _count?: boolean | QcStatusCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type QcStatusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type QcStatusIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+=======
+>>>>>>> main
 
   export type $QcStatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "QcStatus"
@@ -15028,6 +15324,7 @@ export namespace Prisma {
     createMany<T extends QcStatusCreateManyArgs>(args?: SelectSubset<T, QcStatusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many QcStatuses and returns the data saved in the database.
      * @param {QcStatusCreateManyAndReturnArgs} args - Arguments to create many QcStatuses.
      * @example
@@ -15052,6 +15349,8 @@ export namespace Prisma {
     createManyAndReturn<T extends QcStatusCreateManyAndReturnArgs>(args?: SelectSubset<T, QcStatusCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcStatusPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a QcStatus.
      * @param {QcStatusDeleteArgs} args - Arguments to delete one QcStatus.
      * @example
@@ -15116,6 +15415,7 @@ export namespace Prisma {
     updateMany<T extends QcStatusUpdateManyArgs>(args: SelectSubset<T, QcStatusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more QcStatuses and returns the data updated in the database.
      * @param {QcStatusUpdateManyAndReturnArgs} args - Arguments to update many QcStatuses.
      * @example
@@ -15146,6 +15446,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends QcStatusUpdateManyAndReturnArgs>(args: SelectSubset<T, QcStatusUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcStatusPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one QcStatus.
      * @param {QcStatusUpsertArgs} args - Arguments to update or create a QcStatus.
      * @example
@@ -15571,6 +15873,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcStatus createManyAndReturn
    */
   export type QcStatusCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15590,6 +15893,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcStatus update
    */
   export type QcStatusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15634,6 +15939,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcStatus updateManyAndReturn
    */
   export type QcStatusUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15660,6 +15966,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcStatus upsert
    */
   export type QcStatusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16013,6 +16321,7 @@ export namespace Prisma {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["qcPhotos"]>
 
+<<<<<<< HEAD
   export type QcPhotosSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalItemId?: boolean
@@ -16034,6 +16343,9 @@ export namespace Prisma {
     updatedBy?: boolean
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["qcPhotos"]>
+=======
+
+>>>>>>> main
 
   export type QcPhotosSelectScalar = {
     id?: boolean
@@ -16049,12 +16361,15 @@ export namespace Prisma {
   export type QcPhotosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type QcPhotosIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
   export type QcPhotosIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $QcPhotosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "QcPhotos"
@@ -16187,6 +16502,7 @@ export namespace Prisma {
     createMany<T extends QcPhotosCreateManyArgs>(args?: SelectSubset<T, QcPhotosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many QcPhotos and returns the data saved in the database.
      * @param {QcPhotosCreateManyAndReturnArgs} args - Arguments to create many QcPhotos.
      * @example
@@ -16211,6 +16527,8 @@ export namespace Prisma {
     createManyAndReturn<T extends QcPhotosCreateManyAndReturnArgs>(args?: SelectSubset<T, QcPhotosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcPhotosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a QcPhotos.
      * @param {QcPhotosDeleteArgs} args - Arguments to delete one QcPhotos.
      * @example
@@ -16275,6 +16593,7 @@ export namespace Prisma {
     updateMany<T extends QcPhotosUpdateManyArgs>(args: SelectSubset<T, QcPhotosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more QcPhotos and returns the data updated in the database.
      * @param {QcPhotosUpdateManyAndReturnArgs} args - Arguments to update many QcPhotos.
      * @example
@@ -16305,6 +16624,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends QcPhotosUpdateManyAndReturnArgs>(args: SelectSubset<T, QcPhotosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcPhotosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one QcPhotos.
      * @param {QcPhotosUpsertArgs} args - Arguments to update or create a QcPhotos.
      * @example
@@ -16733,6 +17054,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcPhotos createManyAndReturn
    */
   export type QcPhotosCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16756,6 +17078,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcPhotos update
    */
   export type QcPhotosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16800,6 +17124,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcPhotos updateManyAndReturn
    */
   export type QcPhotosUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16830,6 +17155,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcPhotos upsert
    */
   export type QcPhotosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17135,6 +17462,7 @@ export namespace Prisma {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["securityPhotos"]>
 
+<<<<<<< HEAD
   export type SecurityPhotosSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalId?: boolean
@@ -17156,6 +17484,9 @@ export namespace Prisma {
     updatedBy?: boolean
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["securityPhotos"]>
+=======
+
+>>>>>>> main
 
   export type SecurityPhotosSelectScalar = {
     id?: boolean
@@ -17171,12 +17502,15 @@ export namespace Prisma {
   export type SecurityPhotosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type SecurityPhotosIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
   export type SecurityPhotosIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $SecurityPhotosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SecurityPhotos"
@@ -17309,6 +17643,7 @@ export namespace Prisma {
     createMany<T extends SecurityPhotosCreateManyArgs>(args?: SelectSubset<T, SecurityPhotosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many SecurityPhotos and returns the data saved in the database.
      * @param {SecurityPhotosCreateManyAndReturnArgs} args - Arguments to create many SecurityPhotos.
      * @example
@@ -17333,6 +17668,8 @@ export namespace Prisma {
     createManyAndReturn<T extends SecurityPhotosCreateManyAndReturnArgs>(args?: SelectSubset<T, SecurityPhotosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SecurityPhotosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a SecurityPhotos.
      * @param {SecurityPhotosDeleteArgs} args - Arguments to delete one SecurityPhotos.
      * @example
@@ -17397,6 +17734,7 @@ export namespace Prisma {
     updateMany<T extends SecurityPhotosUpdateManyArgs>(args: SelectSubset<T, SecurityPhotosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more SecurityPhotos and returns the data updated in the database.
      * @param {SecurityPhotosUpdateManyAndReturnArgs} args - Arguments to update many SecurityPhotos.
      * @example
@@ -17427,6 +17765,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends SecurityPhotosUpdateManyAndReturnArgs>(args: SelectSubset<T, SecurityPhotosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SecurityPhotosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one SecurityPhotos.
      * @param {SecurityPhotosUpsertArgs} args - Arguments to update or create a SecurityPhotos.
      * @example
@@ -17855,6 +18195,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * SecurityPhotos createManyAndReturn
    */
   export type SecurityPhotosCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17878,6 +18219,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * SecurityPhotos update
    */
   export type SecurityPhotosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17922,6 +18265,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * SecurityPhotos updateManyAndReturn
    */
   export type SecurityPhotosUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17952,6 +18296,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * SecurityPhotos upsert
    */
   export type SecurityPhotosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18257,6 +18603,7 @@ export namespace Prisma {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weighingsPhotos"]>
 
+<<<<<<< HEAD
   export type WeighingsPhotosSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalItemId?: boolean
@@ -18278,6 +18625,9 @@ export namespace Prisma {
     updatedBy?: boolean
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weighingsPhotos"]>
+=======
+
+>>>>>>> main
 
   export type WeighingsPhotosSelectScalar = {
     id?: boolean
@@ -18293,12 +18643,15 @@ export namespace Prisma {
   export type WeighingsPhotosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type WeighingsPhotosIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
   export type WeighingsPhotosIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrivalItem?: boolean | ArrivalItemsDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $WeighingsPhotosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "WeighingsPhotos"
@@ -18431,6 +18784,7 @@ export namespace Prisma {
     createMany<T extends WeighingsPhotosCreateManyArgs>(args?: SelectSubset<T, WeighingsPhotosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many WeighingsPhotos and returns the data saved in the database.
      * @param {WeighingsPhotosCreateManyAndReturnArgs} args - Arguments to create many WeighingsPhotos.
      * @example
@@ -18455,6 +18809,8 @@ export namespace Prisma {
     createManyAndReturn<T extends WeighingsPhotosCreateManyAndReturnArgs>(args?: SelectSubset<T, WeighingsPhotosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeighingsPhotosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a WeighingsPhotos.
      * @param {WeighingsPhotosDeleteArgs} args - Arguments to delete one WeighingsPhotos.
      * @example
@@ -18519,6 +18875,7 @@ export namespace Prisma {
     updateMany<T extends WeighingsPhotosUpdateManyArgs>(args: SelectSubset<T, WeighingsPhotosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more WeighingsPhotos and returns the data updated in the database.
      * @param {WeighingsPhotosUpdateManyAndReturnArgs} args - Arguments to update many WeighingsPhotos.
      * @example
@@ -18549,6 +18906,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends WeighingsPhotosUpdateManyAndReturnArgs>(args: SelectSubset<T, WeighingsPhotosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeighingsPhotosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one WeighingsPhotos.
      * @param {WeighingsPhotosUpsertArgs} args - Arguments to update or create a WeighingsPhotos.
      * @example
@@ -18977,6 +19336,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * WeighingsPhotos createManyAndReturn
    */
   export type WeighingsPhotosCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19000,6 +19360,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * WeighingsPhotos update
    */
   export type WeighingsPhotosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19044,6 +19406,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * WeighingsPhotos updateManyAndReturn
    */
   export type WeighingsPhotosUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19074,6 +19437,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * WeighingsPhotos upsert
    */
   export type WeighingsPhotosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19456,6 +19821,7 @@ export namespace Prisma {
     _count?: boolean | QcHistoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["qcHistories"]>
 
+<<<<<<< HEAD
   export type QcHistoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
@@ -19495,6 +19861,9 @@ export namespace Prisma {
     arrival?: boolean | QcHistories$arrivalArgs<ExtArgs>
     arrivalItem?: boolean | QcHistories$arrivalItemArgs<ExtArgs>
   }, ExtArgs["result"]["qcHistories"]>
+=======
+
+>>>>>>> main
 
   export type QcHistoriesSelectScalar = {
     id?: boolean
@@ -19521,6 +19890,7 @@ export namespace Prisma {
     QcResults?: boolean | QcHistories$QcResultsArgs<ExtArgs>
     _count?: boolean | QcHistoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type QcHistoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UsersDefaultArgs<ExtArgs>
     status?: boolean | QcStatusDefaultArgs<ExtArgs>
@@ -19533,6 +19903,8 @@ export namespace Prisma {
     arrival?: boolean | QcHistories$arrivalArgs<ExtArgs>
     arrivalItem?: boolean | QcHistories$arrivalItemArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $QcHistoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "QcHistories"
@@ -19675,6 +20047,7 @@ export namespace Prisma {
     createMany<T extends QcHistoriesCreateManyArgs>(args?: SelectSubset<T, QcHistoriesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many QcHistories and returns the data saved in the database.
      * @param {QcHistoriesCreateManyAndReturnArgs} args - Arguments to create many QcHistories.
      * @example
@@ -19699,6 +20072,8 @@ export namespace Prisma {
     createManyAndReturn<T extends QcHistoriesCreateManyAndReturnArgs>(args?: SelectSubset<T, QcHistoriesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcHistoriesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a QcHistories.
      * @param {QcHistoriesDeleteArgs} args - Arguments to delete one QcHistories.
      * @example
@@ -19763,6 +20138,7 @@ export namespace Prisma {
     updateMany<T extends QcHistoriesUpdateManyArgs>(args: SelectSubset<T, QcHistoriesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more QcHistories and returns the data updated in the database.
      * @param {QcHistoriesUpdateManyAndReturnArgs} args - Arguments to update many QcHistories.
      * @example
@@ -19793,6 +20169,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends QcHistoriesUpdateManyAndReturnArgs>(args: SelectSubset<T, QcHistoriesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QcHistoriesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one QcHistories.
      * @param {QcHistoriesUpsertArgs} args - Arguments to update or create a QcHistories.
      * @example
@@ -20231,6 +20609,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcHistories createManyAndReturn
    */
   export type QcHistoriesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20254,6 +20633,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcHistories update
    */
   export type QcHistoriesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20298,6 +20679,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * QcHistories updateManyAndReturn
    */
   export type QcHistoriesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20328,6 +20710,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * QcHistories upsert
    */
   export type QcHistoriesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20719,6 +21103,7 @@ export namespace Prisma {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arrivalStatuses"]>
 
+<<<<<<< HEAD
   export type ArrivalStatusesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     arrivalId?: boolean
@@ -20746,6 +21131,9 @@ export namespace Prisma {
     updatedBy?: boolean
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arrivalStatuses"]>
+=======
+
+>>>>>>> main
 
   export type ArrivalStatusesSelectScalar = {
     id?: boolean
@@ -20764,12 +21152,15 @@ export namespace Prisma {
   export type ArrivalStatusesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ArrivalStatusesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
   export type ArrivalStatusesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     arrival?: boolean | ArrivalsDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $ArrivalStatusesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ArrivalStatuses"
@@ -20905,6 +21296,7 @@ export namespace Prisma {
     createMany<T extends ArrivalStatusesCreateManyArgs>(args?: SelectSubset<T, ArrivalStatusesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many ArrivalStatuses and returns the data saved in the database.
      * @param {ArrivalStatusesCreateManyAndReturnArgs} args - Arguments to create many ArrivalStatuses.
      * @example
@@ -20929,6 +21321,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ArrivalStatusesCreateManyAndReturnArgs>(args?: SelectSubset<T, ArrivalStatusesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalStatusesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a ArrivalStatuses.
      * @param {ArrivalStatusesDeleteArgs} args - Arguments to delete one ArrivalStatuses.
      * @example
@@ -20993,6 +21387,7 @@ export namespace Prisma {
     updateMany<T extends ArrivalStatusesUpdateManyArgs>(args: SelectSubset<T, ArrivalStatusesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more ArrivalStatuses and returns the data updated in the database.
      * @param {ArrivalStatusesUpdateManyAndReturnArgs} args - Arguments to update many ArrivalStatuses.
      * @example
@@ -21023,6 +21418,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ArrivalStatusesUpdateManyAndReturnArgs>(args: SelectSubset<T, ArrivalStatusesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArrivalStatusesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one ArrivalStatuses.
      * @param {ArrivalStatusesUpsertArgs} args - Arguments to update or create a ArrivalStatuses.
      * @example
@@ -21454,6 +21851,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ArrivalStatuses createManyAndReturn
    */
   export type ArrivalStatusesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21477,6 +21875,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ArrivalStatuses update
    */
   export type ArrivalStatusesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21521,6 +21921,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ArrivalStatuses updateManyAndReturn
    */
   export type ArrivalStatusesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21551,6 +21952,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ArrivalStatuses upsert
    */
   export type ArrivalStatusesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21864,6 +22267,7 @@ export namespace Prisma {
     parameter?: boolean | ParametersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["parameterSettings"]>
 
+<<<<<<< HEAD
   export type ParameterSettingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     parameterId?: boolean
@@ -21887,6 +22291,9 @@ export namespace Prisma {
     updatedBy?: boolean
     parameter?: boolean | ParametersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["parameterSettings"]>
+=======
+
+>>>>>>> main
 
   export type ParameterSettingsSelectScalar = {
     id?: boolean
@@ -21903,12 +22310,15 @@ export namespace Prisma {
   export type ParameterSettingsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     parameter?: boolean | ParametersDefaultArgs<ExtArgs>
   }
+<<<<<<< HEAD
   export type ParameterSettingsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     parameter?: boolean | ParametersDefaultArgs<ExtArgs>
   }
   export type ParameterSettingsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     parameter?: boolean | ParametersDefaultArgs<ExtArgs>
   }
+=======
+>>>>>>> main
 
   export type $ParameterSettingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ParameterSettings"
@@ -22042,6 +22452,7 @@ export namespace Prisma {
     createMany<T extends ParameterSettingsCreateManyArgs>(args?: SelectSubset<T, ParameterSettingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Create many ParameterSettings and returns the data saved in the database.
      * @param {ParameterSettingsCreateManyAndReturnArgs} args - Arguments to create many ParameterSettings.
      * @example
@@ -22066,6 +22477,8 @@ export namespace Prisma {
     createManyAndReturn<T extends ParameterSettingsCreateManyAndReturnArgs>(args?: SelectSubset<T, ParameterSettingsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Delete a ParameterSettings.
      * @param {ParameterSettingsDeleteArgs} args - Arguments to delete one ParameterSettings.
      * @example
@@ -22130,6 +22543,7 @@ export namespace Prisma {
     updateMany<T extends ParameterSettingsUpdateManyArgs>(args: SelectSubset<T, ParameterSettingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+<<<<<<< HEAD
      * Update zero or more ParameterSettings and returns the data updated in the database.
      * @param {ParameterSettingsUpdateManyAndReturnArgs} args - Arguments to update many ParameterSettings.
      * @example
@@ -22160,6 +22574,8 @@ export namespace Prisma {
     updateManyAndReturn<T extends ParameterSettingsUpdateManyAndReturnArgs>(args: SelectSubset<T, ParameterSettingsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParameterSettingsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
+=======
+>>>>>>> main
      * Create or update one ParameterSettings.
      * @param {ParameterSettingsUpsertArgs} args - Arguments to update or create a ParameterSettings.
      * @example
@@ -22589,6 +23005,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ParameterSettings createManyAndReturn
    */
   export type ParameterSettingsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22612,6 +23029,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ParameterSettings update
    */
   export type ParameterSettingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22656,6 +23075,7 @@ export namespace Prisma {
   }
 
   /**
+<<<<<<< HEAD
    * ParameterSettings updateManyAndReturn
    */
   export type ParameterSettingsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22686,6 +23106,8 @@ export namespace Prisma {
   }
 
   /**
+=======
+>>>>>>> main
    * ParameterSettings upsert
    */
   export type ParameterSettingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23047,6 +23469,7 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+<<<<<<< HEAD
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -23055,6 +23478,8 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+=======
+>>>>>>> main
   export const NullsOrder: {
     first: 'first',
     last: 'last'
@@ -23063,6 +23488,185 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
+<<<<<<< HEAD
+=======
+  export const UsersOrderByRelevanceFieldEnum: {
+    username: 'username',
+    email: 'email',
+    password: 'password',
+    role: 'role',
+    id: 'id',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]
+
+
+  export const SuppliersOrderByRelevanceFieldEnum: {
+    name: 'name',
+    address: 'address',
+    phone: 'phone',
+    email: 'email',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type SuppliersOrderByRelevanceFieldEnum = (typeof SuppliersOrderByRelevanceFieldEnum)[keyof typeof SuppliersOrderByRelevanceFieldEnum]
+
+
+  export const MaterialsOrderByRelevanceFieldEnum: {
+    name: 'name',
+    description: 'description',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type MaterialsOrderByRelevanceFieldEnum = (typeof MaterialsOrderByRelevanceFieldEnum)[keyof typeof MaterialsOrderByRelevanceFieldEnum]
+
+
+  export const ConditionsOrderByRelevanceFieldEnum: {
+    name: 'name',
+    description: 'description',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ConditionsOrderByRelevanceFieldEnum = (typeof ConditionsOrderByRelevanceFieldEnum)[keyof typeof ConditionsOrderByRelevanceFieldEnum]
+
+
+  export const ParametersOrderByRelevanceFieldEnum: {
+    name: 'name',
+    unit: 'unit',
+    type: 'type',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ParametersOrderByRelevanceFieldEnum = (typeof ParametersOrderByRelevanceFieldEnum)[keyof typeof ParametersOrderByRelevanceFieldEnum]
+
+
+  export const ArrivalsOrderByRelevanceFieldEnum: {
+    idKedatangan: 'idKedatangan',
+    arrivalTime: 'arrivalTime',
+    nopol: 'nopol',
+    suratJalan: 'suratJalan',
+    city: 'city',
+    note: 'note',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ArrivalsOrderByRelevanceFieldEnum = (typeof ArrivalsOrderByRelevanceFieldEnum)[keyof typeof ArrivalsOrderByRelevanceFieldEnum]
+
+
+  export const ArrivalItemsOrderByRelevanceFieldEnum: {
+    conditionCategory: 'conditionCategory',
+    note: 'note',
+    itemName: 'itemName',
+    qcNote: 'qcNote',
+    qcAnalysis: 'qcAnalysis',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ArrivalItemsOrderByRelevanceFieldEnum = (typeof ArrivalItemsOrderByRelevanceFieldEnum)[keyof typeof ArrivalItemsOrderByRelevanceFieldEnum]
+
+
+  export const WeighingsOrderByRelevanceFieldEnum: {
+    note: 'note',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type WeighingsOrderByRelevanceFieldEnum = (typeof WeighingsOrderByRelevanceFieldEnum)[keyof typeof WeighingsOrderByRelevanceFieldEnum]
+
+
+  export const NotificationsOrderByRelevanceFieldEnum: {
+    table: 'table',
+    description: 'description'
+  };
+
+  export type NotificationsOrderByRelevanceFieldEnum = (typeof NotificationsOrderByRelevanceFieldEnum)[keyof typeof NotificationsOrderByRelevanceFieldEnum]
+
+
+  export const QcResultsOrderByRelevanceFieldEnum: {
+    resultKey: 'resultKey',
+    value: 'value',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type QcResultsOrderByRelevanceFieldEnum = (typeof QcResultsOrderByRelevanceFieldEnum)[keyof typeof QcResultsOrderByRelevanceFieldEnum]
+
+
+  export const QcStatusOrderByRelevanceFieldEnum: {
+    name: 'name',
+    description: 'description'
+  };
+
+  export type QcStatusOrderByRelevanceFieldEnum = (typeof QcStatusOrderByRelevanceFieldEnum)[keyof typeof QcStatusOrderByRelevanceFieldEnum]
+
+
+  export const QcPhotosOrderByRelevanceFieldEnum: {
+    photo: 'photo',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type QcPhotosOrderByRelevanceFieldEnum = (typeof QcPhotosOrderByRelevanceFieldEnum)[keyof typeof QcPhotosOrderByRelevanceFieldEnum]
+
+
+  export const SecurityPhotosOrderByRelevanceFieldEnum: {
+    photo: 'photo',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type SecurityPhotosOrderByRelevanceFieldEnum = (typeof SecurityPhotosOrderByRelevanceFieldEnum)[keyof typeof SecurityPhotosOrderByRelevanceFieldEnum]
+
+
+  export const WeighingsPhotosOrderByRelevanceFieldEnum: {
+    photo: 'photo',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type WeighingsPhotosOrderByRelevanceFieldEnum = (typeof WeighingsPhotosOrderByRelevanceFieldEnum)[keyof typeof WeighingsPhotosOrderByRelevanceFieldEnum]
+
+
+  export const QcHistoriesOrderByRelevanceFieldEnum: {
+    userId: 'userId',
+    note: 'note',
+    qcNote: 'qcNote'
+  };
+
+  export type QcHistoriesOrderByRelevanceFieldEnum = (typeof QcHistoriesOrderByRelevanceFieldEnum)[keyof typeof QcHistoriesOrderByRelevanceFieldEnum]
+
+
+  export const ArrivalStatusesOrderByRelevanceFieldEnum: {
+    status: 'status',
+    statusQc: 'statusQc',
+    statusWeighing: 'statusWeighing',
+    statusApproval: 'statusApproval',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ArrivalStatusesOrderByRelevanceFieldEnum = (typeof ArrivalStatusesOrderByRelevanceFieldEnum)[keyof typeof ArrivalStatusesOrderByRelevanceFieldEnum]
+
+
+  export const ParameterSettingsOrderByRelevanceFieldEnum: {
+    key: 'key',
+    value: 'value',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ParameterSettingsOrderByRelevanceFieldEnum = (typeof ParameterSettingsOrderByRelevanceFieldEnum)[keyof typeof ParameterSettingsOrderByRelevanceFieldEnum]
+
+
+>>>>>>> main
   /**
    * Field references
    */
@@ -23076,6 +23680,7 @@ export namespace Prisma {
 
 
   /**
+<<<<<<< HEAD
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
@@ -23083,6 +23688,8 @@ export namespace Prisma {
 
 
   /**
+=======
+>>>>>>> main
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -23090,6 +23697,7 @@ export namespace Prisma {
 
 
   /**
+<<<<<<< HEAD
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
@@ -23097,6 +23705,8 @@ export namespace Prisma {
 
 
   /**
+=======
+>>>>>>> main
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -23104,6 +23714,7 @@ export namespace Prisma {
 
 
   /**
+<<<<<<< HEAD
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
@@ -23111,6 +23722,8 @@ export namespace Prisma {
 
 
   /**
+=======
+>>>>>>> main
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -23118,6 +23731,7 @@ export namespace Prisma {
 
 
   /**
+<<<<<<< HEAD
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
@@ -23125,6 +23739,8 @@ export namespace Prisma {
 
 
   /**
+=======
+>>>>>>> main
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -23161,6 +23777,10 @@ export namespace Prisma {
     createdBy?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
     QcHistories?: QcHistoriesOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: UsersOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type UsersWhereUniqueInput = Prisma.AtLeast<{
@@ -23236,6 +23856,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     Arrivals?: ArrivalsOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: SuppliersOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type SuppliersWhereUniqueInput = Prisma.AtLeast<{
@@ -23309,6 +23933,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     ArrivalItems?: ArrivalItemsOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: MaterialsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type MaterialsWhereUniqueInput = Prisma.AtLeast<{
@@ -23376,6 +24004,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     ArrivalItems?: ArrivalItemsOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: ConditionsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ConditionsWhereUniqueInput = Prisma.AtLeast<{
@@ -23449,6 +24081,10 @@ export namespace Prisma {
     ArrivalItems?: ArrivalItemsOrderByRelationAggregateInput
     QcResults?: QcResultsOrderByRelationAggregateInput
     settings?: ParameterSettingsOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: ParametersOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ParametersWhereUniqueInput = Prisma.AtLeast<{
@@ -23541,6 +24177,10 @@ export namespace Prisma {
     QcHistories?: QcHistoriesOrderByRelationAggregateInput
     SecurityPhotos?: SecurityPhotosOrderByRelationAggregateInput
     ArrivalStatuses?: ArrivalStatusesOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: ArrivalsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ArrivalsWhereUniqueInput = Prisma.AtLeast<{
@@ -23676,6 +24316,10 @@ export namespace Prisma {
     Weighings?: WeighingsOrderByRelationAggregateInput
     WeighingsPhotos?: WeighingsPhotosOrderByRelationAggregateInput
     QcHistories?: QcHistoriesOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: ArrivalItemsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ArrivalItemsWhereUniqueInput = Prisma.AtLeast<{
@@ -23798,6 +24442,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     arrivalItem?: ArrivalItemsOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: WeighingsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type WeighingsWhereUniqueInput = Prisma.AtLeast<{
@@ -23865,6 +24513,10 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+<<<<<<< HEAD
+=======
+    _relevance?: NotificationsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type NotificationsWhereUniqueInput = Prisma.AtLeast<{
@@ -23935,6 +24587,10 @@ export namespace Prisma {
     arrivalItem?: ArrivalItemsOrderByWithRelationInput
     parameter?: ParametersOrderByWithRelationInput
     history?: QcHistoriesOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: QcResultsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type QcResultsWhereUniqueInput = Prisma.AtLeast<{
@@ -24007,6 +24663,10 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     ArrivalItems?: ArrivalItemsOrderByRelationAggregateInput
     QcHistories?: QcHistoriesOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: QcStatusOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type QcStatusWhereUniqueInput = Prisma.AtLeast<{
@@ -24063,6 +24723,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     arrivalItem?: ArrivalItemsOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: QcPhotosOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type QcPhotosWhereUniqueInput = Prisma.AtLeast<{
@@ -24130,6 +24794,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     arrival?: ArrivalsOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: SecurityPhotosOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type SecurityPhotosWhereUniqueInput = Prisma.AtLeast<{
@@ -24197,6 +24865,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     arrivalItem?: ArrivalItemsOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: WeighingsPhotosOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type WeighingsPhotosWhereUniqueInput = Prisma.AtLeast<{
@@ -24284,6 +24956,10 @@ export namespace Prisma {
     arrival?: ArrivalsOrderByWithRelationInput
     arrivalItem?: ArrivalItemsOrderByWithRelationInput
     QcResults?: QcResultsOrderByRelationAggregateInput
+<<<<<<< HEAD
+=======
+    _relevance?: QcHistoriesOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type QcHistoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -24379,6 +25055,10 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedBy?: SortOrderInput | SortOrder
     arrival?: ArrivalsOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: ArrivalStatusesOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ArrivalStatusesWhereUniqueInput = Prisma.AtLeast<{
@@ -24457,6 +25137,10 @@ export namespace Prisma {
     createdBy?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
     parameter?: ParametersOrderByWithRelationInput
+<<<<<<< HEAD
+=======
+    _relevance?: ParameterSettingsOrderByRelevanceInput
+>>>>>>> main
   }
 
   export type ParameterSettingsWhereUniqueInput = Prisma.AtLeast<{
@@ -25944,8 +26628,13 @@ export namespace Prisma {
 
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+=======
+    in?: string[]
+    notIn?: string[]
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25953,14 +26642,23 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     mode?: QueryMode
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+=======
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+>>>>>>> main
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -25970,8 +26668,13 @@ export namespace Prisma {
 
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+=======
+    in?: string[] | null
+    notIn?: string[] | null
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25979,7 +26682,11 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     mode?: QueryMode
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
@@ -25998,6 +26705,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type UsersOrderByRelevanceInput = {
+    fields: UsersOrderByRelevanceFieldEnum | UsersOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type UsersCountOrderByAggregateInput = {
     username?: SortOrder
     email?: SortOrder
@@ -26036,8 +26752,13 @@ export namespace Prisma {
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+=======
+    in?: string[]
+    notIn?: string[]
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -26045,7 +26766,11 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     mode?: QueryMode
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -26054,8 +26779,13 @@ export namespace Prisma {
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+=======
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+>>>>>>> main
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -26068,8 +26798,13 @@ export namespace Prisma {
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+=======
+    in?: string[] | null
+    notIn?: string[] | null
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -26077,7 +26812,11 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     mode?: QueryMode
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -26086,8 +26825,13 @@ export namespace Prisma {
 
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -26105,6 +26849,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type SuppliersOrderByRelevanceInput = {
+    fields: SuppliersOrderByRelevanceFieldEnum | SuppliersOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type SuppliersCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -26151,8 +26904,13 @@ export namespace Prisma {
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -26175,6 +26933,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type MaterialsOrderByRelevanceInput = {
+    fields: MaterialsOrderByRelevanceFieldEnum | MaterialsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type MaterialsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -26213,6 +26980,15 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type ConditionsOrderByRelevanceInput = {
+    fields: ConditionsOrderByRelevanceFieldEnum | ConditionsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ConditionsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -26271,6 +27047,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type ParametersOrderByRelevanceInput = {
+    fields: ParametersOrderByRelevanceFieldEnum | ParametersOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ParametersCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -26332,6 +27117,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type ArrivalsOrderByRelevanceInput = {
+    fields: ArrivalsOrderByRelevanceFieldEnum | ArrivalsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ArrivalsCountOrderByAggregateInput = {
     id?: SortOrder
     idKedatangan?: SortOrder
@@ -26392,8 +27186,13 @@ export namespace Prisma {
 
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -26403,8 +27202,13 @@ export namespace Prisma {
 
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -26414,8 +27218,13 @@ export namespace Prisma {
 
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -26483,6 +27292,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type ArrivalItemsOrderByRelevanceInput = {
+    fields: ArrivalItemsOrderByRelevanceFieldEnum | ArrivalItemsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ArrivalItemsCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalId?: SortOrder
@@ -26585,8 +27403,13 @@ export namespace Prisma {
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -26601,8 +27424,13 @@ export namespace Prisma {
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -26617,8 +27445,13 @@ export namespace Prisma {
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -26644,6 +27477,15 @@ export namespace Prisma {
     isNot?: ArrivalItemsWhereInput
   }
 
+<<<<<<< HEAD
+=======
+  export type WeighingsOrderByRelevanceInput = {
+    fields: WeighingsOrderByRelevanceFieldEnum | WeighingsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type WeighingsCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalItemId?: SortOrder
@@ -26692,6 +27534,15 @@ export namespace Prisma {
     weight?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type NotificationsOrderByRelevanceInput = {
+    fields: NotificationsOrderByRelevanceFieldEnum | NotificationsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type NotificationsCountOrderByAggregateInput = {
     id?: SortOrder
     table?: SortOrder
@@ -26729,6 +27580,15 @@ export namespace Prisma {
     isNot?: QcHistoriesWhereInput | null
   }
 
+<<<<<<< HEAD
+=======
+  export type QcResultsOrderByRelevanceInput = {
+    fields: QcResultsOrderByRelevanceFieldEnum | QcResultsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type QcResultsCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalItemId?: SortOrder
@@ -26782,6 +27642,15 @@ export namespace Prisma {
     historyId?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type QcStatusOrderByRelevanceInput = {
+    fields: QcStatusOrderByRelevanceFieldEnum | QcStatusOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type QcStatusCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -26808,6 +27677,15 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type QcPhotosOrderByRelevanceInput = {
+    fields: QcPhotosOrderByRelevanceFieldEnum | QcPhotosOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type QcPhotosCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalItemId?: SortOrder
@@ -26848,6 +27726,15 @@ export namespace Prisma {
     arrivalItemId?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type SecurityPhotosOrderByRelevanceInput = {
+    fields: SecurityPhotosOrderByRelevanceFieldEnum | SecurityPhotosOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type SecurityPhotosCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalId?: SortOrder
@@ -26888,6 +27775,15 @@ export namespace Prisma {
     arrivalId?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type WeighingsPhotosOrderByRelevanceInput = {
+    fields: WeighingsPhotosOrderByRelevanceFieldEnum | WeighingsPhotosOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type WeighingsPhotosCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalItemId?: SortOrder
@@ -26948,6 +27844,15 @@ export namespace Prisma {
     isNot?: ArrivalItemsWhereInput | null
   }
 
+<<<<<<< HEAD
+=======
+  export type QcHistoriesOrderByRelevanceInput = {
+    fields: QcHistoriesOrderByRelevanceFieldEnum | QcHistoriesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type QcHistoriesCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -27018,6 +27923,15 @@ export namespace Prisma {
     pengeringan?: SortOrder
   }
 
+<<<<<<< HEAD
+=======
+  export type ArrivalStatusesOrderByRelevanceInput = {
+    fields: ArrivalStatusesOrderByRelevanceFieldEnum | ArrivalStatusesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ArrivalStatusesCountOrderByAggregateInput = {
     id?: SortOrder
     arrivalId?: SortOrder
@@ -27072,6 +27986,15 @@ export namespace Prisma {
     isNot?: ParametersWhereInput
   }
 
+<<<<<<< HEAD
+=======
+  export type ParameterSettingsOrderByRelevanceInput = {
+    fields: ParameterSettingsOrderByRelevanceFieldEnum | ParameterSettingsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+>>>>>>> main
   export type ParameterSettingsParameterIdKeyCompoundUniqueInput = {
     parameterId: number
     key: string
@@ -28236,8 +29159,13 @@ export namespace Prisma {
 
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+=======
+    in?: string[]
+    notIn?: string[]
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -28245,13 +29173,22 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+=======
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+>>>>>>> main
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -28261,8 +29198,13 @@ export namespace Prisma {
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+=======
+    in?: string[] | null
+    notIn?: string[] | null
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -28270,13 +29212,22 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+=======
+    in?: string[]
+    notIn?: string[]
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -28284,6 +29235,10 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -28292,8 +29247,13 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -28303,8 +29263,13 @@ export namespace Prisma {
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+=======
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+>>>>>>> main
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -28317,8 +29282,13 @@ export namespace Prisma {
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+=======
+    in?: string[] | null
+    notIn?: string[] | null
+>>>>>>> main
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -28326,6 +29296,10 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
+=======
+    search?: string
+>>>>>>> main
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -28334,8 +29308,13 @@ export namespace Prisma {
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -28345,8 +29324,13 @@ export namespace Prisma {
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -28361,8 +29345,13 @@ export namespace Prisma {
 
   export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -28372,8 +29361,13 @@ export namespace Prisma {
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -28388,8 +29382,13 @@ export namespace Prisma {
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -28404,8 +29403,13 @@ export namespace Prisma {
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+=======
+    in?: number[]
+    notIn?: number[]
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -28420,8 +29424,13 @@ export namespace Prisma {
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
+<<<<<<< HEAD
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+=======
+    in?: number[] | null
+    notIn?: number[] | null
+>>>>>>> main
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>

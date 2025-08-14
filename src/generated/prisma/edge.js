@@ -301,16 +301,147 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+<<<<<<< HEAD
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
 
+=======
+>>>>>>> main
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
 
+<<<<<<< HEAD
+=======
+exports.Prisma.UsersOrderByRelevanceFieldEnum = {
+  username: 'username',
+  email: 'email',
+  password: 'password',
+  role: 'role',
+  id: 'id',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.SuppliersOrderByRelevanceFieldEnum = {
+  name: 'name',
+  address: 'address',
+  phone: 'phone',
+  email: 'email',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.MaterialsOrderByRelevanceFieldEnum = {
+  name: 'name',
+  description: 'description',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ConditionsOrderByRelevanceFieldEnum = {
+  name: 'name',
+  description: 'description',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ParametersOrderByRelevanceFieldEnum = {
+  name: 'name',
+  unit: 'unit',
+  type: 'type',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ArrivalsOrderByRelevanceFieldEnum = {
+  idKedatangan: 'idKedatangan',
+  arrivalTime: 'arrivalTime',
+  nopol: 'nopol',
+  suratJalan: 'suratJalan',
+  city: 'city',
+  note: 'note',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ArrivalItemsOrderByRelevanceFieldEnum = {
+  conditionCategory: 'conditionCategory',
+  note: 'note',
+  itemName: 'itemName',
+  qcNote: 'qcNote',
+  qcAnalysis: 'qcAnalysis',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.WeighingsOrderByRelevanceFieldEnum = {
+  note: 'note',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.NotificationsOrderByRelevanceFieldEnum = {
+  table: 'table',
+  description: 'description'
+};
+
+exports.Prisma.QcResultsOrderByRelevanceFieldEnum = {
+  resultKey: 'resultKey',
+  value: 'value',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.QcStatusOrderByRelevanceFieldEnum = {
+  name: 'name',
+  description: 'description'
+};
+
+exports.Prisma.QcPhotosOrderByRelevanceFieldEnum = {
+  photo: 'photo',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.SecurityPhotosOrderByRelevanceFieldEnum = {
+  photo: 'photo',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.WeighingsPhotosOrderByRelevanceFieldEnum = {
+  photo: 'photo',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.QcHistoriesOrderByRelevanceFieldEnum = {
+  userId: 'userId',
+  note: 'note',
+  qcNote: 'qcNote'
+};
+
+exports.Prisma.ArrivalStatusesOrderByRelevanceFieldEnum = {
+  status: 'status',
+  statusQc: 'statusQc',
+  statusWeighing: 'statusWeighing',
+  statusApproval: 'statusApproval',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ParameterSettingsOrderByRelevanceFieldEnum = {
+  key: 'key',
+  value: 'value',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy'
+};
+
+>>>>>>> main
 
 exports.Prisma.ModelName = {
   Users: 'Users',
@@ -342,7 +473,11 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
+<<<<<<< HEAD
       "value": "D:\\Project Clone\\SIKAB\\src\\generated\\prisma",
+=======
+      "value": "E:\\PKP Project\\SIKAB\\src\\generated\\prisma",
+>>>>>>> main
       "fromEnvVar": null
     },
     "config": {
@@ -360,7 +495,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
+<<<<<<< HEAD
     "sourceFilePath": "D:\\Project Clone\\SIKAB\\prisma\\schema.prisma",
+=======
+    "sourceFilePath": "E:\\PKP Project\\SIKAB\\prisma\\schema.prisma",
+>>>>>>> main
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -373,7 +512,11 @@ const config = {
   "datasourceNames": [
     "db"
   ],
+<<<<<<< HEAD
   "activeProvider": "postgresql",
+=======
+  "activeProvider": "mysql",
+>>>>>>> main
   "postinstall": false,
   "inlineDatasources": {
     "db": {
@@ -383,8 +526,13 @@ const config = {
       }
     }
   },
+<<<<<<< HEAD
   "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/generated/prisma\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Users {\n  username  String   @unique\n  email     String   @unique\n  password  String\n  role      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  id        String   @id @default(uuid()) @db.Char(36)\n  createdBy String?\n  updatedBy String?\n\n  QcHistories QcHistories[]\n\n  @@map(\"Users\")\n}\n\nmodel Suppliers {\n  id        Int      @id @default(autoincrement())\n  name      String\n  address   String?\n  phone     String?\n  email     String?\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  Arrivals Arrivals[]\n\n  @@map(\"Suppliers\")\n}\n\nmodel Materials {\n  id          Int      @id @default(autoincrement())\n  name        String\n  description String?\n  createdAt   DateTime @default(now())\n  createdBy   String?\n  updatedAt   DateTime @updatedAt\n  updatedBy   String?\n\n  ArrivalItems ArrivalItems[]\n\n  @@map(\"Materials\")\n}\n\nmodel Conditions {\n  id          Int      @id @default(autoincrement())\n  name        String\n  description String?\n  createdAt   DateTime @default(now())\n  createdBy   String?\n  updatedAt   DateTime @updatedAt\n  updatedBy   String?\n\n  ArrivalItems ArrivalItems[]\n\n  @@map(\"Conditions\")\n}\n\nmodel Parameters {\n  id        Int      @id @default(autoincrement())\n  name      String\n  unit      String?\n  type      String?\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  ArrivalItems ArrivalItems[]\n  QcResults    QcResults[]\n  settings     ParameterSettings[]\n\n  @@map(\"Parameters\")\n}\n\nmodel Arrivals {\n  id              Int              @id @default(autoincrement())\n  idKedatangan    String\n  supplierId      Int\n  arrivalDate     DateTime         @default(now())\n  arrivalTime     String?\n  nopol           String?\n  suratJalan      String?\n  city            String?\n  note            String?\n  createdAt       DateTime         @default(now())\n  createdBy       String?\n  updatedAt       DateTime         @updatedAt\n  updatedBy       String?\n  supplier        Suppliers        @relation(fields: [supplierId], references: [id])\n  ArrivalItems    ArrivalItems[]\n  QcHistories     QcHistories[]\n  SecurityPhotos  SecurityPhotos[]\n  ArrivalStatuses ArrivalStatuses?\n\n  @@map(\"Arrivals\")\n}\n\nmodel ArrivalItems {\n  id                Int      @id @default(autoincrement())\n  arrivalId         Int\n  materialId        Int\n  conditionId       Int\n  parameterId       Int?\n  conditionCategory String?\n  quantity          Float\n  note              String?\n  itemName          String?\n  qcNote            String?\n  qcStatusId        Int?\n  qcAnalysis        String?\n  qcSample          Float?\n  qcKotoran         Float?\n  totalBerat        Float?\n  pengeringan       Float?\n  createdAt         DateTime @default(now())\n  createdBy         String?\n  updatedAt         DateTime @updatedAt\n  updatedBy         String?\n  statusQc          Boolean  @default(false)\n\n  arrival   Arrivals    @relation(fields: [arrivalId], references: [id], onDelete: Cascade)\n  material  Materials   @relation(fields: [materialId], references: [id], onDelete: Cascade)\n  condition Conditions  @relation(fields: [conditionId], references: [id], onDelete: Cascade)\n  parameter Parameters? @relation(fields: [parameterId], references: [id], onDelete: Cascade)\n  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id], onDelete: NoAction)\n\n  QcResults       QcResults[]\n  QcPhotos        QcPhotos[]\n  Weighings       Weighings[]\n  WeighingsPhotos WeighingsPhotos[]\n  QcHistories     QcHistories[]\n\n  @@map(\"ArrivalItems\")\n}\n\nmodel Weighings {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  weight        Float\n  note          String?\n  weighingDate  DateTime     @default(now())\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"Weighings\")\n}\n\nmodel Notifications {\n  id          Int      @id @default(autoincrement())\n  table       String\n  description String?\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  @@map(\"Notifications\")\n}\n\nmodel QcResults {\n  id            Int      @id @default(autoincrement())\n  arrivalItemId Int\n  parameterId   Int\n  historyId     Int?\n  resultKey     String\n  value         String\n  createdAt     DateTime @default(now())\n  createdBy     String?\n  updatedAt     DateTime @updatedAt\n  updatedBy     String?\n\n  arrivalItem ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n  parameter   Parameters?  @relation(fields: [parameterId], references: [id])\n  history     QcHistories? @relation(fields: [historyId], references: [id])\n\n  @@map(\"QcResults\")\n}\n\nmodel QcStatus {\n  id           Int            @id @default(autoincrement())\n  name         String\n  description  String?\n  ArrivalItems ArrivalItems[]\n  QcHistories  QcHistories[]\n\n  @@map(\"QcStatus\")\n}\n\nmodel QcPhotos {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  photo         String\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"QcPhotos\")\n}\n\nmodel SecurityPhotos {\n  id        Int      @id @default(autoincrement())\n  arrivalId Int\n  photo     String\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  arrival Arrivals @relation(fields: [arrivalId], references: [id])\n\n  @@map(\"SecurityPhotos\")\n}\n\nmodel WeighingsPhotos {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  photo         String\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"WeighingsPhotos\")\n}\n\nmodel QcHistories {\n  id            Int      @id @default(autoincrement())\n  userId        String\n  statusId      Int\n  arrivalId     Int?\n  arrivalItemId Int?\n  qcSample      Float?\n  qcKotoran     Float?\n  totalBerat    Float?\n  pengeringan   Float?\n  note          String?\n  qcNote        String?\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n\n  user        Users         @relation(fields: [userId], references: [id])\n  status      QcStatus      @relation(fields: [statusId], references: [id])\n  arrival     Arrivals?     @relation(fields: [arrivalId], references: [id])\n  arrivalItem ArrivalItems? @relation(fields: [arrivalItemId], references: [id])\n  QcResults   QcResults[]\n\n  @@map(\"QcHistories\")\n}\n\nmodel ArrivalStatuses {\n  id             Int      @id @default(autoincrement())\n  arrivalId      Int      @unique\n  status         String   @default(\"MENUNGGUQC/TIMBANG\")\n  statusQc       String?  @default(\"MENUNGGUQC\")\n  statusWeighing String?  @default(\"MENUNGGUTIMBANG\")\n  statusApproval String?  @default(\"MENUNGGUPERSETUJUAN\")\n  createdAt      DateTime @default(now())\n  createdBy      String?\n  updatedAt      DateTime @updatedAt\n  updatedBy      String?\n\n  arrival Arrivals @relation(fields: [arrivalId], references: [id])\n\n  @@map(\"ArrivalStatuses\")\n}\n\nmodel ParameterSettings {\n  id          Int      @id @default(autoincrement())\n  parameterId Int\n  key         String // Misal: \"description\", \"isRequired\", \"maxValue\"\n  value       String // Nilai dari setting, disimpan sebagai String agar fleksibel\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n  createdBy   String?\n  updatedBy   String?\n\n  parameter Parameters @relation(fields: [parameterId], references: [id], onDelete: Cascade)\n\n  @@unique([parameterId, key])\n  @@map(\"ParameterSettings\")\n}\n",
   "inlineSchemaHash": "35bce1c9462792dfac8e3c1a7f8d54841b0a696965eb2443bb9646885002505d",
+=======
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/generated/prisma\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Users {\n  username  String   @unique\n  email     String   @unique\n  password  String\n  role      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  id        String   @id @default(uuid()) @db.Char(36)\n  createdBy String?\n  updatedBy String?\n\n  QcHistories QcHistories[]\n\n  @@map(\"Users\")\n}\n\nmodel Suppliers {\n  id        Int      @id @default(autoincrement())\n  name      String\n  address   String?\n  phone     String?\n  email     String?\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  Arrivals Arrivals[]\n\n  @@map(\"Suppliers\")\n}\n\nmodel Materials {\n  id          Int      @id @default(autoincrement())\n  name        String\n  description String?\n  createdAt   DateTime @default(now())\n  createdBy   String?\n  updatedAt   DateTime @updatedAt\n  updatedBy   String?\n\n  ArrivalItems ArrivalItems[]\n\n  @@map(\"Materials\")\n}\n\nmodel Conditions {\n  id          Int      @id @default(autoincrement())\n  name        String\n  description String?\n  createdAt   DateTime @default(now())\n  createdBy   String?\n  updatedAt   DateTime @updatedAt\n  updatedBy   String?\n\n  ArrivalItems ArrivalItems[]\n\n  @@map(\"Conditions\")\n}\n\nmodel Parameters {\n  id        Int      @id @default(autoincrement())\n  name      String\n  unit      String?\n  type      String?\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  ArrivalItems ArrivalItems[]\n  QcResults    QcResults[]\n  settings     ParameterSettings[]\n\n  @@map(\"Parameters\")\n}\n\nmodel Arrivals {\n  id              Int              @id @default(autoincrement())\n  idKedatangan    String\n  supplierId      Int\n  arrivalDate     DateTime         @default(now())\n  arrivalTime     String?\n  nopol           String?\n  suratJalan      String?\n  city            String?\n  note            String?\n  createdAt       DateTime         @default(now())\n  createdBy       String?\n  updatedAt       DateTime         @updatedAt\n  updatedBy       String?\n  supplier        Suppliers        @relation(fields: [supplierId], references: [id])\n  ArrivalItems    ArrivalItems[]\n  QcHistories     QcHistories[]\n  SecurityPhotos  SecurityPhotos[]\n  ArrivalStatuses ArrivalStatuses?\n\n  @@map(\"Arrivals\")\n}\n\nmodel ArrivalItems {\n  id                Int      @id @default(autoincrement())\n  arrivalId         Int\n  materialId        Int\n  conditionId       Int\n  parameterId       Int?\n  conditionCategory String?\n  quantity          Float\n  note              String?\n  itemName          String?\n  qcNote            String?\n  qcStatusId        Int?\n  qcAnalysis        String?\n  qcSample          Float?\n  qcKotoran         Float?\n  totalBerat        Float?\n  pengeringan       Float?\n  createdAt         DateTime @default(now())\n  createdBy         String?\n  updatedAt         DateTime @updatedAt\n  updatedBy         String?\n  statusQc          Boolean  @default(false)\n\n  arrival   Arrivals    @relation(fields: [arrivalId], references: [id], onDelete: Cascade)\n  material  Materials   @relation(fields: [materialId], references: [id], onDelete: Cascade)\n  condition Conditions  @relation(fields: [conditionId], references: [id], onDelete: Cascade)\n  parameter Parameters? @relation(fields: [parameterId], references: [id], onDelete: Cascade)\n  qcStatus  QcStatus?   @relation(fields: [qcStatusId], references: [id], onDelete: NoAction)\n\n  QcResults       QcResults[]\n  QcPhotos        QcPhotos[]\n  Weighings       Weighings[]\n  WeighingsPhotos WeighingsPhotos[]\n  QcHistories     QcHistories[]\n\n  @@map(\"ArrivalItems\")\n}\n\nmodel Weighings {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  weight        Float\n  note          String?\n  weighingDate  DateTime     @default(now())\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"Weighings\")\n}\n\nmodel Notifications {\n  id          Int      @id @default(autoincrement())\n  table       String\n  description String?\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  @@map(\"Notifications\")\n}\n\nmodel QcResults {\n  id            Int      @id @default(autoincrement())\n  arrivalItemId Int\n  parameterId   Int\n  historyId     Int?\n  resultKey     String\n  value         String\n  createdAt     DateTime @default(now())\n  createdBy     String?\n  updatedAt     DateTime @updatedAt\n  updatedBy     String?\n\n  arrivalItem ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n  parameter   Parameters?  @relation(fields: [parameterId], references: [id])\n  history     QcHistories? @relation(fields: [historyId], references: [id])\n\n  @@map(\"QcResults\")\n}\n\nmodel QcStatus {\n  id           Int            @id @default(autoincrement())\n  name         String\n  description  String?\n  ArrivalItems ArrivalItems[]\n  QcHistories  QcHistories[]\n\n  @@map(\"QcStatus\")\n}\n\nmodel QcPhotos {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  photo         String\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"QcPhotos\")\n}\n\nmodel SecurityPhotos {\n  id        Int      @id @default(autoincrement())\n  arrivalId Int\n  photo     String\n  createdAt DateTime @default(now())\n  createdBy String?\n  updatedAt DateTime @updatedAt\n  updatedBy String?\n\n  arrival Arrivals @relation(fields: [arrivalId], references: [id])\n\n  @@map(\"SecurityPhotos\")\n}\n\nmodel WeighingsPhotos {\n  id            Int          @id @default(autoincrement())\n  arrivalItemId Int\n  photo         String\n  createdAt     DateTime     @default(now())\n  createdBy     String?\n  updatedAt     DateTime     @updatedAt\n  updatedBy     String?\n  arrivalItem   ArrivalItems @relation(fields: [arrivalItemId], references: [id])\n\n  @@map(\"WeighingsPhotos\")\n}\n\nmodel QcHistories {\n  id            Int      @id @default(autoincrement())\n  userId        String\n  statusId      Int\n  arrivalId     Int?\n  arrivalItemId Int?\n  qcSample      Float?\n  qcKotoran     Float?\n  totalBerat    Float?\n  pengeringan   Float?\n  note          String?\n  qcNote        String?\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n\n  user        Users         @relation(fields: [userId], references: [id])\n  status      QcStatus      @relation(fields: [statusId], references: [id])\n  arrival     Arrivals?     @relation(fields: [arrivalId], references: [id])\n  arrivalItem ArrivalItems? @relation(fields: [arrivalItemId], references: [id])\n  QcResults   QcResults[]\n\n  @@map(\"QcHistories\")\n}\n\nmodel ArrivalStatuses {\n  id             Int      @id @default(autoincrement())\n  arrivalId      Int      @unique\n  status         String   @default(\"MENUNGGUQC/TIMBANG\")\n  statusQc       String?  @default(\"MENUNGGUQC\")\n  statusWeighing String?  @default(\"MENUNGGUTIMBANG\")\n  statusApproval String?  @default(\"MENUNGGUPERSETUJUAN\")\n  createdAt      DateTime @default(now())\n  createdBy      String?\n  updatedAt      DateTime @updatedAt\n  updatedBy      String?\n\n  arrival Arrivals @relation(fields: [arrivalId], references: [id])\n\n  @@map(\"ArrivalStatuses\")\n}\n\nmodel ParameterSettings {\n  id          Int      @id @default(autoincrement())\n  parameterId Int\n  key         String // Misal: \"description\", \"isRequired\", \"maxValue\"\n  value       String // Nilai dari setting, disimpan sebagai String agar fleksibel\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n  createdBy   String?\n  updatedBy   String?\n\n  parameter Parameters @relation(fields: [parameterId], references: [id], onDelete: Cascade)\n\n  @@unique([parameterId, key])\n  @@map(\"ParameterSettings\")\n}\n",
+  "inlineSchemaHash": "ac364af84edd54c8e35f571d910260347731b572c6df66391dfdc666731fa61e",
+>>>>>>> main
   "copyEngine": true
 }
 config.dirname = '/'

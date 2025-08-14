@@ -4,9 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+<<<<<<< HEAD
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+=======
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+>>>>>>> main
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

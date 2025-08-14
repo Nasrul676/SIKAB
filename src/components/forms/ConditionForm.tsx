@@ -39,7 +39,10 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
     setValue,
     formState: { errors },
   } = useForm<ConditionSchema>({
+<<<<<<< HEAD
     resolver: zodResolver(conditionSchema),
+=======
+>>>>>>> main
     defaultValues: {
       name: data?.name || "",
       description: data?.description || "",
@@ -116,8 +119,11 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
           console.error("Failed to parse backup:", error);
         }
       }
+<<<<<<< HEAD
 
       toast.error(state.message);
+=======
+>>>>>>> main
     }
 
     if (state.errors) {
@@ -136,9 +142,15 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit(onSubmit)} ref={formRef}>
       <h1 className="text-xl font-semibold">{type === "create" ? "Create a new condition" : "Update the condition"}</h1>
 
+<<<<<<< HEAD
       <InputField label="Name" name="name" register={register} error={errors?.name} />
 
       <InputField label="Description" name="description" register={register} error={errors?.description} />
+=======
+      <InputField label="Name" name="name" register={register}/>
+
+      <InputField label="Description" name="description" register={register}/>
+>>>>>>> main
 
       {data?.id && <input type="hidden" {...register("id" as any)} value={data.id} />}
 
