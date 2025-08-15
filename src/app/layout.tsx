@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
-
+import NextTopLoader from 'nextjs-toploader';
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -74,7 +74,7 @@ export default async function RootLayout({
         />
       </head>
 
-      <body 
+      <body
         className={cn(
           // Base styles
           "bg-background overscroll-none font-sans antialiased",
@@ -87,29 +87,11 @@ export default async function RootLayout({
           fontVariables
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          enableColorScheme
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
           <ActiveThemeProvider initialTheme={activeThemeValue}>
-              {children}
-              <ToastContainer 
-                position="bottom-right" 
-                theme="colored"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                className="z-50"
-                toastClassName="text-sm"
-              />
+            <NextTopLoader color="#3526de" />
+            {children}
+            <ToastContainer position="bottom-right" theme="colored" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover className="z-50" toastClassName="text-sm" />
           </ActiveThemeProvider>
         </ThemeProvider>
       </body>
