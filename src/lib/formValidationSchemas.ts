@@ -138,8 +138,8 @@ export const arrivalItemSchema = z.object({
 export type ArrivalItemSchema = z.infer<typeof arrivalItemSchema>;
 
 export const weighingSchema = z.object({
-  arrivalId: z.string(),
-  arrivalItemId:z.string(),
+  arrivalId: z.any(),
+  arrivalItemId:z.any(),
   weight:z.coerce.number(),
   weighingProof: z.array(z.object({
         file: z.instanceof(File)

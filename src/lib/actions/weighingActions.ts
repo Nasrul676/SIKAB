@@ -29,8 +29,8 @@ export async function createWeighing(
 
   console.log("Received form data:", result);
   const validationResult = weighingSchema.safeParse({
-    arrivalId: result.arrivalId,
-    arrivalItemId: result.arrivalItemId,
+    arrivalId: result.arrivalId.toString(),
+    arrivalItemId: result.arrivalItemId.toString(),
     weight: result.weight,
     note: result.note,
   });

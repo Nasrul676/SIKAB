@@ -17,6 +17,7 @@ import {
   Calendar,
   ClipboardList,
   Package,
+  Save,
   Sparkles,
   Truck,
   X,
@@ -85,7 +86,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
     setValue,
     reset,
   } = useForm<QcSubmissionData>({
-    resolver: zodResolver(qcSubmissionSchema),
     mode: "onChange",
     defaultValues: {
       arrivalId: relatedData.arrival.id.toString(),
@@ -426,11 +426,11 @@ function QcForm({ relatedData }: { relatedData: any }) {
                   ></textarea>
                 </div>
                 <div className="w-full flex flex-row justify-between gap-4">
-                  <Button type="submit" disabled={isPending} className="bg-blue-600 text-white p-2 rounded-md">
-                    {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
-                    {isPending ? "Menyimpan..." : "Simpan Hasil QC"}
+                  <Button type="submit" disabled={isPending} className="bg-blue-600 text-white p-2 rounded-md cursor-pointer">
+                    {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin cursor-wait"></div>}
+                    <Save /> {isPending ? "Menyimpan..." : "Simpan Hasil QC"}
                   </Button>
-                  <Button type="button" onClick={handleCancelQc} className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
+                  <Button type="button" disabled={isPending} onClick={handleCancelQc} className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
                     <X size={16} /> Kembali
                   </Button>
                 </div>

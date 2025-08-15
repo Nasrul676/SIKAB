@@ -13,7 +13,7 @@ export default function LogoutButton() {
         });
     };
     return (
-        <button onClick={handleLogout} className="pl-4 gap-2 flex items-center text-black-600 hover">
+        <button onClick={handleLogout} className="pl-4 gap-2 flex items-center text-black-600 hover cursor-pointer">
             <LogOut size={15} />
             <span className="text-sm">Keluar</span>
         </button>

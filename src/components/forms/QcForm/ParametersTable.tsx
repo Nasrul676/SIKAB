@@ -2,6 +2,7 @@ import { Input } from "@/registry/new-york-v4/ui/input";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
+import { Edit } from "lucide-react";
 
 type QcResultError = {
   value?: { message?: string };
@@ -41,8 +42,8 @@ export default function ParametersTable({
     <div className="overflow-x-auto mb-4">
       <div className="flex flex-row w-full mb-4 justify-between items-center">
         <label className="block text-sm font-semibold mb-2">Hasil Pengecekan</label>
-        <Button type="button" className="bg-blue-600 hover:bg-blue-900 transition-all duration-200 cursor-pointer" onClick={() => seteditValue(!editValue)}>
-          Edit
+        <Button type="button" className="bg-amber-500 hover:bg-amber-600 transition-all duration-200 cursor-pointer" onClick={() => seteditValue(!editValue)}>
+          <Edit /> Edit data
         </Button>
       </div>
       <table className="min-w-full bg-white dark:bg-black border border-gray-200 rounded-lg">

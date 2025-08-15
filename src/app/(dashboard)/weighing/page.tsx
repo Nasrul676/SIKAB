@@ -25,9 +25,9 @@ const WeighingPage = async ({
   //   gte: startOfToday, // Greater than or equal to (lebih besar atau sama dengan awal hari ini)
   //   lt: startOfTomorrow, // Less than (lebih kecil dari awal hari esok)
   // };
-  query.ArrivalStatuses = {
-    statusWeighing: ArrivalStatus.WEIGHING_PENDING,
-  };
+  // query.ArrivalStatuses = {
+  //   statusWeighing: ArrivalStatus.WEIGHING_PENDING,
+  // };
   if (queryParams) {
     for (const [key, value] of Object.entries(queryParams)) {
       if (value !== undefined) {

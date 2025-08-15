@@ -23,7 +23,7 @@ export default function ListQcDialog({items}: any) {
     <Dialog>
       <form>
         <DialogTrigger asChild>
-          <Button variant="outline">
+          <Button variant="outline" className="cursor-pointer">
             <CheckCircle color="blue" size={16} />
             <span className="text-blue-500">Proses QC</span>
           </Button>

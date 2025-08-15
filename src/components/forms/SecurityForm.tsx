@@ -11,7 +11,7 @@ import { createMaterial } from "@/lib/actions/materialActions";
 import SelectField from "../SelectField";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import FormModal from "../FormModal";
-import { Calendar, ClipboardList, Clock, Cross, Plus, X } from "lucide-react";
+import { Calendar, ClipboardList, Clock, Cross, Plus, Save, X } from "lucide-react";
 import moment from "moment";
 import { createArrival } from "@/lib/actions/arrivalActions";
 import prisma from "@/lib/prisma";
@@ -254,11 +254,11 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
             </Button>
             <Button type="submit" disabled={isPending} className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md cursor-pointer">
               {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
-              {isPending ? "Menyimpan..." : "Simpan"}
+              <Save /> {isPending ? "Menyimpan..." : "Simpan"}
             </Button>
           </div>
           <div>
-            <Button type="button" onClick={handleCancel} className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
+            <Button type="button" disabled={isPending} onClick={handleCancel} className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 cursor-pointer">
               <X size={16} /> Kembali
             </Button>
           </div>
