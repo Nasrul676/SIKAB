@@ -5,6 +5,7 @@ import { useReactToPrint } from "react-to-print";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import QueuePrint from "@/components/QueuePrint";
 import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 function PrintPageClient({ arrivalData }: { arrivalData: any | null }) {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -35,9 +36,9 @@ function PrintPageClient({ arrivalData }: { arrivalData: any | null }) {
         <QueuePrint ref={contentRef} arrivalData={arrivalData} />
       </div>
       <div className="flex flex-row gap-4">
-        <Button onClick={handleBack} className="px-8 py-4 text-lg cursor-pointer">
+        <Link href="/security" className="px-8 py-4 text-lg cursor-pointer">
           Kembali
-        </Button>
+        </Link>
         <Button onClick={handlePrint} className="px-8 py-4 text-lg bg-blue-600 cursor-pointer">
           Cetak Ulang Struk
         </Button>

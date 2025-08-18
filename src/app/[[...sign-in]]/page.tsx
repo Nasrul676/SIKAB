@@ -5,6 +5,7 @@ import React, { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useRouter, useSearchParams } from 'next/navigation'; // Use next/navigation
 import { loginAction, type LoginFormState } from '@/lib/actions/authActions'; // Adjust path
+import { toast } from 'react-toastify';
 
 const initialState: LoginFormState = {
   success: false,
@@ -37,12 +38,14 @@ export default function LoginPage() {
   // Effect to handle redirection after successful login
   useEffect(() => {
     if (state.success) {
-        
+      toast.success("Login berhasil!");
       // Redirect to the dashboard or the callbackUrl after successful login
       console.log(`Login successful, redirecting to: ${callbackUrl}`);
       router.push(state.message || callbackUrl);
       // Optionally show a success toast message before redirecting
       // toast.success(state.message || "Login successful!");
+    }else{
+      toast.error("Login gagal!, pastikan email dan password benar.");
     }
   }, [state.success, router, callbackUrl]);
 

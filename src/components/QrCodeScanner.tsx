@@ -193,11 +193,6 @@ export default function QrCodeScanPage({ setIsOpen, isOpen }: { setIsOpen: (isOp
                 <input type="text" value={queryResult.note} className="mt-4 w-full p-2 ring-gray-400 ring-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200" placeholder="Catatan (jika ada)" onChange={(e) => setNote(e.target.value)} />
               </div>
             </div>
-            {queryResult.status === "Menunggu QC/Timbang" && queryResult.statusQc === null ? (
-              <p className="text-red-500 text-center mt-4">Silakan lakukan proses QC/Timbang sebelum melanjutkan.</p>
-            ) : (
-              <p className="text-green-500 text-center mt-4">Proses sudah selesai, Anda dapat melanjutkan.</p>
-            )}
             <div className="flex w-full justify-center">
               <Button onClickCapture={() => updateStatus(queryResult.id)} className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white cursor-pointer" onClick={() => scannerRef.current?.clear()}>
                 Approve
