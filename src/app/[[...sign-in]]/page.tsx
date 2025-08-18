@@ -44,10 +44,8 @@ export default function LoginPage() {
       router.push(state.message || callbackUrl);
       // Optionally show a success toast message before redirecting
       // toast.success(state.message || "Login successful!");
-    }else{
-      toast.error("Login gagal!, pastikan email dan password benar.");
     }
-  }, [state.success, router, callbackUrl]);
+  }, [state.success, state.errors, router, callbackUrl]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950">

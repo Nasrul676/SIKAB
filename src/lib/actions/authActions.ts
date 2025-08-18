@@ -127,9 +127,10 @@ export async function logoutAction() {
         const session = await getSession();
         await session.destroy();
         console.log("Keluar berhasil.");
-        redirect('/login');
+        return { success: true, message: "Logout berhasil." };
     } catch (error) {
         console.error("Gagal keluar:", error);
+        return { success: false, message: "Gagal keluar.", errors: { general: "Server error."} };
     }
 }
 
