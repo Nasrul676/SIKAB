@@ -7,16 +7,17 @@ export const userSchema = z.object({
   id: z.string().optional(),
   username: z
     .string()
-    .min(3, { message: "Username harus terdiri dari minimal 3 karakter!" })
+    .min(1, { message: "Username harus diisi!" })
     .max(20, { message: "Username harus terdiri dari maksimal 20 karakter!" }),
   password: z
     .string()
     .min(6, { message: "Password harus terdiri dari minimal 6 karakter!" }),
   email: z
     .string()
-    .email({ message: "Email tidak valid!" })
-    .or(z.literal("")),
-  role: z.string(),
+    .min(5, { message: "Email harus terdiri dari minimal 5 karakter!" })
+    .max(100, { message: "Email harus terdiri dari maksimal 100 karakter!" })
+    .email({ message: "Email tidak valid!" }),
+  role: z.enum(["superadmin", "admin", "manager", "security", "weighing", "qc"], { message: "Role harus salah satu dari: superadmin, admin, manager, security, weighing, qc" }),
 });
 
 export type UserSchema = z.infer<typeof userSchema>;
@@ -25,7 +26,7 @@ export const supplierSchema = z.object({
   id: z.string().optional(),
   name: z
     .string()
-    .min(3, { message: "Nama supplier harus terdiri dari minimal 3 karakter" }),
+    .min(1, { message: "Nama supplier harus diisi" }),
   address: z
     .string()
     .optional(),
@@ -44,7 +45,7 @@ export const materialSchema = z.object({
   id: z.string().optional(),
   name: z
     .string()
-    .min(3, {message: "Nama material harus terdiri dari minimal 3 karakter"}),
+    .min(1, {message: "Nama material harus diisi"}),
   description: z
     .string()
     .optional(),
@@ -56,7 +57,7 @@ export const conditionSchema = z.object({
   id: z.string().optional(),
   name: z
     .string()
-    .min(3, { message: "Nama kondisi harus terdiri dari minimal 3 karakter" }),
+    .min(1, { message: "Nama kondisi harus diisi" }),
   description: z
     .string()
     .optional(),
@@ -65,7 +66,7 @@ export const conditionSchema = z.object({
 export type ConditionSchema = z.infer<typeof conditionSchema>;
 
 export const ParameterSettingsSchema = z.object({
-  key: z.string().min(3, { message: "Key harus terdiri dari minimal 3 karakter" }),
+  key: z.string().min(1, { message: "Key harus diisi" }),
   value: z.string().min(1, { message: "Value harus diisi" }),
 });
 
@@ -73,7 +74,7 @@ export const parameterSchema = z.object({
   id: z.string().optional(),
   name: z
     .string()
-    .min(3, { message: "Nama parameter harus terdiri dari minimal 3 karakter" }),
+    .min(1, { message: "Nama parameter harus diisi" }),
   unit: z
     .string()
     .min(1, { message: "Unit harus diisi" }),
@@ -84,6 +85,18 @@ export const parameterSchema = z.object({
 });
 
 export type ParameterSchema = z.infer<typeof parameterSchema>;
+
+export const arrivalMaterialSchema =
+  z.object({
+    materialId: z.string().min(1, { message: "Jenis bahan tidak boleh kosong" }),
+    quantity: z.string().min(1, { message: "Jumlah Qty tidak boleh kosong" }),
+    conditionCategory: z.enum(['Basah', 'Kering'], {
+      message: "Kondisi bahan harus terdiri dari 'Basah' atau 'Kering'."
+    }),
+    conditionId: z.string().min(1, { message: "Tingkat kebersihan bahan tidak boleh kosong" }),
+    itemName: z.string().optional(),
+    description: z.string().optional(),
+  })
 
 export const arivalSchema = z.object({
   id: z.string().optional(),
@@ -100,18 +113,7 @@ export const arivalSchema = z.object({
         .refine((file) => ["image/jpeg", "image/jpg", "image/png", "image/webp", "video/mp4", "video/webm"].includes(file.type), "Format file tidak didukung (.jpg, .png, .mp4, .webm)."),
     }).required()
   ),
-  materials: z.array(
-    z.object({
-      materialId: z.string().min(1, { message: "Jenis bahan tidak boleh kosong" }),
-      quantity: z.string().min(1, { message: "Jumlah Qty tidak boleh kosong" }),
-      conditionCategory: z.enum(['Basah', 'Kering'], {
-        message: "Kondisi bahan harus terdiri dari 'Basah' atau 'Kering'."
-      }),
-      conditionId: z.string().min(1, { message: "Tingkat kebersihan bahan tidak boleh kosong" }),
-      itemName: z.string().optional(),
-      description: z.string().optional(),
-    })
-  ),
+  materials: z.array(arrivalMaterialSchema).min(1, { message: "Minimal 1 jenis bahan harus diisi" }),
 });
 
 export type ArivalSchema = z.infer<typeof arivalSchema>;
@@ -140,7 +142,7 @@ export type ArrivalItemSchema = z.infer<typeof arrivalItemSchema>;
 export const weighingSchema = z.object({
   arrivalId: z.any(),
   arrivalItemId:z.any(),
-  weight:z.coerce.number(),
+  weight:z.coerce.number().min(1, { message: "Berat bahan harus lebih dari 0" }),
   weighingProof: z.array(z.object({
         file: z.instanceof(File)
           .refine((file) => file.size <= MAX_FILE_SIZE_BYTES, `Ukuran maksimal per file adalah ${MAX_FILE_SIZE_MB}MB.`)

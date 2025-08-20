@@ -246,7 +246,7 @@ export const createOrUpdateArrivalItem = async (
           itemName: formData.get("itemName"),
           description: formData.get("description"),
         });
-
+        console.log("Validated Fields:", validatedFields.error);
         if (!validatedFields.success) {
         return {
             success: false,

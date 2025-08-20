@@ -14,6 +14,7 @@ type SelectFieldProps = {
   // Make both props optional
   control?: Control<any>;
   register?: UseFormRegister<any>;
+  isError?: boolean;
 };
 
 const SelectField = ({
@@ -22,6 +23,7 @@ const SelectField = ({
   data,
   defaultValue,
   error,
+  isError = false,
   required = false,
   onChange,
   control, // Can be undefined
@@ -49,7 +51,7 @@ const SelectField = ({
               }}
               value={field.value}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className={`w-full ${isError ? "border-red-500" : "border-gray-300"} p-2 border rounded-md`}>
                 <SelectValue placeholder={`Select ${label}`} />
               </SelectTrigger>
               <SelectContent>
@@ -64,7 +66,7 @@ const SelectField = ({
         />
       ) : (
         <Select {...(register ? register(name) : {})} defaultValue={defaultValue?.toString()} onValueChange={onChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className={`w-full ${isError ? "border-red-500" : "border-gray-300"} p-2 border rounded-md`}>
             <SelectValue placeholder={`Select ${label}`} />
           </SelectTrigger>
           <SelectContent>

@@ -30,6 +30,10 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
 
   const [isClosing, setIsClosing] = useState(false);
   const [hasProcessedSuccess, setHasProcessedSuccess] = useState(false);
+  const [isError, setIsError] = useState({
+    name: false,
+    description: false,
+  });
 
   const {
     register,
@@ -114,6 +118,12 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldErrors = state.errors[field];
+        if (field === "name") {
+          setIsError((prev) => ({ ...prev, name: true }));
+        }
+        if (field === "description") {
+          setIsError((prev) => ({ ...prev, description: true }));
+        }
         if (fieldErrors && fieldErrors.length > 0) {
           fieldErrors.forEach((error: string) => {
             toast.error(`${error}`);
@@ -127,9 +137,9 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
     <form className="flex flex-col gap-8 w-full">
       <h1 className="text-xl font-semibold">{type === "create" ? "Tambah material baru" : "Update material"}</h1>
 
-      <InputField label="Nama Material" name="name" register={register} />
+      <InputField label="Nama Material" name="name" register={register} isError={isError.name} onChange={() => setIsError((prev) => ({ ...prev, name: false }))} />
 
-      <InputField label="Deskripsi" name="description" register={register} />
+      <InputField label="Deskripsi" name="description" register={register} isError={isError.description} onChange={() => setIsError((prev) => ({ ...prev, description: false }))} />
 
       {data?.id && <input type="hidden" {...register("id" as any)} value={data.id} />}
       {state.message && !state.success && !state.errors && <span className="text-red-500 text-sm">{state.message}</span>}

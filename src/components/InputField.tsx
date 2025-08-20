@@ -17,12 +17,15 @@ type InputFieldProps = {
   register?: UseFormRegister<any>;
   control?: Control<any>;
   placeholder?: string;
+  isError?: boolean;
+  onChange?: (value: string) => void;
 };
 
 const InputField = ({
   label,
   type = "text",
   name,
+  isError = false,
   defaultValue,
   error,
   style,
@@ -33,6 +36,7 @@ const InputField = ({
   placeholder,
   register,
   control,
+  onChange
 }: InputFieldProps) => {
   const isControlled = !!control;
 
@@ -49,12 +53,16 @@ const InputField = ({
           defaultValue={defaultValue || ""}
           render={({ field }) => (
             <Input
-              className={className}
+              className={`${className} ${isError ? "border-red-500" : "border-gray-300"} p-2 border rounded-md`}
               style={style}
               type={type}
               {...field}
               {...inputProps}
               placeholder={placeholder}
+              onChange={e => {
+                field.onChange(e);
+                onChange && onChange(e.target.value);
+              }}
               // defaultValue tidak diperlukan di sini karena 'field.value' mengaturnya
             />
           )}
@@ -64,10 +72,13 @@ const InputField = ({
           type={type}
           {...(register ? register(name) : {})}
           {...inputProps}
-          className={className}
+          className={`${className} ${isError ? "border-red-500" : "border-gray-300"} p-2 border rounded-md`}
           defaultValue={defaultValue}
           placeholder={placeholder}
           style={style}
+          onChange={e => {
+            if (onChange) onChange(e.target.value);
+          }}
         />
       )}
 

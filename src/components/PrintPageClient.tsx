@@ -26,17 +26,13 @@ function PrintPageClient({ arrivalData }: { arrivalData: any | null }) {
     );
   }
 
-  const handleBack = () => {
-    router.push("/security");
-  };
-
   return (
     <div className="p-8 flex flex-col items-center gap-8 bg-gray-100 min-h-screen">
       <div className="p-4 bg-white shadow-lg">
         <QueuePrint ref={contentRef} arrivalData={arrivalData} />
       </div>
       <div className="flex flex-row gap-4">
-        <Link href="/security" className="px-8 py-4 text-lg cursor-pointer">
+        <Link href="/security" className="text-lg cursor-pointer bg-gray-500 py-1 rounded-lg px-2 text-center text-white">
           Kembali
         </Link>
         <Button onClick={handlePrint} className="px-8 py-4 text-lg bg-blue-600 cursor-pointer">

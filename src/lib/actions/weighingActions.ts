@@ -37,7 +37,7 @@ export async function createWeighing(
 
   if (!validationResult.success) {
     console.error("Validasi gagal:", validationResult.error);
-    return { success: false, message: `File tidak valid: ${validationResult.error.errors.map(e => e.message).join(', ')}` };
+    return { success: false, message: `${validationResult.error.errors.map(e => e.message).join(', ')}` };
   }
   const { userId } = await getAuthenticatedUserInfo();
   const { arrivalItemId, weight, note } = validationResult.data;

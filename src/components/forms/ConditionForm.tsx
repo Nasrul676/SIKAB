@@ -31,6 +31,10 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
   // State untuk mencegah multiple close calls
   const [isClosing, setIsClosing] = useState(false);
   const [hasProcessedSuccess, setHasProcessedSuccess] = useState(false);
+  const [isError, setIsError] = useState({
+    name: false,
+    description: false,
+  });
 
   const {
     register,
@@ -120,6 +124,14 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldErrors = state.errors[field];
+        if (field === "name") {
+          setIsError((prev) => ({ ...prev, name: true }));
+        }
+
+        if (field === "description") {
+          setIsError((prev) => ({ ...prev, description: true }));
+        }
+
         if (fieldErrors && Array.isArray(fieldErrors)) {
           fieldErrors.forEach((error: string) => {
             toast.error(error);
@@ -133,16 +145,16 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit(onSubmit)} ref={formRef}>
       <h1 className="text-xl font-semibold">{type === "create" ? "Tambah kondisi barang baru" : "Update kondisi barang"}</h1>
 
-      <InputField label="Name" name="name" register={register}/>
+      <InputField label="Name" name="name" register={register} isError={isError.name} onChange={() => setIsError((prev) => ({ ...prev, name: false }))}/>
 
-      <InputField label="Description" name="description" register={register}/>
+      <InputField label="Description" name="description" register={register} isError={isError.description} onChange={() => setIsError((prev) => ({ ...prev, description: false }))}/>
 
       {data?.id && <input type="hidden" {...register("id" as any)} value={data.id} />}
 
       {state.message && !state.success && !state.errors && <span className="text-red-500 text-sm">{state.message}</span>}
 
       <button disabled={isPending || isClosing} type="submit" className={`p-2 rounded-md transition-colors text-white ${isPending || isClosing ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}>
-        {isPending ? (type === "create" ? "Creating..." : "Updating...") : isClosing ? "Closing..." : type === "create" ? "Create" : "Update"}
+        {isPending ? (type === "create" ? "Menyimpan..." : "Menyimpan...") : isClosing ? "Closing..." : "Simpan"}
       </button>
     </form>
   );

@@ -29,7 +29,11 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
   const formRef = useRef<HTMLFormElement>(null);
   const actionToUse = type === "create" ? createParameter : updateParameter;
   const [state, formAction, isPending] = useActionState(actionToUse, initialState);
-
+  const [isError, setIsError] = useState({
+    name: false,
+    unit: false,
+    type: false,
+  });
   const [isClosing, setIsClosing] = useState(false);
   const [hasProcessedSuccess, setHasProcessedSuccess] = useState(false);
 
@@ -128,6 +132,18 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldError = state.errors[field];
+        if (field === "name") {
+          setIsError((prev) => ({ ...prev, name: true }));
+        }
+
+        if (field === "unit") {
+          setIsError((prev) => ({ ...prev, unit: true }));
+        }
+
+        if (field === "type") {
+          setIsError((prev) => ({ ...prev, type: true }));
+        }
+
         if (fieldError && Array.isArray(fieldError)) {
           fieldError.forEach((error: string) => {
             toast.error(error);
@@ -154,9 +170,13 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit(onSubmit)}>
       <h1 className="text-xl font-semibold">{type === "create" ? "Tambah parameter baru" : "Perbarui parameter"}</h1>
 
-      <InputField label="Name" name="name" register={register} />
+      <InputField label="Name" name="name" control={control} isError={isError.name} onChange={() => {
+        setIsError((prev) => { return { ...prev, name: false }; })
+      }} />
 
-      <InputField label="Unit" name="unit" register={register} />
+      <InputField label="Unit" name="unit" control={control} isError={isError.unit} onChange={() => {
+        setIsError((prev) => { return { ...prev, unit: false }; })
+      }} />
 
       <SelectField
         label="Type (Menambah/Mengurangi Sampel)"
@@ -166,6 +186,8 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
           { id: "-", name: "Mengurangi" },
         ]}
         control={control}
+        isError={isError.type}
+        onChange={() => setIsError((prev) => { return { ...prev, type: false }; })}
       />
 
       {data?.id && <input type="hidden" {...register("id" as any)} value={data.id} />}
@@ -175,11 +197,11 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
       {fields.map((field, index) => (
         <div key={field.id} className="flex gap-3 items-end p-3 border border-gray-200 rounded-lg">
           <div className="flex-1">
-            <InputField label="Nama" name={`settings.${index}.key`} register={register} placeholder="cth, note" />
+            <InputField label="Nama" name={`settings.${index}.key`} control={control} placeholder="cth, note" />
           </div>
 
           <div className="flex-1">
-            <InputField label="Label" name={`settings.${index}.value`} register={register} placeholder="cth, Catatan" />
+            <InputField label="Label" name={`settings.${index}.value`} control={control} placeholder="cth, Catatan" />
           </div>
           <Button type="button" onClick={() => removeCustomSetting(index)} variant="outline" size="sm" className="mb-1 text-red-600 hover:text-red-700 hover:bg-red-50">
             <X size={16} />

@@ -41,6 +41,10 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
   const [state, formAction, isPending] = useActionState(createWeighing, initialState);
   const [selectedItem, setSelectedItem] = useState<any>(relatedData.arrivalItems[0]);
   const [netWeight, setNetWeight] = useState(0);
+  const [isError, setIsError] = useState<any>({
+    arrivalItemId: false,
+    weight: false
+  });
   const {
     register,
     control,
@@ -92,6 +96,10 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
     } else if (state.message && !state.success) {
       // Show server-side errors (e.g., non-field specific errors)
       toast.error(state.message);
+      setIsError((prev: any) => ({
+        ...prev,
+        weight: state.message ? true : false,
+      }));
     }
   }, [state, router]);
   useEffect(() => {
@@ -169,7 +177,19 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <InputField label="Berat bahan" name="weight" type="number" inputProps={{ step: "0.01" }} register={register} required={true} />
+          <InputField
+            label="Berat bahan"
+            name="weight"
+            type="number"
+            inputProps={{ step: "0.01" }}
+            register={register}
+            required={true}
+            isError={isError.weight}
+            onChange={(value: string) => {
+              console.log("Input Quantity:", value);
+              setIsError((prev: any) => ({ ...prev, weight: false }));
+            }}
+          />
         </div>
         <div className="mb-6 p-4 bg-blue-50 dark:bg-black border border-blue-200 rounded-lg text-center">
           <p className="text-blue-700 text-sm font-semibold mb-2">Berat Bahan Baku</p>
@@ -180,7 +200,7 @@ function WeighingForm({ relatedData }: { relatedData: any; }) {
         </div>
         <InputField label="Catatan Tambahan (Opsional)" name="note" type="text" register={register} />
 
-        {state.message && !state.success && !state.error && <span className="text-red-500 text-sm">{state.message}</span>}
+        {/* {state.message && !state.success && !state.error && <span className="text-red-500 text-sm">{state.message}</span>} */}
         <div className="flex flex-row justify-between gap-4">
           <Button type="submit" disabled={isPending} className="bg-blue-600 text-white p-2 rounded-md">
             {isPending && <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}

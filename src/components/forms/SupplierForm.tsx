@@ -4,11 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputField from "../InputField";
 import { Dispatch, SetStateAction, startTransition, useActionState, useEffect, useRef } from "react";
-
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { supplierSchema, SupplierSchema } from "@/lib/formValidationSchemas";
 import { createSupplier, updateSupplier } from "@/lib/actions/supplierActions";
+import { Button } from "@/registry/new-york-v4/ui/button";
 
 type FormState = {
   success: boolean;
@@ -26,7 +27,13 @@ function SupplierForm({ type, data, setOpen, relatedData }: { type: "create" | "
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const actionToUse = type === "create" ? createSupplier : updateSupplier;
-  const [state, formAction] = useActionState(actionToUse, initialState);
+  const [state, formAction, isPending] = useActionState(actionToUse, initialState);
+  const [isError, setIsError] = useState({
+    name: false,
+    address: false,
+    phone: false,
+    email: false,
+  });
 
   const {
     register,
@@ -87,6 +94,18 @@ function SupplierForm({ type, data, setOpen, relatedData }: { type: "create" | "
       if (state.errors) {
         Object.keys(state.errors).forEach((field) => {
           const fieldErrors = state.errors[field];
+          if (field === "name") {
+            setIsError((prev) => ({ ...prev, name: true }));
+          }
+          if (field === "address") {
+            setIsError((prev) => ({ ...prev, address: true }));
+          }
+          if (field === "phone") {
+            setIsError((prev) => ({ ...prev, phone: true }));
+          }
+          if (field === "email") {
+            setIsError((prev) => ({ ...prev, email: true }));
+          }
           if (fieldErrors && fieldErrors.length > 0) {
             fieldErrors.forEach((error: string) => {
               toast.error(`${error}`);
@@ -101,21 +120,21 @@ function SupplierForm({ type, data, setOpen, relatedData }: { type: "create" | "
     <form className="flex flex-col gap-8 w-full" ref={formRef}>
       <h1 className="text-xl font-semibold">{type === "create" ? "Tambah pemasok baru" : "Update pemasok"}</h1>
 
-      <InputField label="Name" name="name" register={register}/>
+      <InputField label="Name" name="name" register={register} isError={isError.name} onChange={() => setIsError((prev) => ({ ...prev, name: false }))} />
 
-      <InputField label="Address" name="address" register={register}/>
+      <InputField label="Phone" name="phone" register={register} isError={isError.phone} onChange={() => setIsError((prev) => ({ ...prev, phone: false }))} />
 
-      <InputField label="Phone" name="phone" register={register}/>
+      <InputField label="Address" name="address" register={register} isError={isError.address} onChange={() => setIsError((prev) => ({ ...prev, address: false }))} />
 
-      <InputField label="Email" name="email" register={register}/>
+      <InputField label="Email" name="email" register={register} isError={isError.email} onChange={() => setIsError((prev) => ({ ...prev, email: false }))} />
 
       {data?.id && <input type="hidden" {...register("id" as any)} value={data.id} />}
 
       {state.message && !state.success && !state.errors && <span className="text-red-500 text-sm">{state.message}</span>}
 
-      <button type="submit" onClick={handleSubmit(onSubmit)} className="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition-colors">
-        {type === "create" ? "Simpan" : "Update"}
-      </button>
+      <Button type="button" onClick={handleSubmit(onSubmit)} className="bg-blue-600 text-white p-2 rounded-md">
+        {isPending ? "Menyimpan..." : type === "create" ? "Create" : "Update"}
+      </Button>
     </form>
   );
 }

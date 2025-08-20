@@ -33,7 +33,7 @@ export const createUser = async (
     const validatedFields = userSchema.safeParse({
       username: formData.get("username"),
       password: formData.get("password"),
-      role: "User",     
+      role: formData.get("role"),
       email: formData.get("email"),
       
     });
@@ -70,7 +70,7 @@ export const createUser = async (
           email: validatedFields.data.email,
           password: hashedPassword,
           username: validatedFields.data.username,
-          role: role,
+          role: validatedFields.data.role,
         },
       });
 
@@ -104,7 +104,6 @@ export const updateUser = async (
       password: formData.get("password"),
       role: formData.get("role"),      
       email: formData.get("email"),
-      
     });
 
     if (!validatedFields.success) {
@@ -117,7 +116,28 @@ export const updateUser = async (
 
     const { userId } = await getAuthenticatedUserInfo();
 
+    const existingUser = await prisma.users.findUnique({
+      where: { id: validatedFields.data.id },
+    });
+
+    if(!existingUser){
+      return {
+        success: false,
+        message: "User tidak ditemukan.",
+      };
+    }
     
+    const hashedPassword = await hashPassword(validatedFields.data.password);
+    const updateUser = await prisma.users.update({
+      where: { id: validatedFields.data.id },
+      data: {
+        email: validatedFields.data.email,
+        username: validatedFields.data.username,
+        role: validatedFields.data.role,
+        password: hashedPassword,
+      },
+    });
+
     return {
       success: true,
       message: `User berhasil diperbarui!`,

@@ -40,7 +40,12 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
   const router = useRouter();
   const wasPending = useRef(false);
   const [state, formAction, isPending] = useActionState(createOrUpdateArrivalItem, initialState);
-
+  const [isError, setIsErrors] = useState<any>({
+    conditionCategory: false,
+    materialId: false,
+    quantity: false,
+    conditionId: false,
+  });
   const {
     register,
     control,
@@ -92,7 +97,22 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
       });
     }
     if (!state.success && state.message) {
-      toast.error(state.message);
+      if(state.errors.conditionCategory) {
+        toast.error(state.errors.conditionCategory[0]);
+        setIsErrors((prev: any) => ({ ...prev, conditionCategory: true }));
+      }
+      if(state.errors.materialId) {
+        toast.error(state.errors.materialId[0]);
+        setIsErrors((prev: any) => ({ ...prev, materialId: true }));
+      }
+      if(state.errors.quantity) {
+        toast.error(state.errors.quantity[0]);
+        setIsErrors((prev: any) => ({ ...prev, quantity: true }));
+      }
+      if(state.errors.conditionId) {
+        toast.error(state.errors.conditionId[0]);
+        setIsErrors((prev: any) => ({ ...prev, conditionId: true }));
+      }
     }
   }, [state, isPending, router]);
 
@@ -148,9 +168,10 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
                 control={control}
                 required={true}
                 defaultValue={selectedItem?.materialId.toString() || ""}
+                isError={isError.materialId}
                 onChange={(value: string) => {
-                  // Handle any additional logic when material changes
                   console.log("Selected Material ID:", value);
+                  setIsErrors((prev: any) => ({ ...prev, materialId: false }));
                 }}
               />
             </div>
@@ -161,7 +182,11 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
                 type="number"
                 control={control}
                 required={true}
-                defaultValue={selectedItem?.quantity || 0}
+                isError={isError.quantity}
+                onChange={(value: string) => {
+                  console.log("Selected Quantity:", value);
+                  setIsErrors((prev: any) => ({ ...prev, quantity: false }));
+                }}
               />
             </div>
             <div className="">
@@ -176,7 +201,12 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
                 }
                 control={control}
                 required={true}
+                isError={isError.conditionCategory}
                 defaultValue={selectedItem?.conditionCategory || ""}
+                onChange={(value: string) => {
+                  console.log("Selected Condition Category:", value);
+                  setIsErrors((prev: any) => ({ ...prev, conditionCategory: false }));
+                }}
               />
             </div>
             <div className="">
@@ -186,7 +216,11 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
                 data={relatedData?.conditions || []}
                 control={control}
                 required={true}
-                defaultValue={selectedItem?.conditionId.toString() || ""}
+                isError={isError.conditionId}
+                onChange={(value: string) => {
+                  console.log("Selected Condition ID:", value);
+                  setIsErrors((prev: any) => ({ ...prev, conditionId: false }));
+                }}
               />
             </div>
             <div className="w-full">
@@ -195,8 +229,11 @@ export function Modal({ type, relatedData, selectedItem }: { type: string; relat
                 name={`itemName`}
                 type="text"
                 control={control}
-                required={true}
-                defaultValue={selectedItem?.conditionId || ""}
+                isError={isError.itemName}
+                onChange={(value: string) => {
+                  console.log("Selected Item Name:", value);
+                  setIsErrors((prev: any) => ({ ...prev, itemName: false }));
+                }}
               />
             </div>
           </div>
