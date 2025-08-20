@@ -35,7 +35,7 @@ import {
 } from "@/registry/new-york-v4/ui/collapsible";
 import { getSession } from "@/lib/session";
 import LogoutButton from "./LogoutButton";
-
+import SidebarNavLink from "./SidebarNavLink";
 
 export async function AppSidebar({
   ...props
@@ -44,83 +44,33 @@ export async function AppSidebar({
   const user = session.user;
   // const user = await currentUser();
   // const role = user?.publicMetadata.role as string;
+  
   const menuItems = [
     {
-      title: "DASHBOARD",
+      title: "Dashboard",
       items: [
-        {
-          icon: Home,
-          label: "Admin",
-          href: `/${user?.role}`,
-          visible: ["superadmin", "admin"],
-        },
-        {
-          icon: ShieldBan,
-          label: "Security",
-          href: `/security`,
-          visible: ["superadmin", "security"],
-        },
-        {
-          icon: Weight,
-          label: "Weighing",
-          href: `/weighing`,
-          visible: ["superadmin", "weighing"],
-        },
-        {
-          icon: ScanLine,
-          label: "QC",
-          href: `/qc`,
-          visible: ["superadmin", "qc"],
-        },
+        { icon: "home", label: "Admin", href: `/${user?.role}`, visible: ["superadmin", "admin"] },
+        { icon: "security", label: "Security", href: "/security", visible: ["superadmin", "security"] },
+        { icon: "weighing", label: "Weighing", href: "/weighing", visible: ["superadmin", "weighing"] },
+        { icon: "qc", label: "QC", href: "/qc", visible: ["superadmin", "qc"] },
       ],
     },
     {
-      title: "MASTER",
+      title: "Pusat Data",
       items: [
-        {
-          icon: Users,
-          label: "Users",
-          href: "/list/user",
-          visible: ["superadmin", "admin"],
-        },
-        {
-          icon: Truck,
-          label: "Suppliers",
-          href: "/list/suppliers",
-          visible: ["superadmin", "admin"],
-        },
-        {
-          icon: Blocks,
-          label: "Materials",
-          href: "/list/materials",
-          visible: ["superadmin", "admin"],
-        },
-        {
-          icon: Gauge,
-          label: "Conditions",
-          href: "/list/conditions",
-          visible: ["superadmin", "admin"],
-        },
-        {
-          icon: Sliders,
-          label: "Parameters",
-          href: "/list/parameters",
-          visible: ["superadmin", "admin"],
-        },
+        { icon: "users", label: "Users", href: "/list/user", visible: ["superadmin", "admin"] },
+        { icon: "suppliers", label: "Suppliers", href: "/list/suppliers", visible: ["superadmin", "admin"] },
+        { icon: "materials", label: "Materials", href: "/list/materials", visible: ["superadmin", "admin"] },
+        { icon: "conditions", label: "Conditions", href: "/list/conditions", visible: ["superadmin", "admin"] },
+        { icon: "parameters", label: "Parameters", href: "/list/parameters", visible: ["superadmin", "admin"] },
       ],
     },
     {
-      title: "Reports",
+      title: "Laporan",
       items: [
-        {
-          icon: IdCard,
-          label: "Arrival",
-          href: "/list/arrivals",
-          visible: ["superadmin", "admin", "manager"],
-        },
+        { icon: "arrivals", label: "Arrival", href: "/list/arrivals", visible: ["superadmin", "admin", "manager"] },
       ],
     },
-
     // {
     //   title: "OTHER",
     //   items: [
@@ -133,7 +83,7 @@ export async function AppSidebar({
 
     //   ],
     // },
-  ];
+  ] as const;
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -158,21 +108,12 @@ export async function AppSidebar({
                   <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
-              <CollapsibleContent>
-                <SidebarGroupContent>
+              <CollapsibleContent className="overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+                <SidebarGroupContent className="pt-1">
                   <SidebarMenu>
                     {i.items.map((item) => {
-                      if (item.visible.includes(user?.role || "")) {
-                        return (
-                          <SidebarMenuItem key={item.label}>
-                            <SidebarMenuButton asChild>
-                              <Link href={item.href}>
-                                <item.icon />
-                                <span>{item.label} </span>
-                              </Link>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        );
+                      if ((item.visible as readonly string[]).includes(user?.role || "")) {
+                        return <SidebarNavLink key={item.label} href={item.href} icon={item.icon} label={item.label} />;
                       }
                       return null;
                     })}
