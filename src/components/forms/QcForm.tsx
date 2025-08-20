@@ -272,6 +272,7 @@ function QcForm({ relatedData }: { relatedData: any }) {
     // Tampilkan pesan error untuk setiap field yang tidak valid
     Object.keys(errors).forEach((field) => {
       const fieldErrors = errors[field];
+      console.log("Field errors:", field);
       if (fieldErrors) {
         fieldErrors.forEach((error: any) => {
           console.log("errors:", error);
@@ -298,6 +299,7 @@ function QcForm({ relatedData }: { relatedData: any }) {
       );
       router.push("/qc");
     } else if (state.message && !state.success) {
+      console.error("Error:", state);
       toast.error(state.message);
     }
     //run handleMaterialChange for each material to update persentase and total berat

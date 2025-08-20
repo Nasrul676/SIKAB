@@ -31,7 +31,7 @@ export const materialQcSchema = z.object({
     .optional(),
   qcSample:z.coerce.number().min(1, { message: "Berat uji sampel tidak boleh kosong." }),
   qcNotes: z.string().optional(),
-  qcKotoran: z.coerce.number({ message: "Air dan kotoran tidak boleh kosong." }),
+  qcKotoran: z.coerce.number().min(1,{ message: "Air dan kotoran tidak boleh kosong." }),
   persentaseKotoran: z.coerce.number().optional(),
   totalBerat: z.coerce.number(),
   pengeringan: z.coerce.number().optional(),

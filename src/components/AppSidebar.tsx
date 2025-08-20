@@ -26,7 +26,7 @@ import {
   Sliders,
 } from "lucide-react";
 import Link from "next/link";
-
+import Logo from "../../public/logo.png";
 import { IconInnerShadowTop } from "@tabler/icons-react";
 import {
   Collapsible,
@@ -91,8 +91,10 @@ export async function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
               <Link href="/">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">PKP</span>
+                <div className="flex items-center justify-center gap-2">
+                  <img src={Logo.src} alt="Logo Perusahaan" className="w-7" />
+                  <span className="font-semibold flex justify-center">PKP</span>
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

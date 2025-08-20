@@ -36,7 +36,7 @@ type IconKey = keyof typeof iconMap;
 
 type Props = {
   href: string;
-  icon: IconKey; // string key, bukan komponen
+  icon: IconKey;
   label: string;
 };
 
