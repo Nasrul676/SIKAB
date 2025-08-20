@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'standalone',
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 export default nextConfig;

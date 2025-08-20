@@ -9,6 +9,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ActiveThemeProvider } from "@/components/active-theme";
 import { fontVariables } from "@/lib/fonts";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 const META_THEME_COLORS = {
   light: "#ffffff",
@@ -90,7 +91,9 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
           <ActiveThemeProvider initialTheme={activeThemeValue}>
             <NextTopLoader color="#3526de" />
-            {children}
+            <ViewTransition>
+              {children}
+            </ViewTransition>
             <ToastContainer position="bottom-right" theme="colored" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover className="z-50" toastClassName="text-sm" />
           </ActiveThemeProvider>
         </ThemeProvider>
