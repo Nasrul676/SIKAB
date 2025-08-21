@@ -22,18 +22,18 @@ const QcResultItemSchema = z.object({
 export const materialQcSchema = z.object({
   arrivalItemId: z.string(),
   qcResults: z.array(QcResultItemSchema).min(1),
-  statusQc: z.string().min(1, { message: "Status QC wajib dipilih." }),
+  statusQc: z.string({message:"Status QC wajib dipilih."}).min(1, { message: "Status QC wajib dipilih." }),
   qcPhotos: z.array(z.object({
       file: z.instanceof(File)
       .refine((file) => file.size <= MAX_FILE_SIZE_BYTES, `Ukuran maksimal per file adalah ${MAX_FILE_SIZE_MB}MB.`)
       .refine((file) => ACCEPTED_FILE_TYPES.includes(file.type), "Format file tidak didukung (.jpg, .png, .mp4, .webm).")
     }))
     .optional(),
-  qcSample:z.coerce.number().min(1, { message: "Berat uji sampel tidak boleh kosong." }),
+  qcSample:z.coerce.number({message:"Berat uji sampel tidak boleh kosong."}).min(1, { message: "Berat uji sampel tidak boleh kosong." }),
   qcNotes: z.string().optional(),
-  qcKotoran: z.coerce.number().min(1,{ message: "Air dan kotoran tidak boleh kosong." }),
+  qcKotoran: z.coerce.number({message:"Air dan kotoran tidak boleh kosong."}).min(1,{ message: "Air dan kotoran tidak boleh kosong." }),
   persentaseKotoran: z.coerce.number().optional(),
-  totalBerat: z.coerce.number(),
+  totalBerat: z.coerce.number({message:"Total berat tidak boleh kosong."}).min(1, { message: "Total berat tidak boleh kosong." }),
   pengeringan: z.coerce.number().optional(),
   analysis: z.string().optional(),
   city: z.string().optional()

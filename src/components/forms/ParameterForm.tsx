@@ -92,9 +92,7 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
   }, [setOpen, isClosing]);
 
   useEffect(() => {
-    if (isPending || hasProcessedSuccess) {
-      return;
-    }
+    if (isPending || hasProcessedSuccess) return;
 
     if (state.success) {
       setHasProcessedSuccess(true);
@@ -132,23 +130,11 @@ function ParameterForm({ type, data, setOpen, relatedData }: { type: "create" | 
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldError = state.errors[field];
-        if (field === "name") {
-          setIsError((prev) => ({ ...prev, name: true }));
-        }
+        if (field === "name") setIsError((prev) => ({ ...prev, name: true }));
+        if (field === "unit") setIsError((prev) => ({ ...prev, unit: true }));
+        if (field === "type") setIsError((prev) => ({ ...prev, type: true }));
 
-        if (field === "unit") {
-          setIsError((prev) => ({ ...prev, unit: true }));
-        }
-
-        if (field === "type") {
-          setIsError((prev) => ({ ...prev, type: true }));
-        }
-
-        if (fieldError && Array.isArray(fieldError)) {
-          fieldError.forEach((error: string) => {
-            toast.error(error);
-          });
-        }
+        if (fieldError && Array.isArray(fieldError)) fieldError.forEach((error: string) => toast.error(error));
       });
     }
   }, [state.success, state.message, state.errors, isPending, hasProcessedSuccess, type, setValue, router, handleCloseModal]);

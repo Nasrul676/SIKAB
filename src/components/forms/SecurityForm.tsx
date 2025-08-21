@@ -68,7 +68,6 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
     getValues,
     formState: { errors },
   } = useForm<ArivalSchema>({
-    resolver: zodResolver(arivalSchema),
     defaultValues: {
       arrivalId: `${moment().format("YYYYMMDD")}-${String(relatedData?.arrivalNo + 1).padStart(3, "0")}`,
       supplierId: data?.supplierId || "",
@@ -187,8 +186,6 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
     setIsError((prev) => ({ ...prev, materials: [...prev.materials, defaultItemError()] }));
   };
 
-  console.log("Is Error ", isError)
-
   useEffect(() => {
     setIsError((prev) => {
       const materials = [...prev.materials];
@@ -204,6 +201,11 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
     const materialsErr: ItemError[] = Array.from({ length: fields.length }, defaultItemError);
     if (Array.isArray(errors.materials)) {
       errors.materials.forEach((err: any, i: number) => {
+        if (err.conditionId) toast.error(err.conditionId.message);
+        if (err.materialId) toast.error(err.materialId.message);
+        if (err.quantity) toast.error(err.quantity.message);
+        if (err.itemName) toast.error(err.itemName.message);
+        if (err.conditionCategory) toast.error(err.conditionCategory.message);
         if (!err) return;
         if (err.materialId) materialsErr[i].materialId = true;
         if (err.itemName) materialsErr[i].itemName = true;
@@ -240,7 +242,7 @@ function SecurityForm({ relatedData, data }: { relatedData: any; data?: any }) {
       formRef.current?.reset();
       router.push("/security/print/" + arrivalId);
     } else if (state.message && !state.success) {
-      toast.error(state.message);
+      console.log(state)
     }
   }, [state, router]);
 

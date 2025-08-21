@@ -49,33 +49,22 @@ function QcForm({ relatedData }: { relatedData: any }) {
   const [analyzingIndex, setAnalyzingIndex] = useState<string>("");
   const [analysis, setAnalysis] = useState<any[]>([]);
   const [filePreviews, setFilePreviews] = useState<any[]>([]); // { materialIndex: [url1, url2] }
+  const [isError, setIsError] = useState({
+    statusQc: false,
+    qcSample: false,
+    qcKotoran: false,
+    totalBerat: false,
+  })
   if (!relatedData) {
     return <p>Memuat data...</p>;
   }
-  const latestQcResults = relatedData.arrivalItems.map((item: any) => {
-    return item.QcResults.slice(-relatedData.qcParameters.length).reduce((acc: any, curr: any) => {
-      acc.push(curr);
-      return acc;
-    }, []);
-  });
-  const listParams = () => {
-    if (latestQcResults[0].length === 0) {
-      return relatedData.qcParameters.map((param: any) => ({
-        id: param.id,
-        name: param.name,
-        value: "",
-        persentase: 0,
-      }));
-    } else {
-      return latestQcResults[0].map((param: any) => ({
-        id: param.parameterId,
-        name: param.parameter.name,
-        value: param.value,
-        persentase: param.persentase || 0,
-      }));
+  let listParameters = relatedData.qcParameters.length;
+  relatedData.qcParameters.map((data: { settings: any[]; id: any; }, index: any) => {
+    if (data.settings.length > 0) {
+      listParameters += 1
     }
-  }
-  const [listParamsData, setListParams] = useState(listParams);
+    return data;
+  })
   const {
     register,
     control,
@@ -89,59 +78,47 @@ function QcForm({ relatedData }: { relatedData: any }) {
     mode: "onChange",
     defaultValues: {
       arrivalId: relatedData.arrival.id.toString(),
-      materials: relatedData.arrivalItems.map((item: any) => ({
-        arrivalItemId: item.id.toString(),
-        qcResults: listParamsData.map((param: any) => ({
-          parameterId: param.id,
-          value: param.value || "",
-          persentase: param.persentase,
-          settings: param.settings || [],
-        })),
-        qcSample: item.qcSample || 0,
-        qcKotoran: item.qcKotoran || 0,
-        totalBerat: item.totalBerat || 0,
-        pengeringan: item.pengeringan || 0,
-        statusQc: item.qcStatusId !== null ? item.qcStatusId.toString() : "",
-        qcPhotos: [], // Always initialize as an array (never undefined)
-        qcNotes: item.notes || "",
-        analysis: "",
-        city: relatedData.arrival.city || "",
-      })),
+      materials: relatedData.arrivalItems.map((item: any, materialIndex: number) => {
+        const latestQcResults = item.QcResults.slice(-listParameters);
+
+        const qcResultsDefault =
+          latestQcResults.length > 0
+            ?
+              latestQcResults.map((result: any) => ({
+                parameterId: result.parameterId,
+                value: result.value || "",
+                persentase: result.persentase || 0,
+                settings: result.additional || [],
+              }))
+            : 
+              relatedData.qcParameters.map((param: any) => ({
+                parameterId: param.id,
+                value: "",
+                persentase: 0,
+                settings: param.settings.map((s: any) => ({ key: s.key, value: "" })) || [],
+              }));
+
+        return {
+          arrivalItemId: item.id.toString(),
+          qcResults: qcResultsDefault,
+          qcSample: item.qcSample || 0, 
+          qcKotoran: item.qcKotoran || 0,
+          totalBerat: item.totalBerat || 0,
+          pengeringan: item.pengeringan,
+          statusQc: item.qcStatusId !== null ? item.qcStatusId.toString() : "",
+          qcPhotos: [],
+          qcNotes: item.notes || "",
+          analysis: "",
+          city: relatedData.arrival.city || "",
+        };
+      }),
     },
   });
   const { fields } = useFieldArray({ control, name: "materials" });
 
-  const handleAnalyzeQc = async (materialIndex: number) => {
-    const materialQcData =
-      relatedData.arrivalItems[materialIndex].material.name;
-    const resultsText = relatedData.qcParameters
-      .map(
-        (param: any, idx: number) =>
-          `${param.name}:${getValues(
-            `materials.${materialIndex}.qcResults.${idx}.value`
-          )}`
-      )
-      .join(", ");
-    setAnalyzingIndex(materialIndex.toFixed(0));
-    const newAnalysis = analysis.filter(
-      (item) => item.materialIndex !== materialIndex.toFixed(0)
-    );
-
-    const prompt = `Saya melakukan pengecekan QC untuk bahan baku ${materialQcData} dengan hasil: ${resultsText}. Berdasarkan hasil ini, apakah bahan ini sebaiknya "Lolos", "Tidak Lolos", atau "Karantina"? Berikan juga alasan singkatnya dan catatan tambahan jika ada.`;
-    const analysisAi = await callGeminiAPI(prompt);
-    newAnalysis.push({
-      materialIndex: materialIndex.toFixed(0),
-      analysis: analysisAi,
-    });
-    console.log("AI Analysis:", newAnalysis);
-    setAnalysis(newAnalysis);
-    setAnalyzingIndex("");
-  };
-
   const handleMaterialChange = (materialIndex: number) => {
     let total = Number(getValues(`materials.${materialIndex}.qcSample`));
     const sample = total;
-
     relatedData.qcParameters.forEach((param: any, idx: number) => {
       const val = Number(
         getValues(`materials.${materialIndex}.qcResults.${idx}.value`) || 0
@@ -161,51 +138,50 @@ function QcForm({ relatedData }: { relatedData: any }) {
     );
   };
 
-  const removeItem = (idxToRemove: number) => {
-    if (fields.length <= 1) {
-      alert("You must have at least one break.");
-      return;
-    }
-    const newFields = fields.filter(
-      (field: any, idx: number) => field.arrivalItemId !== idxToRemove
-    );
-
-    console.log(idxToRemove, newFields);
-
-    setValue(
-      `materials`,
-      newFields
-    );
-  };
+  const allWatchedValues = watch(); // Panggil watch() tanpa argumen untuk mengamati semua field
+  useEffect(() => {
+    console.log("All watched values:", allWatchedValues);
+  }, [allWatchedValues]);
 
   const onSubmit = async (data: QcSubmissionData) => {
-    console.log("Submitting data:", data);
     const formData = new FormData();
 
     formData.append("arrivalId", data.arrivalId);
 
     data.materials.forEach((material, materialIndex) => {
-      formData.append(
-        `materials.${materialIndex}.arrivalItemId`,
-        material.arrivalItemId
-      );
-      formData.append(`materials.${materialIndex}.statusQc`, material.statusQc);
-      formData.append(
-        `materials.${materialIndex}.qcSample`,
-        material.qcSample.toString()
-      );
-      formData.append(
-        `materials.${materialIndex}.qcKotoran`,
-        material.qcKotoran.toString()
-      );
-      formData.append(
-        `materials.${materialIndex}.totalBerat`,
-        material.totalBerat.toString()
-      );
-      formData.append(
-        `materials.${materialIndex}.pengeringan`,
-        material.pengeringan?.toString() || ""
-      );
+      if(material.arrivalItemId) {
+        formData.append(
+          `materials.${materialIndex}.arrivalItemId`,
+          material.arrivalItemId
+        );
+      }
+      if(material.statusQc) {
+        formData.append(`materials.${materialIndex}.statusQc`, material.statusQc);
+      }
+      if(material.qcSample) {
+        formData.append(
+          `materials.${materialIndex}.qcSample`,
+          material.qcSample.toString()
+        );
+      }
+      if(material.qcKotoran) {
+        formData.append(
+          `materials.${materialIndex}.qcKotoran`,
+          material.qcKotoran.toString()
+        );
+      }
+      if(material.totalBerat) {
+        formData.append(
+          `materials.${materialIndex}.totalBerat`,
+          material.totalBerat.toString()
+        );
+      }
+      if(material.pengeringan) {
+        formData.append(
+          `materials.${materialIndex}.pengeringan`,
+          material.pengeringan?.toString() || ""
+        );
+      }
       if (material.qcNotes) {
         formData.append(`materials.${materialIndex}.qcNotes`, material.qcNotes);
       }
@@ -235,7 +211,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
           `materials.${materialIndex}.qcResults.${resultIndex}.value`,
           result.value
         );
-        console.log("Result additional:", result.additional);
 
         if(result.additional){
           const additional = result.additional.map((item: any) => ({
@@ -268,22 +243,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
 
   const [errorsState, setErrorsState] = useState<any>(null);
 
-  const onInvalid = (errors: any) => {
-    // Tampilkan pesan error untuk setiap field yang tidak valid
-    Object.keys(errors).forEach((field) => {
-      const fieldErrors = errors[field];
-      console.log("Field errors:", field);
-      if (fieldErrors) {
-        fieldErrors.forEach((error: any) => {
-          console.log("errors:", error);
-          setErrorsState(() => ({
-            error
-          }));
-        });
-      }
-    });
-  };
-
   const handleCancelQc = () => {
     showConfirmationAlert("Apakah Anda yakin ingin membatalkan hasil QC ini? Perubahan yang belum disimpan akan hilang.", () => {
       // Redirect to QC list page
@@ -299,20 +258,25 @@ function QcForm({ relatedData }: { relatedData: any }) {
       );
       router.push("/qc");
     } else if (state.message && !state.success) {
-      console.error("Error:", state);
-      toast.error(state.message);
+      state.errors.map((error: any) => {
+        console.info("Error:", error);
+        if(error.field === "statusQc") setIsError((prev) => ({ ...prev, statusQc: true }));
+        if(error.field === "qcSample") setIsError((prev) => ({ ...prev, qcSample: true }));
+        if(error.field === "qcKotoran") setIsError((prev) => ({ ...prev, qcKotoran: true }));
+        if(error.field === "totalBerat") setIsError((prev) => ({ ...prev, totalBerat: true }));
+        toast.error(error.message);
+      });
     }
-    //run handleMaterialChange for each material to update persentase and total berat
+    
     fields.forEach((_, index) => {
       handleMaterialChange(index);
     });
   }, [state, router]);
-
   return (
     <>
       <form
         className="flex flex-col gap-2 w-full"
-        onSubmit={handleSubmit(onSubmit, onInvalid)}
+        onSubmit={handleSubmit(onSubmit)}
         ref={formRef}
         // action={formAction}
       >
@@ -348,46 +312,20 @@ function QcForm({ relatedData }: { relatedData: any }) {
                   <h3 className="text-xl font-semibold  mb-4 flex items-center gap-2">
                     <Package size={22} /> Bahan Baku #{materialIndex + 1}: {materialQc.material.name} ({materialQc.quantity} kg)
                   </h3>
-                  {/* <button type="button" onClick={() => removeItem(field.arrivalItemId)} disabled={fields.length <= 1} aria-label={`Remove Item ${materialIndex + 1}`}>
-                    <X size={16} />
-                  </button> */}
                 </div>
 
                 <div className="mb-4">
                   <div className="overflow-x-auto">
-                    <ParametersTable materialIndex={materialIndex} register={register} errors={errorsState?.error} parameters={relatedData.qcParameters} onChange={() => handleMaterialChange(materialIndex)} />
+                    <ParametersTable materialIndex={materialIndex} register={register} errors={errorsState?.error} parameters={relatedData.qcParameters} onChange={() => handleMaterialChange(materialIndex)} isError={isError} setIsError={setIsError} />
                   </div>
-                  {/* <button
-                    onClick={() => handleAnalyzeQc(materialIndex)}
-                    disabled={analyzingIndex == materialIndex.toFixed(0)}
-                    type="button"
-                    className="mt-3 w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg shadow-md flex items-center justify-center gap-2 text-sm transition duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {analyzingIndex == materialIndex.toFixed(0) ? (
-                      "Menganalisis..."
-                    ) : (
-                      <>
-                        <Sparkles size={16} /> Analisis & Rekomendasi QC ✨
-                      </>
-                    )}
-                  </button>
-                  {analysis.find((item) => item.materialIndex === materialIndex.toFixed(0)) && (
-                    <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm ">
-                      <p className="font-semibold text-blue-800 mb-1">Analisis AI:</p>
-                      <p>{analysis[materialIndex].analysis}</p>
-                    </div>
-                  )} */}
                 </div>
-                {/* <div className="mb-4">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Kota Asal</label>
-                    <Input className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500" {...register(`materials.${materialIndex}.city`)} />
-                  </div>
-                </div> */}
                 <div className="mb-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Status QC</label>
-                    <select {...register(`materials.${materialIndex}.statusQc`)} className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                    <select
+                      {...register(`materials.${materialIndex}.statusQc`)}
+                      className={`w-full ${isError.statusQc ? "border-red-500" : "border-gray-300"} "w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"`}
+                    >
                       <option value="">-- Pilih Status --</option>
                       {relatedData.qcStatuses.map((status: any) => (
                         <option key={status.id} value={status.id}>
@@ -395,7 +333,6 @@ function QcForm({ relatedData }: { relatedData: any }) {
                         </option>
                       ))}
                     </select>
-                    {errors?.materials?.[materialIndex]?.statusQc && <p className="text-red-500 text-xs mt-1">{errors.materials[materialIndex].statusQc.message}</p>}
                   </div>
                 </div>
 
@@ -440,7 +377,7 @@ function QcForm({ relatedData }: { relatedData: any }) {
             );
           })}
 
-          {state.message && !state.success && !state.error && <span className="text-red-500 text-sm">{state.message}</span>}
+          {/* {state.message && !state.success && !state.error && <span className="text-red-500 text-sm">{state.message}</span>} */}
         </div>
       </form>
     </>

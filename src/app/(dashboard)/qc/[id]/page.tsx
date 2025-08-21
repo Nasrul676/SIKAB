@@ -54,8 +54,6 @@ async function page({ params }: { params: { id: string } }) {
     },
   });
 
-  console.log("History QC:", historyQc);
-
   const relatedData = {
     arrivalItems: arrivalItems,
     arrival: arrival,

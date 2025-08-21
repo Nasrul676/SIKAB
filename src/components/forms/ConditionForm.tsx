@@ -75,7 +75,7 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
   );
 
   const handleCloseModal = useCallback(() => {
-    if (isClosing) return; // Prevent multiple calls
+    if (isClosing) return;
 
     setIsClosing(true);
     localStorage.removeItem("conditionFormBackup");
@@ -83,10 +83,7 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
   }, [setOpen, isClosing]);
 
   useEffect(() => {
-    // Skip jika sedang pending atau sudah diproses
-    if (isPending || hasProcessedSuccess) {
-      return;
-    }
+    if (isPending || hasProcessedSuccess) return;
 
     if (state.success) {
       console.log("Processing success state...");
@@ -94,11 +91,8 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
 
       toast.success(state.message || `Condition has been ${type === "create" ? "created" : "updated"}!`);
 
-      // Tutup modal dulu, baru refresh
       setTimeout(() => {
         handleCloseModal();
-
-        // Refresh setelah modal tertutup
         setTimeout(() => {
           router.refresh();
         }, 200);
@@ -107,7 +101,6 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
       return;
     }
 
-    // Handle errors
     if (state.message && !state.success) {
       const backup = localStorage.getItem("conditionFormBackup");
       if (backup) {
@@ -124,19 +117,13 @@ function ConditionForm({ type, data, setOpen, relatedData }: { type: "create" | 
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldErrors = state.errors[field];
-        if (field === "name") {
-          setIsError((prev) => ({ ...prev, name: true }));
-        }
+        if (field === "name") setIsError((prev) => ({ ...prev, name: true }));
 
-        if (field === "description") {
-          setIsError((prev) => ({ ...prev, description: true }));
-        }
+        if (field === "description") setIsError((prev) => ({ ...prev, description: true }));
 
-        if (fieldErrors && Array.isArray(fieldErrors)) {
-          fieldErrors.forEach((error: string) => {
+        if (fieldErrors && Array.isArray(fieldErrors)) fieldErrors.forEach((error: string) => {
             toast.error(error);
           });
-        }
       });
     }
   }, [state.success, state.message, state.errors, isPending, hasProcessedSuccess, type, setValue, router, handleCloseModal]);

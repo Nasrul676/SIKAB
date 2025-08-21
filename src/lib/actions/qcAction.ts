@@ -19,7 +19,7 @@ export type UploadFormState = {
   isSuccess?: boolean; // Optional, can be used to indicate success state
   fileId?: string | null;
   fileName?: string | null;
-  error?: string | null; // Specific error details
+  errors?: any; // Specific error details
 };
 
 const initialState: UploadFormState = { success: false, message: null };
@@ -48,13 +48,19 @@ export async function createQc(
   if (!validationResult.success) {
     console.log(
       "Server-side validation failed:",
-      validationResult.error.flatten().fieldErrors
+      validationResult.error
     );
+
+    const validationErrors: { field: any; message: string }[] = [];
+
+    validationResult.error.errors.forEach((error) => {
+      validationErrors.push({ field: error.path[2], message: error.message });
+    });
+
     return {
       success: false,
-      message: `Validation error: ${validationResult.error.errors
-        .map((e) => e.message)
-        .join(", ")}`,
+      message: "validation failed!",
+      errors: validationErrors,
     };
   }
   const { userId } = await getAuthenticatedUserInfo();
@@ -245,7 +251,7 @@ export async function createQc(
     return {
       success: false,
       message: `Failed to upload file: ${error.message || "Unknown error"}`,
-      error: error.message, // Include error details if helpful
+      errors: error.message, // Include error details if helpful
     };
   }
 }

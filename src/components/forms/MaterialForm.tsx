@@ -81,9 +81,7 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
   }, [setOpen, isClosing]);
 
   useEffect(() => {
-    if (isPending || hasProcessedSuccess) {
-      return;
-    }
+    if (isPending || hasProcessedSuccess) return;
 
     if (state.success) {
       console.log("Processing success state...");
@@ -118,17 +116,9 @@ function MaterialForm({ type, data, setOpen, relatedData }: { type: "create" | "
     if (state.errors) {
       Object.keys(state.errors).forEach((field) => {
         const fieldErrors = state.errors[field];
-        if (field === "name") {
-          setIsError((prev) => ({ ...prev, name: true }));
-        }
-        if (field === "description") {
-          setIsError((prev) => ({ ...prev, description: true }));
-        }
-        if (fieldErrors && fieldErrors.length > 0) {
-          fieldErrors.forEach((error: string) => {
-            toast.error(`${error}`);
-          });
-        }
+        if (field === "name") setIsError((prev) => ({ ...prev, name: true }));
+        if (field === "description") setIsError((prev) => ({ ...prev, description: true }));
+        if (fieldErrors && fieldErrors.length > 0) fieldErrors.forEach((error: string) => toast.error(`${error}`));
       });
     }
   }, [state.success, state.message, state.errors, isPending, hasProcessedSuccess, type, setValue, router, handleCloseModal]);

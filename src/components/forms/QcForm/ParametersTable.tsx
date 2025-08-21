@@ -13,29 +13,28 @@ type ParametersTableProps = {
   arrivalItems?: any[];
   register: any;
   errors?: any;
+  isError?: any;
   parameters: any[];
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setIsError?: React.Dispatch<React.SetStateAction<any>>;
+  control?: any;
 };
 
 export default function ParametersTable({
   materialIndex,
   register,
   errors,
+  isError,
   parameters,
   onChange,
+  setIsError
 }: ParametersTableProps) {
   const [editValue, seteditValue] = React.useState(false);
   useEffect(() => {
     if (errors) {
-      if(errors.qcSample){
-        toast.error(errors.qcSample.message);
-      }
-      if(errors.qcKotoran){
-        toast.error(errors.qcKotoran.message);
-      }
-      if(errors.statusQc){
-        toast.error(errors.statusQc.message);
-      }
+      if(errors.qcSample) toast.error(errors.qcSample.message);
+      if(errors.qcKotoran) toast.error(errors.qcKotoran.message);
+      if(errors.statusQc) toast.error(errors.statusQc.message);
     }
   }, [errors]);
   return (
@@ -64,7 +63,7 @@ export default function ParametersTable({
                 step={0.01}
                 onBlur={onChange}
                 disabled={!editValue}
-                className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"
+                className={`w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 ${isError?.qcSample ? "border-red-500" : ""}`}
               />
             </td>
             <td className="px-4 py-3 text-sm">-</td>
@@ -94,18 +93,13 @@ export default function ParametersTable({
                     <div className="w-full">
                       {param.settings.map((setting: any, settingIndex: number) => (
                         <div key={setting.id} className="flex items-center gap-2">
-                          <input
-                            type="hidden"
-                            {...register(`materials.${materialIndex}.qcResults.${paramIndex}.additional.${settingIndex}.key`)}
-                            value={setting.key}
-                          />
+                          <input type="hidden" {...register(`materials.${materialIndex}.qcResults.${paramIndex}.additional.${settingIndex}.key`)} value={setting.key} />
                           <Input
                             type="text"
                             disabled={!editValue}
                             placeholder={setting.value}
                             {...register(`materials.${materialIndex}.qcResults.${paramIndex}.additional.${settingIndex}.value`)}
                             className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 mt-1"
-                            onBlur={onChange}
                           />
                         </div>
                       ))}
@@ -120,7 +114,7 @@ export default function ParametersTable({
                   disabled={!editValue}
                   {...register(`materials.${materialIndex}.qcResults.${paramIndex}.persentase`)}
                   readOnly
-                  className="px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"
+                  className={`w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 ${isError?.qcSample ? "border-red-500" : ""}`}
                 />
               </td>
             </tr>
@@ -128,15 +122,41 @@ export default function ParametersTable({
           <tr>
             <td className="px-4 py-3 text-sm">Total Berat Bahan</td>
             <td className="px-4 py-3">
-              <Input type="text" {...register(`materials.${materialIndex}.totalBerat`)} disabled className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500" />
+              <Input
+                type="text"
+                {...register(`materials.${materialIndex}.totalBerat`)}
+                disabled
+                onChange={() => {
+                  if (setIsError) {
+                    setIsError((prev: any) => ({
+                      ...prev,
+                      totalBerat: false,
+                    }));
+                  }
+                }}
+                className={`w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 ${isError?.totalBerat ? "border-red-500" : ""}`}
+              />
             </td>
             <td className="px-4 py-3 text-sm">-</td>
           </tr>
           <tr className="border-t border-gray-200">
             <td className="px-4 py-3 text-sm">Air & kotoran</td>
             <td className="px-4 py-3">
-              <Input type="number" step={0.01} {...register(`materials.${materialIndex}.qcKotoran`)} disabled className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500" />
-              {errors?.materials?.[materialIndex]?.qcResults?.air_kotoran?.value && <p className="text-red-500 text-xs mt-1">{errors.materials[materialIndex].qcResults.air_kotoran.value.message}</p>}
+              <Input
+                type="number"
+                step={0.01}
+                {...register(`materials.${materialIndex}.qcKotoran`)}
+                disabled
+                className={`w-full px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 ${isError?.qcKotoran ? "border-red-500" : ""}`}
+                onChange={() => {
+                  if (setIsError) {
+                    setIsError((prev: any) => ({
+                      ...prev,
+                      qcKotoran: false,
+                    }));
+                  }
+                }}
+              />
             </td>
             <td className="px-4 py-3 text-sm text-gray-500">
               <Input type="number" step={0.01} {...register(`materials.${materialIndex}.persentaseKotoran`)} readOnly className="px-2 py-1 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500" />
